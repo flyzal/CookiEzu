@@ -1,0 +1,34 @@
+# --- System Junk ---
+[Dd]esktop.ini
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
+# --- Editor & IDEs ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+
+# --- WordPress Specifics ---
+# Ignore the core but keep the plugin
+wp-config.php
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+*.log
+
+# --- Development Tools ---
+node_modules/
+npm-debug.log
+yarn-error.log
+composer.lock
+vendor/
+.phpunit.result.cache
+
+# --- Build Files ---
+dist/
+build/
+*.zip
