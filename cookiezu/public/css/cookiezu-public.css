@@ -1,0 +1,305 @@
+/**
+ * CookiEzu – Public Stylesheet
+ * Plugin: CookiEzu
+ * License: GPL v2 or later
+ */
+
+/* -----------------------------------------------
+   CSS Variables
+----------------------------------------------- */
+:root {
+  --cz-primary: #3b82f6;
+  --cz-primary-hover: #2563eb;
+  --cz-text: #1f2937;
+  --cz-bg: #ffffff;
+  --cz-border: #e5e7eb;
+  --cz-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --cz-radius: 8px;
+  --cz-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --cz-z: 999999;
+  --cz-transition: 0.25s ease;
+}
+
+/* Dark theme */
+.cookiezu-theme-dark {
+  --cz-text: #f9fafb;
+  --cz-bg: #1f2937;
+  --cz-border: #374151;
+}
+
+/* -----------------------------------------------
+   Banner base
+----------------------------------------------- */
+.cookiezu-banner {
+  position: fixed;
+  z-index: var(--cz-z);
+  font-family: var(--cz-font);
+  font-size: 14px;
+  color: var(--cz-text);
+  box-sizing: border-box;
+  animation: cookiezuFadeIn 0.35s ease both;
+}
+
+@keyframes cookiezuFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* -----------------------------------------------
+   Positions
+----------------------------------------------- */
+.cookiezu-pos-bottom { bottom: 0; left: 0; right: 0; }
+.cookiezu-pos-top    { top: 0; left: 0; right: 0; }
+.cookiezu-pos-bottom-left  { bottom: 24px; left: 24px; max-width: 420px; }
+.cookiezu-pos-bottom-right { bottom: 24px; right: 24px; max-width: 420px; }
+
+/* -----------------------------------------------
+   Layout: Bar
+----------------------------------------------- */
+.cookiezu-layout-bar .cookiezu-inner {
+  background: var(--cz-bg);
+  border-top: 1px solid var(--cz-border);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+}
+.cookiezu-pos-top .cookiezu-layout-bar .cookiezu-inner {
+  border-top: none;
+  border-bottom: 1px solid var(--cz-border);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.cookiezu-layout-bar .cookiezu-text { flex: 1; min-width: 200px; }
+.cookiezu-layout-bar .cookiezu-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+/* -----------------------------------------------
+   Layout: Box / Modal
+----------------------------------------------- */
+.cookiezu-layout-box .cookiezu-inner,
+.cookiezu-layout-modal .cookiezu-inner {
+  background: var(--cz-bg);
+  border-radius: var(--cz-radius);
+  box-shadow: var(--cz-shadow);
+  padding: 24px;
+  max-width: 480px;
+  width: 100%;
+}
+.cookiezu-layout-box.cookiezu-pos-bottom-left .cookiezu-inner,
+.cookiezu-layout-box.cookiezu-pos-bottom-right .cookiezu-inner {
+  margin: 0;
+}
+
+/* Modal overlay */
+.cookiezu-layout-modal {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+}
+.cookiezu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+.cookiezu-layout-modal .cookiezu-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* -----------------------------------------------
+   Text
+----------------------------------------------- */
+.cookiezu-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--cz-text);
+}
+.cookiezu-message {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--cz-text);
+  opacity: 0.85;
+}
+.cookiezu-message a {
+  color: var(--cz-primary);
+  text-decoration: underline;
+}
+
+/* -----------------------------------------------
+   Buttons
+----------------------------------------------- */
+.cookiezu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  border-radius: var(--cz-radius);
+  border: 2px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--cz-transition), color var(--cz-transition), border-color var(--cz-transition);
+  white-space: nowrap;
+  font-family: var(--cz-font);
+  line-height: 1;
+}
+.cookiezu-btn-primary {
+  background: var(--cz-primary);
+  color: #fff;
+  border-color: var(--cz-primary);
+}
+.cookiezu-btn-primary:hover {
+  background: var(--cz-primary-hover);
+  border-color: var(--cz-primary-hover);
+}
+.cookiezu-btn-secondary {
+  background: transparent;
+  color: var(--cz-text);
+  border-color: var(--cz-border);
+}
+.cookiezu-btn-secondary:hover {
+  background: var(--cz-border);
+}
+.cookiezu-btn-link {
+  background: none;
+  border: none;
+  color: var(--cz-primary);
+  padding: 9px 4px;
+  text-decoration: underline;
+}
+.cookiezu-btn-link:hover { opacity: 0.8; }
+
+/* Full-width buttons in box/modal */
+.cookiezu-layout-box .cookiezu-actions,
+.cookiezu-layout-modal .cookiezu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+.cookiezu-layout-box .cookiezu-btn,
+.cookiezu-layout-modal .cookiezu-btn {
+  width: 100%;
+}
+
+/* -----------------------------------------------
+   Preferences panel
+----------------------------------------------- */
+.cookiezu-preferences {
+  width: 100%;
+}
+.cookiezu-preferences h3 {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cz-text);
+}
+.cookiezu-category {
+  border: 1px solid var(--cz-border);
+  border-radius: var(--cz-radius);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.cookiezu-category-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+}
+.cookiezu-category-header > div { flex: 1; }
+.cookiezu-category-header strong { display: block; margin-bottom: 2px; color: var(--cz-text); }
+.cookiezu-category-header p { margin: 0; font-size: 12px; opacity: 0.7; color: var(--cz-text); }
+
+/* Toggle switch */
+.cookiezu-toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.cookiezu-toggle input { opacity: 0; width: 0; height: 0; }
+.cookiezu-slider {
+  position: absolute;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 24px;
+  transition: background var(--cz-transition);
+}
+.cookiezu-slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: transform var(--cz-transition);
+}
+.cookiezu-toggle input:checked + .cookiezu-slider { background: var(--cz-primary); }
+.cookiezu-toggle input:checked + .cookiezu-slider::before { transform: translateX(20px); }
+.cookiezu-toggle-disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Cookie table */
+.cookiezu-cookie-table-wrap { padding: 0 14px 14px; }
+.cookiezu-cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.cookiezu-cookie-table th,
+.cookiezu-cookie-table td {
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--cz-border);
+  color: var(--cz-text);
+}
+.cookiezu-cookie-table th { font-weight: 600; opacity: 0.7; }
+
+/* Pref actions */
+.cookiezu-pref-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* -----------------------------------------------
+   Re-open button
+----------------------------------------------- */
+.cookiezu-reopen {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: var(--cz-z);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cz-bg);
+  border: 2px solid var(--cz-border);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--cz-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--cz-transition);
+}
+.cookiezu-reopen:hover { transform: scale(1.1); }
+
+/* -----------------------------------------------
+   Responsive
+----------------------------------------------- */
+@media (max-width: 600px) {
+  .cookiezu-layout-bar .cookiezu-inner { flex-direction: column; align-items: flex-start; }
+  .cookiezu-pos-bottom-left,
+  .cookiezu-pos-bottom-right { left: 12px; right: 12px; bottom: 12px; max-width: 100%; }
+}

@@ -1,0 +1,91 @@
+/**
+ * CookiEzu – Admin Stylesheet
+ */
+
+.cookiezu-wrap { max-width: 900px; }
+
+.cookiezu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0 16px;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.cookiezu-header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+}
+.cookiezu-logo { font-size: 26px; }
+.cookiezu-tagline { margin: 0; color: #6b7280; font-size: 13px; flex: 1; }
+.cookiezu-github-badge {
+  background: #1f2937;
+  color: #fff !important;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background .2s;
+}
+.cookiezu-github-badge:hover { background: #374151; }
+
+/* Tabs */
+.cookiezu-tabs {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 0;
+  border-bottom: 2px solid #e5e7eb;
+}
+.cookiezu-tab {
+  padding: 10px 18px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  transition: color .2s, border-color .2s;
+}
+.cookiezu-tab:hover { color: #3b82f6; }
+.cookiezu-tab.active { color: #3b82f6; border-bottom-color: #3b82f6; }
+
+/* Tab content */
+.cookiezu-tab-content { display: none; }
+.cookiezu-tab-content.active { display: block; }
+
+/* Card */
+.cookiezu-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 20px;
+}
+.cookiezu-card h2 {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2937;
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 12px;
+}
+
+/* Save bar */
+.cookiezu-save-bar {
+  padding: 16px 0;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 8px;
+}
+
+/* Log table */
+.cookiezu-log-table { font-size: 13px; }
+.cookiezu-log-table th { font-weight: 600; }
+
+/* Color picker row visibility */
+.cookiezu-custom-colors { transition: opacity .2s; }
