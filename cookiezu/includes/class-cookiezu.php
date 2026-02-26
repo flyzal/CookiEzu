@@ -35,9 +35,9 @@ class CookiEzu {
         'position'               => 'bottom',
         'layout'                 => 'bar',
         'theme'                  => 'light',
-        'primary_color'          => '#3b82f6',
-        'text_color'             => '#1f2937',
-        'bg_color'               => '#ffffff',
+        'primary_color'          => '#C17B2F',
+        'text_color'             => '#1A1208',
+        'bg_color'               => '#FEFCF8',
         'border_radius'          => '8',
         'auto_accept_days'       => '0',
         'necessary_cookies'      => true,
@@ -78,6 +78,7 @@ class CookiEzu {
         add_action( 'wp_footer', array( $this, 'render_banner' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
         add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+        add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
         add_action( 'wp_ajax_cookiezu_save_consent', array( $this, 'ajax_save_consent' ) );
         add_action( 'wp_ajax_nopriv_cookiezu_save_consent', array( $this, 'ajax_save_consent' ) );
         add_action( 'wp_ajax_cookiezu_get_log', array( $this, 'ajax_get_log' ) );
@@ -129,6 +130,17 @@ class CookiEzu {
     }
 
     /**
+     * Add body class on CookiEzu admin pages for CSS targeting.
+     */
+    public function admin_body_class( $classes ) {
+        $screen = get_current_screen();
+        if ( $screen && strpos( $screen->id, 'cookiezu' ) !== false ) {
+            $classes .= ' cookiezu-admin-page';
+        }
+        return $classes;
+    }
+
+    /**
      * Enqueue admin scripts and styles.
      */
     public function enqueue_admin_assets( $hook ) {
@@ -136,10 +148,18 @@ class CookiEzu {
             return;
         }
 
+        // Google Fonts
+        wp_enqueue_style(
+            'cookiezu-fonts',
+            'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap',
+            array(),
+            null
+        );
+
         wp_enqueue_style(
             'cookiezu-admin',
             COOKIEZU_PLUGIN_URL . 'admin/css/cookiezu-admin.css',
-            array(),
+            array( 'cookiezu-fonts' ),
             COOKIEZU_VERSION
         );
 
@@ -205,8 +225,14 @@ class CookiEzu {
      * Render cookie banner in footer.
      */
     public function render_banner() {
-        $options = $this->get_options();
+        $options = apply_filters( 'cookiezu_options', $this->get_options() );
+        do_action( 'cookiezu_before_banner', $options );
+        $banner_html = '';
+        ob_start();
         require COOKIEZU_PLUGIN_DIR . 'public/views/banner.php';
+        $banner_html = ob_get_clean();
+        echo apply_filters( 'cookiezu_banner_html', $banner_html, $options );
+        do_action( 'cookiezu_after_banner', $options );
     }
 
     /**
@@ -256,7 +282,8 @@ class CookiEzu {
      */
     public function plugin_action_links( $links ) {
         $links[] = '<a href="' . admin_url( 'admin.php?page=cookiezu' ) . '">' . __( 'Settings', 'cookiezu' ) . '</a>';
-        $links[] = '<a href="https://github.com/cookiezu/cookiezu" target="_blank">' . __( 'GitHub', 'cookiezu' ) . '</a>';
+        $links[] = '<a href="https://flyzal.github.io/CookiEzu/docs" target="_blank">' . __( 'Docs', 'cookiezu' ) . '</a>';
+        $links[] = '<a href="https://github.com/flyzal/CookiEzu" target="_blank">' . __( 'GitHub', 'cookiezu' ) . '</a>';
         return $links;
     }
 
@@ -267,6 +294,12 @@ class CookiEzu {
      */
     public function get_options() {
         $saved = get_option( 'cookiezu_settings', array() );
+        // Strip any magic-quotes escaping that old PHP/WP versions may add
+        if ( is_array( $saved ) ) {
+            $saved = array_map( function( $v ) {
+                return is_string( $v ) ? wp_unslash( $v ) : $v;
+            }, $saved );
+        }
         return wp_parse_args( $saved, self::$defaults );
     }
 }

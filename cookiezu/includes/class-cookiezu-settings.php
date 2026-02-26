@@ -25,7 +25,7 @@ class CookiEzu_Settings {
             return new WP_Error( 'invalid_nonce', __( 'Security check failed.', 'cookiezu' ) );
         }
 
-        $data = $_POST['cookiezu'] ?? array();
+        $data = wp_unslash( $_POST['cookiezu'] ?? array() );
 
         $sanitized = array(
             'banner_title'           => sanitize_text_field( $data['banner_title'] ?? '' ),
@@ -39,10 +39,10 @@ class CookiEzu_Settings {
             'position'               => in_array( $data['position'] ?? '', array( 'bottom', 'top', 'bottom-left', 'bottom-right' ) ) ? $data['position'] : 'bottom',
             'layout'                 => in_array( $data['layout'] ?? '', array( 'bar', 'box', 'modal' ) ) ? $data['layout'] : 'bar',
             'theme'                  => in_array( $data['theme'] ?? '', array( 'light', 'dark', 'custom' ) ) ? $data['theme'] : 'light',
-            'primary_color'          => sanitize_hex_color( $data['primary_color'] ?? '#3b82f6' ),
-            'text_color'             => sanitize_hex_color( $data['text_color'] ?? '#1f2937' ),
-            'bg_color'               => sanitize_hex_color( $data['bg_color'] ?? '#ffffff' ),
-            'border_radius'          => absint( $data['border_radius'] ?? 8 ),
+            'primary_color'          => sanitize_hex_color( $data['primary_color'] ?? '#C17B2F' ),
+            'text_color'             => sanitize_hex_color( $data['text_color'] ?? '#1A1208' ),
+            'bg_color'               => sanitize_hex_color( $data['bg_color'] ?? '#FEFCF8' ),
+            'border_radius'          => absint( $data['border_radius'] ?? 10 ),
             'auto_accept_days'       => absint( $data['auto_accept_days'] ?? 0 ),
             'necessary_cookies'      => true,
             'analytics_cookies'      => ! empty( $data['analytics_cookies'] ),

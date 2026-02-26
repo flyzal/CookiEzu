@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
      role="dialog"
      aria-modal="true"
      aria-label="<?php esc_attr_e( 'Cookie consent', 'cookiezu' ); ?>"
-     style="display:none;"
+    
 >
     <?php if ( $options['layout'] === 'modal' ) : ?>
     <div class="cookiezu-overlay"></div>
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
 
         <!-- Preference panel -->
-        <div class="cookiezu-preferences" id="cookiezu-preferences" style="display:none;">
+        <div class="cookiezu-preferences" id="cookiezu-preferences">
             <h3><?php esc_html_e( 'Cookie Preferences', 'cookiezu' ); ?></h3>
 
             <div class="cookiezu-category">
@@ -133,7 +133,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div><!-- #cookiezu-banner -->
 
 <!-- Re-open button (shown after consent) -->
-<button id="cookiezu-reopen" class="cookiezu-reopen" aria-label="<?php esc_attr_e( 'Cookie settings', 'cookiezu' ); ?>" style="display:none;">🍪</button>
+<button id="cookiezu-reopen" class="cookiezu-reopen" aria-label="<?php esc_attr_e( 'Cookie settings', 'cookiezu' ); ?>">🍪</button>
 
 <?php if ( ! empty( $options['custom_css'] ) ) : ?>
 <style id="cookiezu-custom-css"><?php echo wp_strip_all_tags( $options['custom_css'] ); ?></style>

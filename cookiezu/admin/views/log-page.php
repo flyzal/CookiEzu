@@ -9,6 +9,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+add_action( 'admin_head', function() { ?>
+<style>
+#wpcontent, #wpbody-content { background: #FBF7F0 !important; }
+#wpcontent { padding-left: 20px !important; }
+</style>
+<?php } );
+
 global $wpdb;
 $table = $wpdb->prefix . 'cookiezu_consent_log';
 $total = $wpdb->get_var( "SELECT COUNT(*) FROM $table" );

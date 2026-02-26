@@ -193,7 +193,7 @@
    Layout: Modal
 ----------------------------------------------- */
 .cookiezu-layout-modal {
-  display: flex !important;
+  display: flex;
   align-items: center;
   justify-content: center;
   inset: 0;
