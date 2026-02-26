@@ -16,8 +16,14 @@ $rows  = $wpdb->get_results( "SELECT * FROM $table ORDER BY consent_date DESC LI
 ?>
 <div class="wrap cookiezu-wrap">
     <div class="cookiezu-header">
-        <h1><span class="cookiezu-logo">🍪</span> CookiEzu — <?php esc_html_e( 'Consent Log', 'cookiezu' ); ?></h1>
+        <div class="cookiezu-header-brand">
+            <div class="cookiezu-logo-icon">🍪</div>
+            <h1>Cooki<span>Ezu</span> — <?php esc_html_e( 'Consent Log', 'cookiezu' ); ?></h1>
+        </div>
         <p class="cookiezu-tagline"><?php printf( esc_html__( 'Total records: %s (showing latest 200)', 'cookiezu' ), number_format_i18n( $total ) ); ?></p>
+        <div class="cookiezu-header-badges">
+            <span class="cookiezu-badge cookiezu-badge-gpl">✓ GDPR Audit Trail</span>
+        </div>
     </div>
 
     <?php if ( empty( $rows ) ) : ?>
