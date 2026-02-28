@@ -1,0 +1,357 @@
+/**
+ * CookiEzu Admin Stylesheet v3
+ * Uses maximum CSS specificity to override WordPress defaults.
+ * Google Fonts loaded via PHP wp_enqueue_style (not @import).
+ */
+
+/* ── Tokens ── */
+.cookiezu-wrap {
+  --cza-ink:         #1A1208;
+  --cza-ink-70:      rgba(26,18,8,.70);
+  --cza-ink-45:      rgba(26,18,8,.45);
+  --cza-ink-15:      rgba(26,18,8,.10);
+  --cza-ink-06:      rgba(26,18,8,.05);
+  --cza-cookie:      #C17B2F;
+  --cza-cookie-h:    #A8681F;
+  --cza-cookie-pale: #FDF3E3;
+  --cza-cookie-glow: rgba(193,123,47,.18);
+  --cza-cream:       #F7F2EA;
+  --cza-white:       #FEFCF8;
+  --cza-green:       #2D7A4F;
+  --cza-green-bg:    rgba(45,122,79,.10);
+  --cza-r:           10px;
+  --cza-r-lg:        14px;
+  --cza-shadow:      0 2px 16px rgba(26,18,8,.07);
+  --cza-shadow-lg:   0 8px 32px rgba(26,18,8,.11);
+  --cza-font:        'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ══════════════════════
+   PAGE BACKGROUND
+══════════════════════ */
+body.wp-admin.toplevel_page_cookiezu #wpcontent,
+body.wp-admin.toplevel_page_cookiezu #wpbody-content,
+body.wp-admin.cookiezu_page_cookiezu-log #wpcontent,
+body.wp-admin.cookiezu_page_cookiezu-log #wpbody-content {
+  background-color: #F7F2EA !important;
+}
+
+/* ══════════════════════
+   WRAP
+══════════════════════ */
+.cookiezu-wrap {
+  max-width: 960px;
+  font-family: var(--cza-font) !important;
+  padding-bottom: 60px;
+}
+.cookiezu-wrap * {
+  font-family: var(--cza-font) !important;
+  box-sizing: border-box;
+}
+
+/* ══════════════════════
+   HEADER
+══════════════════════ */
+.cookiezu-wrap .cookiezu-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 0 20px;
+  border-bottom: 1.5px solid var(--cza-ink-15);
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  background: transparent;
+}
+.cookiezu-wrap .cookiezu-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cookiezu-wrap .cookiezu-logo-icon {
+  width: 42px; height: 42px;
+  background: var(--cza-ink);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 3px 10px rgba(26,18,8,.22);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.cookiezu-wrap .cookiezu-header h1 {
+  margin: 0 !important; padding: 0 !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: var(--cza-ink) !important;
+  letter-spacing: -.4px !important;
+  border: none !important;
+  font-family: var(--cza-font) !important;
+  line-height: 1 !important;
+}
+.cookiezu-wrap .cookiezu-header h1 span { color: var(--cza-cookie) !important; }
+.cookiezu-wrap .cookiezu-tagline {
+  margin: 0; flex: 1; min-width: 160px;
+  color: var(--cza-ink-45);
+  font-size: 13px;
+}
+.cookiezu-wrap .cookiezu-header-badges {
+  display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+}
+.cookiezu-wrap .cookiezu-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-size: 11.5px; font-weight: 600;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.cookiezu-wrap .cookiezu-badge:hover { transform: translateY(-1px); }
+.cookiezu-wrap .cookiezu-badge-github {
+  background: var(--cza-ink) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(26,18,8,.22);
+}
+.cookiezu-wrap .cookiezu-badge-github:hover {
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(26,18,8,.30) !important;
+}
+.cookiezu-wrap .cookiezu-badge-gpl {
+  background: var(--cza-green-bg) !important;
+  color: var(--cza-green) !important;
+  border: 1px solid rgba(45,122,79,.2);
+}
+
+/* ══════════════════════
+   TABS
+══════════════════════ */
+.cookiezu-wrap .cookiezu-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--cza-ink-15);
+  margin-bottom: 0;
+  background: transparent;
+}
+.cookiezu-wrap .cookiezu-tab {
+  padding: 10px 20px;
+  background: none; border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  font-size: 13.5px; font-weight: 600;
+  color: var(--cza-ink-45);
+  transition: color .2s, border-color .2s;
+}
+.cookiezu-wrap .cookiezu-tab:hover { color: var(--cza-cookie); }
+.cookiezu-wrap .cookiezu-tab.active {
+  color: var(--cza-cookie) !important;
+  border-bottom-color: var(--cza-cookie) !important;
+}
+.cookiezu-wrap .cookiezu-tab-content { display: none !important; }
+.cookiezu-wrap .cookiezu-tab-content.active { display: block !important; }
+
+/* ══════════════════════
+   CARDS
+══════════════════════ */
+.cookiezu-wrap .cookiezu-card {
+  background: var(--cza-white) !important;
+  border: 1.5px solid var(--cza-ink-15) !important;
+  border-radius: var(--cza-r-lg) !important;
+  margin-top: 20px;
+  box-shadow: var(--cza-shadow);
+  position: relative; overflow: hidden;
+  transition: box-shadow .2s;
+  padding: 0 !important;
+}
+.cookiezu-wrap .cookiezu-card:hover { box-shadow: var(--cza-shadow-lg); }
+.cookiezu-wrap .cookiezu-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg,var(--cza-cookie),#E8A84A);
+  opacity: 0; transition: opacity .2s;
+}
+.cookiezu-wrap .cookiezu-card:hover::before { opacity: 1; }
+
+.cookiezu-wrap .cookiezu-card h2 {
+  margin: 0 !important;
+  font-size: 10.5px !important; font-weight: 700 !important;
+  color: var(--cza-ink-45) !important;
+  text-transform: uppercase !important; letter-spacing: .8px !important;
+  border-bottom: 1.5px solid var(--cza-ink-06) !important;
+  padding: 16px 24px !important;
+  background: var(--cza-cream) !important;
+  font-family: var(--cza-font) !important;
+}
+
+/* ── Form table ── */
+.cookiezu-wrap .cookiezu-card .form-table {
+  margin: 0 !important;
+  padding: 4px 8px 12px !important;
+  background: transparent !important;
+}
+.cookiezu-wrap .cookiezu-card .form-table tr {
+  background: transparent !important;
+  border-bottom: 1px solid var(--cza-ink-06) !important;
+}
+.cookiezu-wrap .cookiezu-card .form-table tr:last-child {
+  border-bottom: none !important;
+}
+.cookiezu-wrap .cookiezu-card .form-table th {
+  width: 210px !important;
+  padding: 16px 16px 12px 16px !important;
+  font-size: 13px !important; font-weight: 600 !important;
+  color: var(--cza-ink) !important;
+  vertical-align: top !important;
+}
+.cookiezu-wrap .cookiezu-card .form-table td {
+  padding: 12px 16px !important;
+  vertical-align: top !important;
+}
+
+/* ── Inputs ── */
+.cookiezu-wrap .cookiezu-card .form-table input[type="text"],
+.cookiezu-wrap .cookiezu-card .form-table input[type="url"],
+.cookiezu-wrap .cookiezu-card .form-table input[type="number"],
+.cookiezu-wrap .cookiezu-card .form-table select {
+  height: 40px !important;
+  min-width: 280px !important;
+  padding: 0 12px !important;
+  border: 1.5px solid var(--cza-ink-15) !important;
+  border-radius: var(--cza-r) !important;
+  background: var(--cza-cream) !important;
+  color: var(--cza-ink) !important;
+  font-size: 13.5px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: border-color .2s, box-shadow .2s !important;
+}
+.cookiezu-wrap .cookiezu-card .form-table input[type="number"] {
+  min-width: 90px !important; max-width: 90px !important;
+}
+.cookiezu-wrap .cookiezu-card .form-table textarea {
+  min-width: 380px !important;
+  padding: 10px 12px !important;
+  border: 1.5px solid var(--cza-ink-15) !important;
+  border-radius: var(--cza-r) !important;
+  background: var(--cza-cream) !important;
+  color: var(--cza-ink) !important;
+  font-size: 13.5px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  line-height: 1.65 !important;
+  transition: border-color .2s, box-shadow .2s !important;
+  resize: vertical;
+}
+.cookiezu-wrap .cookiezu-card .form-table input:focus,
+.cookiezu-wrap .cookiezu-card .form-table textarea:focus,
+.cookiezu-wrap .cookiezu-card .form-table select:focus {
+  border-color: var(--cza-cookie) !important;
+  box-shadow: 0 0 0 3px var(--cza-cookie-glow) !important;
+  background: #fff !important;
+}
+/* Code textarea */
+.cookiezu-wrap .cookiezu-card .form-table textarea.code {
+  background: var(--cza-ink) !important;
+  color: #E8A84A !important;
+  font-family: 'Courier New', Consolas, monospace !important;
+  font-size: 12.5px !important;
+  border-color: var(--cza-ink) !important;
+  min-width: 380px !important;
+}
+/* Checkboxes */
+.cookiezu-wrap .cookiezu-card .form-table input[type="checkbox"] {
+  min-width: unset !important;
+  width: 16px !important; height: 16px !important;
+  accent-color: var(--cza-cookie) !important;
+  cursor: pointer; margin-right: 6px;
+}
+.cookiezu-wrap .cookiezu-card .form-table label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13.5px; color: var(--cza-ink-70); cursor: pointer;
+}
+/* Description */
+.cookiezu-wrap .cookiezu-card .form-table .description,
+.cookiezu-wrap .cookiezu-card .form-table p.description {
+  font-size: 12px !important; color: var(--cza-ink-45) !important;
+  margin-top: 5px !important; line-height: 1.6 !important;
+}
+.cookiezu-wrap .cookiezu-card .form-table .description a {
+  color: var(--cza-cookie) !important;
+}
+
+/* ══════════════════════
+   SAVE BAR
+══════════════════════ */
+.cookiezu-wrap .cookiezu-save-bar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 20px 0 8px;
+  border-top: 1.5px solid var(--cza-ink-15);
+  margin-top: 10px;
+}
+.cookiezu-wrap .cookiezu-save-bar .button-primary,
+.cookiezu-wrap .cookiezu-save-bar input[type="submit"] {
+  height: 42px !important;
+  padding: 0 28px !important;
+  background: var(--cza-cookie) !important;
+  border-color: var(--cza-cookie-h) !important;
+  border-radius: var(--cza-r) !important;
+  color: #fff !important;
+  font-size: 13.5px !important; font-weight: 700 !important;
+  box-shadow: 0 2px 10px var(--cza-cookie-glow) !important;
+  text-shadow: none !important;
+  transition: background .2s, transform .15s, box-shadow .15s !important;
+  cursor: pointer;
+  line-height: 42px !important;
+}
+.cookiezu-wrap .cookiezu-save-bar .button-primary:hover,
+.cookiezu-wrap .cookiezu-save-bar input[type="submit"]:hover {
+  background: var(--cza-cookie-h) !important;
+  border-color: var(--cza-cookie-h) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 5px 18px rgba(193,123,47,.35) !important;
+}
+
+/* ══════════════════════
+   NOTICES
+══════════════════════ */
+.cookiezu-wrap .notice {
+  border-radius: 8px !important;
+  margin-left: 0 !important;
+  font-size: 13.5px !important;
+}
+.cookiezu-wrap .notice-success {
+  background: #F0FDF4 !important;
+  border-left-color: var(--cza-green) !important;
+  color: #14532D !important;
+}
+
+/* ══════════════════════
+   LOG TABLE
+══════════════════════ */
+.cookiezu-wrap .cookiezu-log-table {
+  font-size: 13px !important;
+  border: 1.5px solid var(--cza-ink-15) !important;
+  border-radius: var(--cza-r) !important;
+  overflow: hidden;
+}
+.cookiezu-wrap .cookiezu-log-table thead th {
+  background: var(--cza-cream) !important;
+  color: var(--cza-ink-45) !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .6px !important;
+  padding: 11px 14px !important;
+  border-color: var(--cza-ink-15) !important;
+}
+.cookiezu-wrap .cookiezu-log-table tbody td {
+  padding: 10px 14px !important;
+  color: var(--cza-ink-70) !important;
+  border-color: var(--cza-ink-06) !important;
+}
+.cookiezu-wrap .cookiezu-log-table tbody tr:hover td {
+  background: var(--cza-cookie-pale) !important;
+}
+
+/* ══════════════════════
+   COLOR PICKER
+══════════════════════ */
+.cookiezu-wrap .cookiezu-custom-colors { transition: opacity .2s; }

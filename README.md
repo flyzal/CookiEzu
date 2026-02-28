@@ -1,46 +1,99 @@
-**🍪 CookiEzu**
+# 🍪 CookiEzu — Cookie Consent Plugin for WordPress
 
-The lightweight, GDPR-compliant cookie consent plugin for WordPress. Beautiful by default. Open source. Free forever.
+**Lightweight, GDPR-compliant cookie consent management. Open source & free forever.**
 
+---
 
+## Features
 
-CookiEzu provides a polished consent experience for your WordPress site, ensuring compliance with GDPR, CCPA, and PDPA (Malaysia, Singapore, Thailand, and Brunei) without sacrificing performance.
+- 🎨 **3 layouts** — Bar, Box, Modal
+- 📍 **4 positions** — Bottom, Top, Bottom-Left, Bottom-Right
+- 🌗 **3 themes** — Light, Dark, Custom (full colour control)
+- ✅ **4 cookie categories** — Necessary, Analytics, Marketing, Functional
+- 📋 **Cookie details table** in the preference panel
+- 🔒 **Consent log** with GDPR audit trail (database)
+- 🔗 **Google Analytics 4** auto-loader + Consent Mode v2
+- 🏷️ **Google Tag Manager** dataLayer integration
+- 🌍 **Translation-ready** (.pot included)
+- 🧩 **Custom CSS** field for overrides
+- ⚡ **Zero dependencies** — no jQuery on the front end
 
+---
 
+## Installation
 
-**✨ Key Features**
+1. Upload the `cookiezu` folder to `/wp-content/plugins/`.
+2. Activate via **Plugins → Installed Plugins**.
+3. Go to **CookiEzu → Settings** and configure the banner.
 
-* 3 Professional Layouts: Choose between Bar, Box, or Modal designs to fit your site's aesthetic.
-* GA4 \& GTM Ready: Native integration with Google Analytics 4 (Consent Mode v2) and GTM dataLayer.
-* Zero Dependencies: Pure vanilla JavaScript under 4KB. No jQuery required.
-* Consent Audit Log: Automatically records every consent decision in your database for legal proof.
-* Light \& Dark Themes: Includes built-in themes and full custom color control.
+---
 
+## File Structure
 
+```
+cookiezu/
+├── cookiezu.php                  # Plugin entry point
+├── README.md
+├── LICENSE
+├── admin/
+│   ├── css/cookiezu-admin.css
+│   ├── js/cookiezu-admin.js
+│   └── views/
+│       ├── settings-page.php
+│       └── log-page.php
+├── public/
+│   ├── css/cookiezu-public.css
+│   ├── js/cookiezu-public.js
+│   └── views/banner.php
+├── includes/
+│   ├── class-cookiezu.php
+│   ├── class-cookiezu-installer.php
+│   └── class-cookiezu-settings.php
+└── languages/
+```
 
-**🚀 What's New in v1.1.0**
+---
 
-* Critical Fix: Resolved the "Modal Dismiss" bug caused by CSS specificity.
-* New Documentation: Comprehensive knowledge base now included in the repo.
-* JS Engine Rewrite: Improved reliability for showing/hiding the banner across all WordPress themes.
+## JavaScript API
 
+Listen for consent updates anywhere in your theme or plugins:
 
+```js
+document.addEventListener('cookiezuConsentUpdated', function (e) {
+  var consent = e.detail;
+  // consent.necessary  → true
+  // consent.analytics  → true/false
+  // consent.marketing  → true/false
+  // consent.functional → true/false
 
-**📦 Installation**
+  if (consent.analytics) {
+    // load analytics scripts
+  }
+});
+```
 
-1. Download the latest cookiezu.zip from Releases.
-2. In WordPress, go to Plugins > Add New > Upload Plugin.
-3. Activate and configure your settings in the CookiEzu menu.
+---
 
+## Hooks & Filters
 
+| Hook | Type | Description |
+|---|---|---|
+| `cookiezu_options` | Filter | Modify options array before use |
+| `cookiezu_banner_html` | Filter | Override the full banner HTML |
 
-**📖 Documentation**
+---
 
-Visit cookiezu.flyzal.com (powered by docs.html) for full configuration guides, API references, and compliance checklists.
+## Contributing
 
+Pull requests are welcome! Please open an issue first to discuss what you'd like to change.
 
+1. Fork the repo
+2. Create your branch (`git checkout -b feature/my-feature`)
+3. Commit your changes
+4. Push and open a Pull Request
 
-**🛡️ License**
+---
 
-Distributed under the GPL v2 License. See LICENSE for more information.
+## License
 
+[GPL v2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
