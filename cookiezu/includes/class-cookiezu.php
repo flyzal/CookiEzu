@@ -50,6 +50,10 @@ class CookiEzu {
         'gtm_id'                 => '',
         'ga_id'                  => '',
         'custom_css'             => '',
+        // v1.2.0
+        'test_mode'              => false,
+        'escape_key_close'       => true,
+        'reopen_position'        => 'bottom-left',
     );
 
     /**
@@ -120,6 +124,8 @@ class CookiEzu {
             'cookieName'        => 'cookiezu_consent',
             'expiryDays'        => intval( $options['consent_expiry_days'] ),
             'version'           => COOKIEZU_VERSION,
+            'testMode'          => ! empty( $options['test_mode'] ) && current_user_can( 'manage_options' ),
+            'escapeKeyClose'    => ! empty( $options['escape_key_close'] ),
             'strings'           => array(
                 'necessary'   => __( 'Necessary', 'cookiezu' ),
                 'analytics'   => __( 'Analytics', 'cookiezu' ),

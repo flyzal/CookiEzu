@@ -54,6 +54,10 @@ class CookiEzu_Settings {
             'gtm_id'                 => sanitize_text_field( $data['gtm_id'] ?? '' ),
             'ga_id'                  => sanitize_text_field( $data['ga_id'] ?? '' ),
             'custom_css'             => wp_strip_all_tags( $data['custom_css'] ?? '' ),
+            // v1.2.0
+            'test_mode'              => ! empty( $data['test_mode'] ),
+            'escape_key_close'       => ! empty( $data['escape_key_close'] ),
+            'reopen_position'        => in_array( $data['reopen_position'] ?? '', array( 'bottom-left', 'bottom-right' ) ) ? $data['reopen_position'] : 'bottom-left',
         );
 
         update_option( 'cookiezu_settings', $sanitized );

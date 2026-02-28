@@ -257,6 +257,30 @@ $options = cookiezu()->get_options();
                         <td><label><input type="checkbox" name="cookiezu[record_consent]" value="1" <?php checked( $options['record_consent'] ); ?>> Log consent records to the database (GDPR audit trail)</label></td>
                     </tr>
                     <tr>
+                        <th><label for="reopen_position">Re-open Button Position</label></th>
+                        <td>
+                            <select id="reopen_position" name="cookiezu[reopen_position]">
+                                <option value="bottom-left"  <?php selected( $options['reopen_position'] ?? 'bottom-left', 'bottom-left' );  ?>>Bottom Left</option>
+                                <option value="bottom-right" <?php selected( $options['reopen_position'] ?? 'bottom-left', 'bottom-right' ); ?>>Bottom Right</option>
+                            </select>
+                            <p class="description">Position of the 🍪 floating re-open button after consent is given.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Keyboard Settings</th>
+                        <td>
+                            <label><input type="checkbox" name="cookiezu[escape_key_close]" value="1" <?php checked( $options['escape_key_close'] ?? true ); ?>> Allow <kbd>Esc</kbd> key to dismiss the banner (accepts Necessary Only)</label>
+                            <p class="description">Recommended. Required for WCAG 2.1 §2.1 keyboard accessibility compliance.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Test Mode <span style="background:#FDF3E3;color:#C17B2F;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;vertical-align:middle;">v1.2.0</span></th>
+                        <td>
+                            <label><input type="checkbox" name="cookiezu[test_mode]" value="1" <?php checked( ! empty( $options['test_mode'] ) ); ?>> Show banner to logged-in admins even if they already consented</label>
+                            <p class="description">Useful for previewing design changes without clearing cookies. A <strong>🔧 TEST MODE</strong> badge appears on the banner. Consent is not recorded in test mode.</p>
+                        </td>
+                    </tr>
+                    <tr>
                         <th><label for="custom_css">Custom CSS</label></th>
                         <td>
                             <textarea id="custom_css" name="cookiezu[custom_css]" rows="8" class="large-text code"><?php echo esc_textarea( $options['custom_css'] ); ?></textarea>

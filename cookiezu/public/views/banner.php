@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
      class="cookiezu-banner cookiezu-layout-<?php echo esc_attr( $options['layout'] ); ?> cookiezu-pos-<?php echo esc_attr( $options['position'] ); ?> cookiezu-theme-<?php echo esc_attr( $options['theme'] ); ?>"
      role="dialog"
      aria-modal="true"
-     aria-label="<?php esc_attr_e( 'Cookie consent', 'cookiezu' ); ?>"
-    
+     aria-labelledby="cookiezu-banner-title"
+     aria-describedby="cookiezu-banner-desc"
 >
     <?php if ( $options['layout'] === 'modal' ) : ?>
     <div class="cookiezu-overlay"></div>
@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Main banner view -->
         <div class="cookiezu-main" id="cookiezu-main">
             <div class="cookiezu-text">
-                <strong class="cookiezu-title"><?php echo esc_html( $options['banner_title'] ); ?></strong>
-                <p class="cookiezu-message"><?php echo wp_kses_post( $options['banner_message'] ); ?>
+                <strong class="cookiezu-title" id="cookiezu-banner-title"><?php echo esc_html( $options['banner_title'] ); ?></strong>
+                <p class="cookiezu-message" id="cookiezu-banner-desc"><?php echo wp_kses_post( $options['banner_message'] ); ?>
                     <?php if ( ! empty( $options['privacy_policy_url'] ) ) : ?>
                         <a href="<?php echo esc_url( $options['privacy_policy_url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $options['privacy_policy_text'] ); ?></a>
                     <?php endif; ?>

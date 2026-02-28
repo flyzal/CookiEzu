@@ -84,6 +84,13 @@
   font-size: 14px;
   color: var(--cz-text);
   box-sizing: border-box;
+  /*
+   * v1.2.0 No-flicker: start hidden until JS has run and made its decision.
+   * JS sets visibility:visible immediately, then display:none or the correct
+   * display value. This prevents the brief flash of the banner on pages where
+   * the visitor already has a consent cookie.
+   */
+  visibility: hidden;
   /* entrance handled per-position below */
 }
 
@@ -498,6 +505,15 @@
 .cookiezu-reopen:hover {
   transform: scale(1.10) rotate(-10deg);
   box-shadow: 0 8px 30px rgba(26,18,8,0.30);
+}
+/* v1.2.0 — keyboard focus rings */
+.cookiezu-reopen:focus-visible {
+  outline: 3px solid var(--cz-cookie);
+  outline-offset: 3px;
+}
+.cookiezu-btn:focus-visible {
+  outline: 3px solid var(--cz-cookie);
+  outline-offset: 2px;
 }
 
 /* -----------------------------------------------
