@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CookiEzu Docs — Knowledge Base</title>
+<title>CookiEzu Docs — v1.2.1 Knowledge Base</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -136,7 +136,7 @@ pre .num { color: #FDE68A; }
 .roadmap-card { background: var(--warm-white); border: 1.5px solid var(--ink-15); border-radius: 14px; padding: 22px; position: relative; overflow: hidden; }
 .roadmap-card-label { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 12px; }
 .label-done   { background: var(--green-bg); color: var(--green); border: 1px solid rgba(45,122,79,0.25); }
-.label-v11    { background: var(--cookie-pale); color: var(--cookie); border: 1px solid rgba(193,123,47,0.25); }
+.label-v121   { background: var(--cookie-pale); color: var(--cookie); border: 1px solid rgba(193,123,47,0.25); }
 .label-v2     { background: #EFF6FF; color: #2563EB; border: 1px solid rgba(37,99,235,0.2); }
 .label-v3     { background: #F5F3FF; color: #7C3AED; border: 1px solid rgba(124,58,237,0.2); }
 .label-future { background: var(--ink-06); color: var(--ink-45); border: 1px solid var(--ink-15); }
@@ -180,6 +180,14 @@ pre .num { color: #FDE68A; }
 .changelog-item-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
 .changelog-item-desc { font-size: 13px; color: var(--ink-70); line-height: 1.6; }
 
+/* METRICS PREVIEW */
+.metrics-preview { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin: 20px 0; }
+.metric-mock { background: var(--warm-white); border: 1.5px solid var(--ink-15); border-radius: 12px; padding: 16px; text-align: center; position: relative; overflow: hidden; }
+.metric-mock::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg,var(--cookie),var(--cookie-light)); }
+.metric-mock-label { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--ink-45); margin-bottom: 6px; }
+.metric-mock-val { font-family: 'Instrument Serif', serif; font-size: 28px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+.metric-mock-sub { font-size: 10px; color: var(--ink-45); }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .sidebar { transform: translateX(-100%); }
@@ -187,6 +195,7 @@ pre .num { color: #FDE68A; }
   .main { margin-left: 0; max-width: 100%; padding: 32px 24px 80px; }
   .menu-toggle { display: block; }
   .topnav-search { display: none; }
+  .metrics-preview { grid-template-columns: repeat(2,1fr); }
 }
 @media (max-width: 600px) {
   .main { padding: 24px 16px 60px; }
@@ -205,7 +214,7 @@ pre .num { color: #FDE68A; }
     <span class="topnav-logo-text">Cooki<span>Ezu</span></span>
   </a>
   <span class="topnav-tag">Docs</span>
-  <span class="topnav-version">v1.1.0</span>
+  <span class="topnav-version">v1.2.1</span>
   <div class="topnav-right">
     <a href="index.html" class="topnav-home">← Home</a>
     <div class="topnav-search">
@@ -232,8 +241,8 @@ pre .num { color: #FDE68A; }
   <div class="sidebar-section">
     <div class="sidebar-heading">What's New</div>
     <a class="sidebar-link" href="#" onclick="showSection('changelog')">
-      <span class="icon">🆕</span> v1.1.0 Changelog
-      <span class="sidebar-badge updated">Updated</span>
+      <span class="icon">🆕</span> Changelog
+      <span class="sidebar-badge updated">v1.2.1</span>
     </a>
   </div>
   <div class="sidebar-section">
@@ -241,11 +250,27 @@ pre .num { color: #FDE68A; }
     <a class="sidebar-link" href="#" onclick="showSection('banner')"><span class="icon">🎨</span> Banner & Layouts</a>
     <a class="sidebar-link" href="#" onclick="showSection('categories')"><span class="icon">✅</span> Cookie Categories</a>
     <a class="sidebar-link" href="#" onclick="showSection('themes')"><span class="icon">🌗</span> Themes & Colours</a>
+    <a class="sidebar-link" href="#" onclick="showSection('live-preview')">
+      <span class="icon">👁️</span> Live Preview
+      <span class="sidebar-badge new">New</span>
+    </a>
     <a class="sidebar-link" href="#" onclick="showSection('consent-log')"><span class="icon">🔒</span> Consent Log</a>
+    <a class="sidebar-link" href="#" onclick="showSection('consent-analytics')">
+      <span class="icon">📊</span> Consent Analytics
+      <span class="sidebar-badge new">New</span>
+    </a>
+    <a class="sidebar-link" href="#" onclick="showSection('accessibility')">
+      <span class="icon">♿</span> Accessibility (WCAG)
+      <span class="sidebar-badge new">New</span>
+    </a>
+    <a class="sidebar-link" href="#" onclick="showSection('test-mode')">
+      <span class="icon">🔧</span> Test Mode
+      <span class="sidebar-badge new">New</span>
+    </a>
   </div>
   <div class="sidebar-section">
     <div class="sidebar-heading">Integrations</div>
-    <a class="sidebar-link" href="#" onclick="showSection('ga4')"><span class="icon">📊</span> Google Analytics 4</a>
+    <a class="sidebar-link" href="#" onclick="showSection('ga4')"><span class="icon">📈</span> Google Analytics 4</a>
     <a class="sidebar-link" href="#" onclick="showSection('gtm')"><span class="icon">🏷️</span> Google Tag Manager</a>
     <a class="sidebar-link" href="#" onclick="showSection('js-api')"><span class="icon">🔗</span> JavaScript API</a>
   </div>
@@ -264,17 +289,13 @@ pre .num { color: #FDE68A; }
   <div class="sidebar-section">
     <div class="sidebar-heading">Roadmap</div>
     <a class="sidebar-link" href="#" onclick="showSection('roadmap')">
-      <span class="icon">🗺️</span> v2 & v3 Roadmap
-      <span class="sidebar-badge new">New</span>
+      <span class="icon">🗺️</span> Roadmap
     </a>
   </div>
   <div class="sidebar-section">
     <div class="sidebar-heading">Community</div>
     <a class="sidebar-link" href="#" onclick="showSection('disclaimer')"><span class="icon">⚖️</span> Legal Disclaimer</a>
-    <a class="sidebar-link" href="#" onclick="showSection('contributing')">
-      <span class="icon">🤝</span> Contributing
-      <span class="sidebar-badge new">New</span>
-    </a>
+    <a class="sidebar-link" href="#" onclick="showSection('contributing')"><span class="icon">🤝</span> Contributing</a>
   </div>
 </aside>
 
@@ -287,7 +308,7 @@ pre .num { color: #FDE68A; }
     <div class="page-hero" data-emoji="🍪">
       <div class="doc-eyebrow">Introduction</div>
       <h1 class="doc-h1">Welcome to <em>CookiEzu</em></h1>
-      <p class="doc-lead">The lightweight, GDPR-compliant cookie consent plugin for WordPress. Open source, free forever, and beautiful by default. Now at v1.1.0 with all layout types fully working.</p>
+      <p class="doc-lead">The lightweight, GDPR-compliant cookie consent plugin for WordPress. Open source, free forever, and beautiful by default. Now at v1.2.1 with consent analytics, live design preview, and full WCAG 2.1 AA accessibility.</p>
     </div>
     <p>CookiEzu gives your WordPress site a fully compliant cookie consent experience. When a visitor lands on your site, a customisable banner appears asking for their consent before any non-essential cookies are loaded. Their choice is remembered, logged, and respected on every future visit.</p>
     <div class="callout callout-tip">
@@ -296,10 +317,10 @@ pre .num { color: #FDE68A; }
     </div>
     <h2 class="doc-h2">What CookiEzu Does</h2>
     <div class="feature-grid">
-      <div class="feature-tile"><div class="feature-tile-icon">🎨</div><div class="feature-tile-title">Beautiful Banners</div><div class="feature-tile-desc">3 layouts (Bar, Box, Modal) × 4 positions × 3 themes. Looks great on any site.</div></div>
+      <div class="feature-tile"><div class="feature-tile-icon">🎨</div><div class="feature-tile-title">Beautiful Banners</div><div class="feature-tile-desc">3 layouts (Bar, Box, Modal) × 4 positions × 3 themes. Looks great on any site. Live preview in the admin.</div></div>
       <div class="feature-tile"><div class="feature-tile-icon">✅</div><div class="feature-tile-title">Granular Consent</div><div class="feature-tile-desc">Visitors choose exactly which cookie categories they accept — Necessary, Analytics, Marketing, Functional.</div></div>
-      <div class="feature-tile"><div class="feature-tile-icon">🔒</div><div class="feature-tile-title">Audit Trail</div><div class="feature-tile-desc">Every consent decision is logged to your database with date, time, and IP (anonymised).</div></div>
-      <div class="feature-tile"><div class="feature-tile-icon">📊</div><div class="feature-tile-title">GA4 + GTM Built-in</div><div class="feature-tile-desc">Native Google Analytics 4 and Google Tag Manager integration with Consent Mode v2.</div></div>
+      <div class="feature-tile"><div class="feature-tile-icon">📊</div><div class="feature-tile-title">Consent Analytics</div><div class="feature-tile-desc">Donut charts, category acceptance bars, 30-day trend, and country breakdown — all inside WordPress admin.</div></div>
+      <div class="feature-tile"><div class="feature-tile-icon">♿</div><div class="feature-tile-title">WCAG 2.1 AA</div><div class="feature-tile-desc">Focus trap, Escape key dismiss, proper ARIA, keyboard rings, focus return — fully accessible out of the box.</div></div>
       <div class="feature-tile"><div class="feature-tile-icon">⚡</div><div class="feature-tile-title">Zero Dependencies</div><div class="feature-tile-desc">No jQuery, no frameworks. Pure vanilla JS under 4KB. Won't slow your site down.</div></div>
       <div class="feature-tile"><div class="feature-tile-icon">🔓</div><div class="feature-tile-title">GPL v2 Open Source</div><div class="feature-tile-desc">Fork it, modify it, ship it. No subscriptions, no premium tiers, free forever.</div></div>
     </div>
@@ -311,6 +332,10 @@ pre .num { color: #FDE68A; }
       <tr><td>MySQL</td><td>5.6</td><td>8.0+</td></tr>
       <tr><td>Browser</td><td>Any modern browser</td><td>Chrome, Firefox, Safari, Edge</td></tr>
     </table>
+    <div class="callout callout-new">
+      <span class="callout-icon">🆕</span>
+      <div class="callout-body"><strong>New in v1.2.1:</strong> PHP 7.4+ now required for <code>mb_chr()</code> used in flag emoji rendering for the country analytics. PHP 8.x strongly recommended.</div>
+    </div>
   </section>
 
   <!-- ═══ INSTALLATION ═══ -->
@@ -323,32 +348,32 @@ pre .num { color: #FDE68A; }
     </div>
     <div class="callout callout-new">
       <span class="callout-icon">🆕</span>
-      <div class="callout-body"><strong>Download v1.1.0</strong> — This version fixes the modal dismiss bug and all layout types now work correctly. If you have an older version installed, follow the upgrade steps below.</div>
+      <div class="callout-body"><strong>Latest: v1.2.1</strong> — Includes consent analytics dashboard, live design preview, dark mode fix, country tracking, and WCAG 2.1 accessibility. If you're on an older version, follow the upgrade steps below.</div>
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Method 1 — Upload via WordPress Admin</h2>
     <div class="steps">
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Download the plugin ZIP</div><div class="step-desc">Go to <a href="https://github.com/flyzal/CookiEzu" target="_blank" style="color:var(--cookie)">github.com/flyzal/CookiEzu</a>, click <strong>Releases</strong>, and download the latest <code>cookiezu.zip</code> file.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Go to Plugins → Add New</div><div class="step-desc">In your WordPress admin dashboard, navigate to <strong>Plugins → Add New Plugin</strong>.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload the ZIP</div><div class="step-desc">Click <strong>Upload Plugin</strong> at the top, choose your <code>cookiezu.zip</code> file, and click <strong>Install Now</strong>.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Activate</div><div class="step-desc">After installation completes, click <strong>Activate Plugin</strong>. CookiEzu will create its database table automatically.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">You're done!</div><div class="step-desc">A new <strong>CookiEzu</strong> menu item will appear in your WordPress sidebar. Click it to configure your banner.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Download the plugin ZIP</div><div class="step-desc">Go to <a href="https://github.com/flyzal/CookiEzu" target="_blank" style="color:var(--cookie)">github.com/flyzal/CookiEzu</a>, click <strong>Releases</strong>, and download <code>cookiezu-v1.2.1.zip</code>.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Go to Plugins → Add New</div><div class="step-desc">In your WordPress admin, navigate to <strong>Plugins → Add New Plugin</strong>.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload and install</div><div class="step-desc">Click <strong>Upload Plugin</strong>, choose your ZIP, click <strong>Install Now</strong>.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Activate</div><div class="step-desc">Click <strong>Activate Plugin</strong>. CookiEzu creates its database table (including the new <code>country_code</code> column) automatically.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Done!</div><div class="step-desc">A <strong>CookiEzu</strong> menu item will appear in your sidebar. Click it to configure your banner — the Design tab shows a live preview instantly.</div></div></div>
     </div>
-    <h2 class="doc-h2">Upgrading from v1.0.0</h2>
+    <h2 class="doc-h2">Upgrading from any older version</h2>
     <div class="callout callout-warn">
       <span class="callout-icon">⚠️</span>
-      <div class="callout-body"><strong>Important upgrade steps</strong> — Simply re-uploading over an existing install may leave cached old JS files. Follow these steps exactly to guarantee the fix takes effect.</div>
+      <div class="callout-body"><strong>Always deactivate and delete before re-uploading.</strong> Caching plugins and some hosting environments will keep old JS/CSS files on disk. Delete first to guarantee a clean slate — your settings and consent log are stored in the database and are never deleted when you remove the plugin files.</div>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Deactivate the old plugin</div><div class="step-desc">Go to <strong>Plugins → Installed Plugins</strong>, find CookiEzu, and click <strong>Deactivate</strong>.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Delete the old plugin</div><div class="step-desc">Click <strong>Delete</strong> on the CookiEzu row. Your settings and consent log are stored in the database and will NOT be deleted.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload and activate v1.1.0</div><div class="step-desc">Follow Method 1 above to install the fresh v1.1.0 ZIP. All your previous settings will be intact.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Verify in an incognito window</div><div class="step-desc">Open your site in a private/incognito browser window. The banner should appear and dismiss correctly when you click any button.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Deactivate the old version</div><div class="step-desc"><strong>Plugins → Installed Plugins</strong> → CookiEzu → <strong>Deactivate</strong>.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Delete the old version</div><div class="step-desc">Click <strong>Delete</strong> on the CookiEzu row. Settings, consent log, and all database records are preserved.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload and activate v1.2.1</div><div class="step-desc">Follow Method 1 above. On first load, the DB migration runs automatically — the <code>country_code</code> column is added to your existing consent table if it doesn't exist.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Clear all caches</div><div class="step-desc">Clear your WordPress caching plugin, CDN, and hosting cache. Then verify in incognito.</div></div></div>
     </div>
     <h2 class="doc-h2">Method 2 — FTP / Manual</h2>
     <div class="steps">
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Extract the ZIP</div><div class="step-desc">Unzip <code>cookiezu.zip</code> — you'll get a <code>cookiezu/</code> folder.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload via FTP</div><div class="step-desc">Using FileZilla or your hosting file manager, upload the <code>cookiezu/</code> folder to <code>/wp-content/plugins/</code>.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Activate in WordPress</div><div class="step-desc">Go to <strong>Plugins → Installed Plugins</strong>, find CookiEzu, and click <strong>Activate</strong>.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Extract the ZIP</div><div class="step-desc">Unzip <code>cookiezu-v1.2.1.zip</code> — you'll get a <code>cookiezu_v121/</code> folder.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload via FTP</div><div class="step-desc">Upload the folder to <code>/wp-content/plugins/</code> as <code>cookiezu/</code>.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Activate in WordPress</div><div class="step-desc"><strong>Plugins → Installed Plugins</strong> → CookiEzu → <strong>Activate</strong>.</div></div></div>
     </div>
   </section>
 
@@ -361,21 +386,29 @@ pre .num { color: #FDE68A; }
       <p class="doc-lead">A 5-minute walkthrough of the most important settings to get your banner live and compliant.</p>
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Step 1 — Set your banner text</h2>
-    <p>Go to <strong>CookiEzu → Settings → Content tab</strong>. Update the <strong>Banner Title</strong> and <strong>Banner Message</strong> to reflect your site's brand. Be clear and honest about what cookies you use.</p>
+    <p>Go to <strong>CookiEzu → Settings → Content tab</strong>. Update the <strong>Banner Title</strong> and <strong>Banner Message</strong> to reflect your site's brand and what you actually do with cookies.</p>
     <div class="callout callout-tip">
       <span class="callout-icon">💡</span>
       <div class="callout-body"><strong>Good message example:</strong> "We use cookies to improve your experience, analyse traffic, and serve personalised content. You can choose which categories to accept."</div>
     </div>
     <h2 class="doc-h2">Step 2 — Add your Privacy Policy link</h2>
     <p>Still on the <strong>Content tab</strong>, paste your Privacy Policy page URL into the <strong>Privacy Policy URL</strong> field. This is required under GDPR — visitors must be able to read your full policy from the banner.</p>
-    <h2 class="doc-h2">Step 3 — Choose your layout</h2>
-    <p>Go to the <strong>Design tab</strong> and pick a Layout and Position. For most sites, <strong>Bar + Bottom</strong> is the least intrusive. <strong>Modal</strong> is best if you need maximum visibility for strict compliance. All three layouts now dismiss correctly in v1.1.0.</p>
+    <h2 class="doc-h2">Step 3 — Choose your layout with live preview</h2>
+    <p>Go to the <strong>Design tab</strong>. On the right side of the screen you'll see a sticky <strong>Live Preview panel</strong> — a scaled browser mockup that updates in real time as you change any setting. Pick your Layout (Bar, Box, or Modal), Position, and Theme. The preview reflects your changes instantly without saving.</p>
+    <div class="callout callout-info">
+      <span class="callout-icon">👁️</span>
+      <div class="callout-body"><strong>New in v1.2.1:</strong> The live preview panel also pulls your banner title and button text from the Content tab, so what you see in the preview is exactly what visitors will see.</div>
+    </div>
     <h2 class="doc-h2">Step 4 — Enable the categories you use</h2>
-    <p>Go to the <strong>Categories tab</strong>. Only enable the categories that match cookies you actually load. If you don't use Facebook Pixel, don't show a Marketing toggle — it will confuse visitors.</p>
+    <p>Go to the <strong>Categories tab</strong>. Only enable the categories that match cookies your site actually loads. If you don't use Facebook Pixel, don't show a Marketing toggle.</p>
     <h2 class="doc-h2">Step 5 — Enable consent recording</h2>
-    <p>Go to the <strong>Advanced tab</strong> and make sure <strong>Record Consent</strong> is ticked. This builds your GDPR audit trail in <strong>CookiEzu → Consent Log</strong>.</p>
+    <p>Go to the <strong>Advanced tab</strong> and tick <strong>Record Consent</strong>. This builds your GDPR audit trail in <strong>CookiEzu → Consent Log</strong> — and now automatically captures visitor country (2-letter code only) for the analytics dashboard.</p>
     <h2 class="doc-h2">Step 6 — Save and test</h2>
-    <p>Click <strong>Save Settings</strong>. Then open your website in a <strong>private/incognito browser window</strong> to see the banner as a first-time visitor would. This is important — your own browser likely has a consent cookie already stored.</p>
+    <p>Click <strong>Save Settings</strong>. Then open your website in a private/incognito window to see the banner as a first-time visitor would. Try accepting all, then clearing the <code>cookiezu_consent</code> cookie and trying the Customize flow too.</p>
+    <div class="callout callout-tip">
+      <span class="callout-icon">🔧</span>
+      <div class="callout-body"><strong>Test Mode (new in v1.2.0):</strong> Go to <strong>Advanced → Test Mode</strong> and enable it. The banner will always show for logged-in admins even after consenting — no cookie clearing needed. A 🔧 badge appears to remind you it's a preview.</div>
+    </div>
   </section>
 
   <!-- ═══ CHANGELOG ═══ -->
@@ -383,61 +416,105 @@ pre .num { color: #FDE68A; }
     <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>What's New</div>
     <div class="page-hero" data-emoji="🆕">
       <div class="doc-eyebrow">Changelog</div>
-      <h1 class="doc-h1">v1.1.0 — <em>Modal Fix</em></h1>
-      <p class="doc-lead">Released February 2026. Critical bug fixes ensuring all three layout types (Bar, Box, Modal) dismiss correctly when a visitor makes a consent choice.</p>
+      <h1 class="doc-h1">v1.2.1 — <em>Analytics & Polish</em></h1>
+      <p class="doc-lead">Released February 2026. Consent analytics dashboard, live design preview, dark mode readability fix, visitor country tracking, and admin footer credits.</p>
     </div>
-    <div class="callout callout-fix">
-      <span class="callout-icon">🐛</span>
-      <div class="callout-body"><strong>What was broken in v1.0.0</strong> — The modal layout's <code>display: flex !important</code> CSS rule was overriding the JavaScript's attempts to hide the banner via a CSS class toggle. The result: clicking any button appeared to do nothing visually.</div>
-    </div>
-    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Changes in this release</h2>
+
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Changes in v1.2.1</h2>
     <div class="changelog-item">
       <div class="changelog-dot dot-fix"></div>
       <div>
-        <div class="changelog-item-title">Modal consent dismiss fixed <span class="badge badge-red">Bug Fix</span></div>
-        <div class="changelog-item-desc">The modal no longer stays open after clicking Accept All, Necessary Only, or Save Preferences. Root cause: CSS <code>display: flex !important</code> on <code>.cookiezu-layout-modal</code> was winning the specificity battle against the JS class-based hide system. Fixed by switching JS to use <code>element.style.display</code> (inline styles always beat CSS rules).</div>
+        <div class="changelog-item-title">Dark mode: checked categories now readable <span class="badge badge-red">Bug Fix</span></div>
+        <div class="changelog-item-desc">When a visitor toggled a category <em>on</em> in dark mode, the card background snapped to <code>--cz-cookie-pale</code> (#FDF3E3 — warm cream) but the text remained near-white (#FEFCF8). The fix adds <code>--cz-cookie-pale: rgba(193,123,47,0.18)</code> to the dark theme token override so checked categories use a dark amber tint instead of the light cream. An explicit <code>.cookiezu-theme-dark .cookiezu-category:has(input:checked)</code> rule reinforces the fix.</div>
       </div>
     </div>
     <div class="changelog-item">
-      <div class="changelog-dot dot-fix"></div>
+      <div class="changelog-dot dot-feature"></div>
       <div>
-        <div class="changelog-item-title">Preferences panel now opens correctly <span class="badge badge-red">Bug Fix</span></div>
-        <div class="changelog-item-desc">Clicking "Customize" now reliably shows the cookie category toggles panel. The panel was blocked by a hardcoded <code>style="display:none"</code> in the PHP template that the JS's class-removal approach could never override.</div>
+        <div class="changelog-item-title">Consent analytics dashboard <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">The Consent Log page now shows a full metrics dashboard above the raw table: four stat cards (Total, Accept All %, Necessary Only %, Custom %) each with an SVG donut chart; horizontal acceptance bars per category; a 30-day consent trend bar chart; and a top-countries table with flag emojis, bars, and counts.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Visitor country tracking <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">A <code>country_code VARCHAR(2)</code> column is added to the consent log table. Detection uses three tiers: Cloudflare <code>CF-IPCountry</code> header (zero latency for CF users), then <code>geoplugin.net</code> free API (no key, 120 req/min, result cached in WP transients for 24h), then empty string fallback. Only the 2-letter ISO code is stored — no city, no region, GDPR minimal data principle. Existing installs are migrated automatically via <code>ALTER TABLE</code> on first load after upgrade.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Live banner preview in Design tab <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">The Design tab is now a two-column layout. The right column shows a sticky preview panel with a scaled browser mockup that re-renders in real time as you change layout, theme, colours, border radius, and text (title/button labels also pull from the Content tab). No saving required. Works for Bar, Box, and Modal layouts across Light, Dark, and Custom themes.</div>
       </div>
     </div>
     <div class="changelog-item">
       <div class="changelog-dot dot-improvement"></div>
       <div>
-        <div class="changelog-item-title">Rewritten JS show/hide engine <span class="badge badge-cookie">Improvement</span></div>
-        <div class="changelog-item-desc">Replaced the fragile CSS class toggle system (<code>cz-hidden</code>) with direct <code>element.style.display</code> manipulation. Inline styles set by JavaScript always take precedence over any stylesheet rule regardless of specificity or <code>!important</code> — this is guaranteed by the CSS cascade specification.</div>
-      </div>
-    </div>
-    <div class="changelog-item">
-      <div class="changelog-dot dot-improvement"></div>
-      <div>
-        <div class="changelog-item-title">Correct display value per layout type <span class="badge badge-cookie">Improvement</span></div>
-        <div class="changelog-item-desc">The new <code>bannerDisplayValue()</code> function detects whether the banner uses the modal layout (needs <code>display: flex</code> for centering) vs bar/box layouts (needs <code>display: block</code>). Previously all layouts used the same value, breaking the modal's centred positioning.</div>
+        <div class="changelog-item-title">Admin footer credit <span class="badge badge-cookie">Improvement</span></div>
+        <div class="changelog-item-desc">A subtle one-line footer appears at the bottom of both the Settings and Consent Log pages: version number, GitHub star link, bug report link, Buy Me a Coffee, and "Made with ❤️ by flyzal". Industry-standard placement (Yoast SEO, WP Rocket pattern) — never in the content flow.</div>
       </div>
     </div>
     <div class="changelog-item">
       <div class="changelog-dot dot-fix"></div>
       <div>
-        <div class="changelog-item-title">Removed conflicting inline styles from banner.php <span class="badge badge-red">Bug Fix</span></div>
-        <div class="changelog-item-desc">All <code>style="display:none"</code> attributes removed from the PHP banner template. Visibility is now 100% controlled by JavaScript, removing the root cause of the CSS vs inline style conflict.</div>
+        <div class="changelog-item-title">Consent log text cutoff & flag emoji rendering <span class="badge badge-red">Bug Fix</span></div>
+        <div class="changelog-item-desc">The log page only had <code>padding-left: 20px</code> with no right padding — content ran flush to the right edge. Fixed by adding <code>padding-right: 20px</code> and adding horizontal padding to <code>.cookiezu-wrap</code>. Flag emoji rendering was also fixed: replaced fragile <code>mb_convert_encoding()</code> HTML entity approach with <code>mb_chr()</code> using the Unicode Regional Indicator block offset (<code>U+1F1E6</code>), which works reliably on PHP 7.4+.</div>
+      </div>
+    </div>
+
+    <h2 class="doc-h2">Changes in v1.2.0 — Polish & Accessibility</h2>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Modal focus trap <span class="badge badge-blue">Accessibility</span></div>
+        <div class="changelog-item-desc">Keyboard Tab/Shift+Tab now wraps within the visible banner elements only. Previously, Tab would move focus behind the modal overlay onto page content — a failure of WCAG 2.1 §2.1.1.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Escape key closes banner <span class="badge badge-blue">Accessibility</span></div>
+        <div class="changelog-item-desc">Pressing Esc accepts Necessary Only and dismisses the banner — the standard keyboard dialog pattern (WCAG 2.1 §2.1). Configurable via <strong>Advanced → Keyboard Settings</strong>. Enabled by default.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Focus returns to re-open button after consent <span class="badge badge-blue">Accessibility</span></div>
+        <div class="changelog-item-desc">After a visitor accepts or declines, keyboard focus moves to the 🍪 re-open button via <code>requestAnimationFrame()</code> — where WCAG 2.4.3 says it should go after a dialog closes.</div>
       </div>
     </div>
     <div class="changelog-item">
       <div class="changelog-dot dot-improvement"></div>
       <div>
-        <div class="changelog-item-title">Version bump to 1.1.0 for cache busting <span class="badge badge-cookie">Improvement</span></div>
-        <div class="changelog-item-desc">Plugin version number incremented in both the main plugin file header and the <code>COOKIEZU_VERSION</code> constant. WordPress uses this version as a query string on enqueued assets (<code>?ver=1.1.0</code>), forcing browsers and CDNs to load the new JS and CSS files even if the old ones were cached.</div>
+        <div class="changelog-item-title">Proper ARIA on banner dialog <span class="badge badge-blue">Accessibility</span></div>
+        <div class="changelog-item-desc">Banner now uses <code>aria-labelledby</code> and <code>aria-describedby</code> pointing at the actual title and message elements (via IDs). Screen readers announce "We value your privacy — We use cookies…" rather than the generic "Cookie consent" label it had before.</div>
       </div>
     </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-improvement"></div>
+      <div>
+        <div class="changelog-item-title">No-flicker banner init <span class="badge badge-cookie">Improvement</span></div>
+        <div class="changelog-item-desc">Banner starts with <code>visibility: hidden</code> in CSS. JS sets <code>visibility: visible</code> immediately then decides whether to show or hide — returning visitors never see a flash of the banner before JS can hide it.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Test Mode & configurable re-open position <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">Test Mode forces the banner to always show for logged-in admins (with a 🔧 badge visible only to them). Re-open button position is now configurable: bottom-left (default) or bottom-right. Both settings are in <strong>Advanced</strong>.</div>
+      </div>
+    </div>
+
     <h2 class="doc-h2">Previous Releases</h2>
     <table class="doc-table">
-      <tr><th>Version</th><th>Date</th><th>Notes</th></tr>
+      <tr><th>Version</th><th>Date</th><th>Summary</th></tr>
+      <tr><td>1.2.1</td><td>Feb 2026</td><td>Consent analytics dashboard, country tracking, live preview, dark mode fix, padding fix</td></tr>
+      <tr><td>1.2.0</td><td>Feb 2026</td><td>WCAG 2.1 AA accessibility, focus trap, Escape key, test mode, no-flicker init</td></tr>
       <tr><td>1.1.0</td><td>Feb 2026</td><td>Modal dismiss fix, JS engine rewrite, cache-busting version bump</td></tr>
-      <tr><td>1.0.0</td><td>Jan 2026</td><td>Initial release — Bar/Box/Modal layouts, GA4, GTM, consent log</td></tr>
+      <tr><td>1.0.0</td><td>Jan 2026</td><td>Initial release — Bar/Box/Modal, GA4, GTM, consent log, 3 themes</td></tr>
     </table>
   </section>
 
@@ -447,25 +524,25 @@ pre .num { color: #FDE68A; }
     <div class="page-hero" data-emoji="🎨">
       <div class="doc-eyebrow">Feature</div>
       <h1 class="doc-h1">Banner <em>Layouts</em></h1>
-      <p class="doc-lead">Three layouts, four positions — every combination produces a polished, accessible result. All fully fixed in v1.1.0.</p>
+      <p class="doc-lead">Three layouts, four positions — every combination produces a polished, accessible result. Use the Live Preview in the Design tab to see your exact configuration before saving.</p>
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Layouts</h2>
     <table class="doc-table">
       <tr><th>Layout</th><th>Best For</th><th>Description</th><th>Status</th></tr>
-      <tr><td>Bar</td><td>Most sites</td><td>A slim strip across the full width of the page. Least intrusive, highest conversion rate for consent.</td><td><span class="badge badge-green">✓ Working</span></td></tr>
-      <tr><td>Box</td><td>Modern / minimal sites</td><td>A floating card in the corner. Stylish and unobtrusive, gives visitors space to browse first.</td><td><span class="badge badge-green">✓ Working</span></td></tr>
-      <tr><td>Modal</td><td>Strict compliance needs</td><td>Centred popup with a dark overlay. Blocks interaction until a choice is made. Best for GDPR-strict scenarios.</td><td><span class="badge badge-green">✓ Fixed in v1.1.0</span></td></tr>
+      <tr><td>Bar</td><td>Most sites</td><td>Slim strip across full page width. Least intrusive, highest consent conversion rate.</td><td><span class="badge badge-green">✓ Working</span></td></tr>
+      <tr><td>Box</td><td>Modern / minimal sites</td><td>Floating card in the corner. Stylish and unobtrusive.</td><td><span class="badge badge-green">✓ Working</span></td></tr>
+      <tr><td>Modal</td><td>Strict compliance</td><td>Centred popup with dark overlay. Blocks interaction until a choice is made.</td><td><span class="badge badge-green">✓ Working</span></td></tr>
     </table>
     <h2 class="doc-h2">Positions</h2>
     <table class="doc-table">
       <tr><th>Position</th><th>Works With</th><th>Notes</th></tr>
-      <tr><td>Bottom</td><td>Bar, Box</td><td>Default. Most familiar to visitors, least disruptive.</td></tr>
-      <tr><td>Top</td><td>Bar</td><td>Good if you have a fixed footer. Some visitors may miss it.</td></tr>
+      <tr><td>Bottom</td><td>Bar, Box</td><td>Default. Most familiar to visitors.</td></tr>
+      <tr><td>Top</td><td>Bar</td><td>Good if you have a fixed footer.</td></tr>
       <tr><td>Bottom-Left</td><td>Box, Bar</td><td>Unobtrusive corner placement.</td></tr>
-      <tr><td>Bottom-Right</td><td>Box, Bar</td><td>Popular for chat-widget style layouts.</td></tr>
+      <tr><td>Bottom-Right</td><td>Box, Bar</td><td>Popular for chat-widget style.</td></tr>
     </table>
     <h2 class="doc-h2">Re-open Button</h2>
-    <p>Once a visitor makes a choice, the banner disappears and a small 🍪 floating button appears in the bottom-left corner. Clicking it re-opens the banner so they can update their preferences at any time. This is a <strong>GDPR requirement</strong> — consent must always be revocable.</p>
+    <p>After consent is given, a small 🍪 floating button appears so visitors can update preferences at any time — a GDPR requirement. Its position (bottom-left or bottom-right) is configurable in <strong>Advanced → Re-open Button Position</strong> (new in v1.2.0).</p>
   </section>
 
   <!-- ═══ CATEGORIES ═══ -->
@@ -478,17 +555,17 @@ pre .num { color: #FDE68A; }
     </div>
     <table class="doc-table">
       <tr><th>Category</th><th>Always On?</th><th>Examples</th><th>Use When</th></tr>
-      <tr><td>Necessary</td><td><span class="badge badge-green">✓ Yes</span></td><td>Login session, shopping cart, CSRF token, language preference</td><td>Always — cannot be disabled</td></tr>
-      <tr><td>Analytics</td><td>No</td><td>Google Analytics, Matomo, Fathom, Plausible</td><td>You track page views, traffic sources, or user behaviour</td></tr>
-      <tr><td>Marketing</td><td>No</td><td>Facebook Pixel, Google Ads, LinkedIn Insight, TikTok Pixel</td><td>You run paid ads or remarketing campaigns</td></tr>
-      <tr><td>Functional</td><td>No</td><td>Intercom, Zendesk, Google Maps, YouTube embeds</td><td>You use live chat, maps, or embedded media that sets cookies</td></tr>
+      <tr><td>Necessary</td><td><span class="badge badge-green">✓ Yes</span></td><td>Login session, shopping cart, CSRF token</td><td>Always — cannot be disabled</td></tr>
+      <tr><td>Analytics</td><td>No</td><td>Google Analytics, Matomo, Plausible</td><td>You track page views or user behaviour</td></tr>
+      <tr><td>Marketing</td><td>No</td><td>Facebook Pixel, Google Ads, TikTok Pixel</td><td>You run paid ads or remarketing</td></tr>
+      <tr><td>Functional</td><td>No</td><td>Intercom, Google Maps, YouTube embeds</td><td>You use live chat, maps, or embedded media</td></tr>
     </table>
     <div class="callout callout-warn">
       <span class="callout-icon">⚠️</span>
-      <div class="callout-body"><strong>Only enable categories you actually use.</strong> Showing a Marketing toggle when you don't use any marketing cookies is misleading and can damage visitor trust.</div>
+      <div class="callout-body"><strong>Only enable categories you actually use.</strong> Showing a Marketing toggle when you don't use any marketing cookies is misleading and damages visitor trust.</div>
     </div>
     <h2 class="doc-h2">Cookie Details Table</h2>
-    <p>Enable <strong>Show Cookie Table</strong> in the Categories settings to display a table inside each category listing the specific cookies used, their provider, and their expiry. This provides the detailed disclosure required by stricter interpretations of GDPR.</p>
+    <p>Enable <strong>Show Cookie Table</strong> in Categories settings to display the specific cookies, their provider, and expiry inside each category. This provides the detailed disclosure required by stricter GDPR interpretations.</p>
   </section>
 
   <!-- ═══ THEMES ═══ -->
@@ -497,14 +574,18 @@ pre .num { color: #FDE68A; }
     <div class="page-hero" data-emoji="🌗">
       <div class="doc-eyebrow">Feature</div>
       <h1 class="doc-h1">Themes & <em>Colours</em></h1>
-      <p class="doc-lead">Make your banner match your brand perfectly — from built-in presets to full custom colour control.</p>
+      <p class="doc-lead">Make your banner match your brand — from built-in presets to full custom colour control. Dark mode fully fixed in v1.2.1.</p>
     </div>
     <table class="doc-table">
       <tr><th>Theme</th><th>Background</th><th>Best For</th></tr>
-      <tr><td>Light</td><td>Warm white / cream</td><td>Light-coloured websites, editorial sites, blogs</td></tr>
+      <tr><td>Light</td><td>Warm white / cream (#FEFCF8)</td><td>Light-coloured websites, blogs, editorial sites</td></tr>
       <tr><td>Dark</td><td>Deep ink (#1A1208)</td><td>Dark-mode websites, tech sites, portfolios</td></tr>
-      <tr><td>Custom</td><td>You choose</td><td>Any site where you want the banner to match your exact brand colours</td></tr>
+      <tr><td>Custom</td><td>You choose</td><td>Any site where you want exact brand colour matching</td></tr>
     </table>
+    <div class="callout callout-fix">
+      <span class="callout-icon">🐛</span>
+      <div class="callout-body"><strong>Dark mode fix in v1.2.1:</strong> Previously, toggling a cookie category <em>on</em> in dark mode made that card's background switch to a pale cream colour (#FDF3E3), making the near-white text unreadable. Fixed by overriding <code>--cz-cookie-pale</code> to <code>rgba(193,123,47,0.18)</code> within the dark theme token set, and adding a specific dark-mode override rule for checked category cards.</div>
+    </div>
     <h2 class="doc-h2">Custom Colour Settings</h2>
     <p>When you select the <strong>Custom</strong> theme, three colour pickers appear:</p>
     <table class="doc-table">
@@ -514,7 +595,40 @@ pre .num { color: #FDE68A; }
       <tr><td>Background Color</td><td>Banner background, category cards</td></tr>
     </table>
     <h2 class="doc-h2">Border Radius</h2>
-    <p>The <strong>Border Radius</strong> setting (0–50px) applies to buttons and the Box/Modal layout container. Set to <code>0</code> for sharp square corners, or <code>50</code> for fully rounded pill-shaped buttons.</p>
+    <p>The <strong>Border Radius</strong> setting (0–50px) applies to buttons and the Box/Modal layout container. Set to <code>0</code> for sharp corners, or <code>50</code> for fully rounded pill-shaped buttons. The <strong>Live Preview</strong> updates this in real time.</p>
+  </section>
+
+  <!-- ═══ LIVE PREVIEW ═══ -->
+  <section class="doc-section" id="live-preview">
+    <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>Live Preview</div>
+    <div class="page-hero" data-emoji="👁️">
+      <div class="doc-eyebrow">New in v1.2.1</div>
+      <h1 class="doc-h1">Live Design <em>Preview</em></h1>
+      <p class="doc-lead">See exactly how your banner will look — before saving — with a real-time preview that updates as you change settings.</p>
+    </div>
+    <div class="callout callout-new">
+      <span class="callout-icon">✨</span>
+      <div class="callout-body"><strong>New in v1.2.1</strong> — The Design tab now shows a sticky preview panel on the right side of the page that re-renders instantly as you change any design setting.</div>
+    </div>
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">How It Works</h2>
+    <p>The Design tab is now a two-column layout. On the left: your settings (Layout, Position, Theme, colours, border radius). On the right: a sticky preview panel showing a scaled browser window mockup containing a fake page and your live banner. No page reload, no saving — every change is reflected immediately.</p>
+    <h2 class="doc-h2">What the Preview Shows</h2>
+    <table class="doc-table">
+      <tr><th>Setting</th><th>Reflected in Preview</th></tr>
+      <tr><td>Layout (Bar / Box / Modal)</td><td>Full layout change with correct positioning</td></tr>
+      <tr><td>Position</td><td>Box snaps to bottom-left/right; Bar snaps to top/bottom</td></tr>
+      <tr><td>Theme (Light / Dark / Custom)</td><td>Background, text, and button colours</td></tr>
+      <tr><td>Custom colours</td><td>Updates as you pick colours (50ms delay for smooth UX)</td></tr>
+      <tr><td>Border radius</td><td>Buttons and container shape update live</td></tr>
+      <tr><td>Banner title</td><td>Pulled from Content tab → Banner Title field</td></tr>
+      <tr><td>Button labels</td><td>Pulled from Content tab → Accept All / Necessary / Customize fields</td></tr>
+    </table>
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body"><strong>The preview is an approximation.</strong> It uses a scaled-down proportional rendering — spacing and font sizes appear smaller than on the real site. The layout, colour, and shape are accurate; exact pixel-perfect spacing is not guaranteed in the preview.</div>
+    </div>
+    <h2 class="doc-h2">Responsive Behaviour</h2>
+    <p>On screens narrower than 1100px, the two-column design collapses to a single column with the settings on top and the preview below. The preview panel is still sticky on wider viewports to keep it visible as you scroll through the settings.</p>
   </section>
 
   <!-- ═══ CONSENT LOG ═══ -->
@@ -523,38 +637,157 @@ pre .num { color: #FDE68A; }
     <div class="page-hero" data-emoji="🔒">
       <div class="doc-eyebrow">Feature</div>
       <h1 class="doc-h1">Consent <em>Log</em></h1>
-      <p class="doc-lead">Your GDPR audit trail. Every consent decision recorded, stored, and ready if you're ever asked to prove compliance.</p>
+      <p class="doc-lead">Your GDPR audit trail. Every consent decision recorded, stored, and ready if you're ever asked to prove compliance. Now with a full analytics dashboard above the raw records.</p>
     </div>
-    <p>When <strong>Record Consent</strong> is enabled in the Advanced settings, CookiEzu logs every consent event to a dedicated database table (<code>wp_cookiezu_consent_log</code>).</p>
+    <p>When <strong>Record Consent</strong> is enabled in Advanced settings, CookiEzu logs every consent event to <code>wp_cookiezu_consent_log</code>.</p>
     <h2 class="doc-h2">What Gets Recorded</h2>
     <table class="doc-table">
-      <tr><th>Field</th><th>Description</th></tr>
-      <tr><td>id</td><td>Unique record ID</td></tr>
-      <tr><td>consent_date</td><td>Exact date and time of the consent event (server time)</td></tr>
-      <tr><td>ip_address</td><td>Visitor IP address — last 4 characters masked for privacy (e.g. 192.168.1.****)</td></tr>
-      <tr><td>necessary</td><td>Always 1 (true)</td></tr>
-      <tr><td>analytics</td><td>1 = accepted, 0 = declined</td></tr>
-      <tr><td>marketing</td><td>1 = accepted, 0 = declined</td></tr>
-      <tr><td>functional</td><td>1 = accepted, 0 = declined</td></tr>
+      <tr><th>Field</th><th>Description</th><th>Since</th></tr>
+      <tr><td>id</td><td>Unique auto-increment record ID</td><td>v1.0.0</td></tr>
+      <tr><td>ip_address</td><td>Visitor IP — last 4 characters masked (e.g. 192.168.1.****)</td><td>v1.0.0</td></tr>
+      <tr><td>user_agent</td><td>Browser user agent string (stored but not displayed)</td><td>v1.0.0</td></tr>
+      <tr><td>country_code</td><td>2-letter ISO country code only (e.g. MY, SG, BN). Never city or region.</td><td>v1.2.1</td></tr>
+      <tr><td>necessary</td><td>Always 1 (true) — cannot be declined</td><td>v1.0.0</td></tr>
+      <tr><td>analytics</td><td>1 = accepted, 0 = declined</td><td>v1.0.0</td></tr>
+      <tr><td>marketing</td><td>1 = accepted, 0 = declined</td><td>v1.0.0</td></tr>
+      <tr><td>functional</td><td>1 = accepted, 0 = declined</td><td>v1.0.0</td></tr>
+      <tr><td>consent_date</td><td>Exact datetime of the consent event (server time)</td><td>v1.0.0</td></tr>
     </table>
     <div class="callout callout-info">
       <span class="callout-icon">ℹ️</span>
-      <div class="callout-body"><strong>Where to find it:</strong> Go to <strong>WordPress Admin → CookiEzu → Consent Log</strong>. The table shows the latest 200 records. The header shows your total record count.</div>
+      <div class="callout-body"><strong>DB migration:</strong> The <code>country_code</code> column is added automatically on first load after upgrading to v1.2.1. No manual SQL is needed. Existing records will show an empty string for country until new consents are received.</div>
     </div>
     <h2 class="doc-h2">Consent Expiry</h2>
-    <p>The <strong>Consent Expiry</strong> setting (in Advanced) controls how long the visitor's cookie lasts in their browser. Default is <strong>365 days</strong>. After expiry, the banner re-appears and a new consent record is created. GDPR recommends re-obtaining consent at least annually.</p>
+    <p>The <strong>Consent Expiry</strong> setting (Advanced tab) controls how long the visitor's browser cookie lasts. Default is <strong>365 days</strong>. After expiry the banner re-appears and a new record is created. GDPR recommends re-obtaining consent at least annually.</p>
+  </section>
+
+  <!-- ═══ CONSENT ANALYTICS ═══ -->
+  <section class="doc-section" id="consent-analytics">
+    <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>Consent Analytics</div>
+    <div class="page-hero" data-emoji="📊">
+      <div class="doc-eyebrow">New in v1.2.1</div>
+      <h1 class="doc-h1">Consent <em>Analytics</em></h1>
+      <p class="doc-lead">A visual metrics dashboard at the top of your Consent Log page — no external tools required.</p>
+    </div>
+    <div class="callout callout-new">
+      <span class="callout-icon">✨</span>
+      <div class="callout-body"><strong>New in v1.2.1</strong> — The Consent Log page now opens with a full analytics dashboard before the raw records table.</div>
+    </div>
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">What's in the Dashboard</h2>
+
+    <div class="metrics-preview">
+      <div class="metric-mock">
+        <div class="metric-mock-label">Total Consents</div>
+        <div class="metric-mock-val" style="color:var(--ink)">1,284</div>
+        <div class="metric-mock-sub">All time</div>
+      </div>
+      <div class="metric-mock">
+        <div class="metric-mock-label">Accept All</div>
+        <div class="metric-mock-val" style="color:var(--green)">42%</div>
+        <div class="metric-mock-sub">538 visitors</div>
+      </div>
+      <div class="metric-mock">
+        <div class="metric-mock-label">Necessary Only</div>
+        <div class="metric-mock-val" style="color:var(--cookie)">47%</div>
+        <div class="metric-mock-sub">604 visitors</div>
+      </div>
+      <div class="metric-mock">
+        <div class="metric-mock-label">Custom Choices</div>
+        <div class="metric-mock-val" style="color:var(--blue)">11%</div>
+        <div class="metric-mock-sub">142 visitors</div>
+      </div>
+    </div>
+
+    <table class="doc-table" style="margin-top:24px;">
+      <tr><th>Widget</th><th>Shows</th></tr>
+      <tr><td>Stat cards (×4)</td><td>Total Consents all-time; Accept All %, Necessary Only %, Custom Choices % — each with a mini SVG donut chart and visitor count</td></tr>
+      <tr><td>Category bars</td><td>Horizontal acceptance rate bar for Analytics, Marketing, Functional, Necessary</td></tr>
+      <tr><td>30-day trend</td><td>Bar chart of daily consent volume over the last 30 days with hover tooltips</td></tr>
+      <tr><td>Top Countries</td><td>Flag emoji + ISO code + proportional bar + count + % for the top 10 countries</td></tr>
+      <tr><td>Raw records</td><td>Latest 200 consent records, now including Country column with flag emojis</td></tr>
+    </table>
+
+    <h2 class="doc-h2">Country Detection</h2>
+    <p>Country codes are resolved at the time consent is saved using a three-tier detection chain:</p>
+    <div class="steps">
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Cloudflare CF-IPCountry header</div><div class="step-desc">If your site is behind Cloudflare (free plan or above), the <code>HTTP_CF_IPCOUNTRY</code> server header is present on every request. This is zero-latency, perfectly reliable, and the preferred method.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">geoplugin.net API</div><div class="step-desc">For non-Cloudflare sites, a free API call to <code>geoplugin.net/json.gp?ip=…</code> is made. No API key required. Results are cached in WordPress transients for 24 hours per IP address to avoid repeated calls. Timeout is 3 seconds — if it fails, an empty string is stored gracefully.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Empty string fallback</div><div class="step-desc">Localhost IPs (127.0.0.1, ::1) and any failed lookups store an empty string. These rows show "—" in the log table and are excluded from country metrics.</div></div></div>
+    </div>
+    <div class="callout callout-tip">
+      <span class="callout-icon">🔒</span>
+      <div class="callout-body"><strong>GDPR minimal data:</strong> Only the 2-letter ISO country code (e.g. <code>MY</code>, <code>SG</code>, <code>BN</code>) is stored — never city, region, postal code, or precise location. This keeps the additional data collected proportionate and within GDPR's data minimisation principle (Art. 5(1)(c)).</div>
+    </div>
+  </section>
+
+  <!-- ═══ ACCESSIBILITY ═══ -->
+  <section class="doc-section" id="accessibility">
+    <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>Accessibility</div>
+    <div class="page-hero" data-emoji="♿">
+      <div class="doc-eyebrow">New in v1.2.0</div>
+      <h1 class="doc-h1">WCAG 2.1 <em>Accessibility</em></h1>
+      <p class="doc-lead">CookiEzu v1.2.0 reached full WCAG 2.1 AA compliance. Here's what was implemented and why it matters.</p>
+    </div>
+    <table class="doc-table">
+      <tr><th>Feature</th><th>WCAG Criterion</th><th>How it Works</th></tr>
+      <tr><td>Focus trap</td><td>2.1.1 Keyboard</td><td>Tab/Shift+Tab wraps within visible banner elements only. Page content behind the modal is unreachable by keyboard while the banner is open.</td></tr>
+      <tr><td>Escape key dismiss</td><td>2.1 Keyboard accessible</td><td>Pressing Esc accepts Necessary Only and closes the banner — the standard keyboard dialog dismissal pattern. Configurable in Advanced.</td></tr>
+      <tr><td>Focus return</td><td>2.4.3 Focus Order</td><td>After accepting/declining, keyboard focus moves to the 🍪 re-open button via <code>requestAnimationFrame()</code>. Focus is never lost or sent to the top of the page.</td></tr>
+      <tr><td>Proper ARIA</td><td>1.3.1 Info and Relationships</td><td>Banner uses <code>role="dialog"</code> with <code>aria-labelledby</code> and <code>aria-describedby</code> pointing at the actual title and message text. Screen readers announce meaningful content.</td></tr>
+      <tr><td>Keyboard focus rings</td><td>2.4.7 Focus Visible</td><td>3px amber outline on buttons (<code>:focus-visible</code>) and 3px outline on toggle switches (<code>:focus-within</code>) make keyboard navigation clearly visible.</td></tr>
+      <tr><td>Screen reader announcement</td><td>4.1.3 Status Messages</td><td>When "Customize" is clicked, the preferences panel gets <code>aria-live="polite"</code> and focus moves to the section heading so screen reader users know new content appeared.</td></tr>
+    </table>
+    <h2 class="doc-h2">Configuring Accessibility Features</h2>
+    <p>All accessibility features are on by default. Some can be toggled in <strong>CookiEzu → Settings → Advanced → Keyboard Settings</strong>:</p>
+    <table class="doc-table">
+      <tr><th>Setting</th><th>Default</th><th>Recommendation</th></tr>
+      <tr><td>Allow Esc key to dismiss the banner</td><td>✓ On</td><td>Keep enabled — required for WCAG 2.1 keyboard compliance</td></tr>
+      <tr><td>Re-open Button Position</td><td>Bottom Left</td><td>Choose Bottom Right if you have a chat widget on the left</td></tr>
+    </table>
+    <div class="callout callout-warn">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body"><strong>Don't disable the Escape key setting</strong> unless you have a specific reason. Some accessibility regulations (notably WCAG 2.1 §2.1) require that dialogs be dismissible via keyboard. Disabling this may cause a compliance failure for keyboard-only users.</div>
+    </div>
+  </section>
+
+  <!-- ═══ TEST MODE ═══ -->
+  <section class="doc-section" id="test-mode">
+    <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>Test Mode</div>
+    <div class="page-hero" data-emoji="🔧">
+      <div class="doc-eyebrow">New in v1.2.0</div>
+      <h1 class="doc-h1">Test <em>Mode</em></h1>
+      <p class="doc-lead">Preview your banner design and functionality without clearing your consent cookie every time.</p>
+    </div>
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">What It Does</h2>
+    <p>When Test Mode is enabled in <strong>Advanced settings</strong>, the banner always shows for logged-in WordPress administrators — even if they already have a valid consent cookie. This lets you preview design changes, test category toggles, and verify the Customize flow without clearing browser cookies each time.</p>
+    <div class="callout callout-tip">
+      <span class="callout-icon">🔧</span>
+      <div class="callout-body"><strong>A floating "🔧 TEST MODE — Admins only" badge</strong> appears in the bottom-right corner of the screen when Test Mode is active so you always know you're in preview mode. Normal visitors see neither the test badge nor any difference in banner behaviour.</div>
+    </div>
+    <h2 class="doc-h2">Important Notes</h2>
+    <table class="doc-table">
+      <tr><th>Behaviour</th><th>In Test Mode</th></tr>
+      <tr><td>Banner shows to</td><td>Logged-in admins only (always)</td></tr>
+      <tr><td>Consent recorded</td><td>No — test mode clicks are not recorded to the consent log</td></tr>
+      <tr><td>Visitors see</td><td>Normal behaviour — unaffected by test mode</td></tr>
+      <tr><td>Badge visible to visitors</td><td>No — badge is CSS-hidden for non-admins via PHP</td></tr>
+    </table>
+    <div class="callout callout-warn">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body"><strong>Remember to turn Test Mode off</strong> before going live or presenting the site to a client. The banner always showing for you can mask whether the real banner trigger is working correctly for actual visitors.</div>
+    </div>
   </section>
 
   <!-- ═══ GA4 ═══ -->
   <section class="doc-section" id="ga4">
     <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Integrations<span class="breadcrumb-sep">›</span>Google Analytics 4</div>
-    <div class="page-hero" data-emoji="📊">
+    <div class="page-hero" data-emoji="📈">
       <div class="doc-eyebrow">Integration</div>
       <h1 class="doc-h1">Google <em>Analytics 4</em></h1>
       <p class="doc-lead">Auto-load GA4 with full Consent Mode v2 support — no additional plugins or code needed.</p>
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">How It Works</h2>
-    <p>When you enter a GA4 Measurement ID, CookiEzu automatically injects the gtag.js script and sets up <strong>Consent Mode v2</strong> — Google's official privacy framework. By default, all consent signals are set to <strong>denied</strong>. When a visitor accepts analytics cookies, CookiEzu updates the signals to <strong>granted</strong> and GA4 begins full tracking.</p>
+    <p>When you enter a GA4 Measurement ID, CookiEzu injects the gtag.js script and sets up <strong>Consent Mode v2</strong>. By default all consent signals are <strong>denied</strong>. When a visitor accepts analytics cookies, CookiEzu updates the signals to <strong>granted</strong> and GA4 begins full tracking.</p>
     <div class="callout callout-tip">
       <span class="callout-icon">✅</span>
       <div class="callout-body"><strong>This keeps you compliant</strong> — GA4 won't set any cookies or track behaviour until the visitor explicitly consents to Analytics cookies.</div>
@@ -562,13 +795,13 @@ pre .num { color: #FDE68A; }
     <h2 class="doc-h2">Setup</h2>
     <div class="steps">
       <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Create a GA4 property</div><div class="step-desc">Go to <a href="https://analytics.google.com" target="_blank" style="color:var(--cookie)">analytics.google.com</a> → Admin → Create Property. Choose Google Analytics 4.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Copy your Measurement ID</div><div class="step-desc">In your GA4 property, go to <strong>Admin → Data Streams → your stream</strong>. Copy the Measurement ID (format: <code>G-XXXXXXXXXX</code>).</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Paste into CookiEzu</div><div class="step-desc">Go to <strong>CookiEzu → Settings → Integrations</strong>. Paste your ID into the <strong>Google Analytics 4 ID</strong> field and save.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Verify</div><div class="step-desc">Visit your site, accept analytics cookies, then check the <strong>Realtime</strong> report in GA4 — you should see yourself as an active user.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Copy your Measurement ID</div><div class="step-desc">Admin → Data Streams → your stream. Copy the ID (format: <code>G-XXXXXXXXXX</code>).</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Paste into CookiEzu</div><div class="step-desc"><strong>CookiEzu → Settings → Integrations → Google Analytics 4 ID</strong>. Save.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Verify</div><div class="step-desc">Visit your site, accept analytics, then check <strong>Realtime</strong> in GA4. You should see yourself as an active user.</div></div></div>
     </div>
     <div class="callout callout-warn">
       <span class="callout-icon">⚠️</span>
-      <div class="callout-body"><strong>Don't use another GA4 plugin at the same time.</strong> If you already load GA4 via MonsterInsights or Site Kit, remove that first — otherwise GA4 will load twice and data will be doubled.</div>
+      <div class="callout-body"><strong>Don't use another GA4 plugin at the same time.</strong> MonsterInsights, Site Kit, or any other GA4 plugin will conflict — remove them first or GA4 data will be doubled.</div>
     </div>
   </section>
 
@@ -582,9 +815,9 @@ pre .num { color: #FDE68A; }
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Setup</h2>
     <div class="steps">
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Get your GTM Container ID</div><div class="step-desc">Go to <a href="https://tagmanager.google.com" target="_blank" style="color:var(--cookie)">tagmanager.google.com</a>. Your container ID is in the top right (format: <code>GTM-XXXXXXX</code>).</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Enter it in CookiEzu</div><div class="step-desc">Go to <strong>CookiEzu → Settings → Integrations → Google Tag Manager ID</strong> and save.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Create triggers in GTM</div><div class="step-desc">In GTM, create a Custom Event trigger that fires on <code>cookiezu_consent_updated</code>. Use it to fire tags like Facebook Pixel or Hotjar only when the relevant consent category is granted.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Get your GTM Container ID</div><div class="step-desc">Go to <a href="https://tagmanager.google.com" target="_blank" style="color:var(--cookie)">tagmanager.google.com</a>. Your container ID is top-right (format: <code>GTM-XXXXXXX</code>).</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Enter it in CookiEzu</div><div class="step-desc"><strong>CookiEzu → Settings → Integrations → Google Tag Manager ID</strong>. Save.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Create triggers in GTM</div><div class="step-desc">In GTM, create a Custom Event trigger that fires on <code>cookiezu_consent_updated</code>. Use it to fire Facebook Pixel, Hotjar, or any other tag only when the relevant consent is granted.</div></div></div>
     </div>
     <h2 class="doc-h2">dataLayer Event Structure</h2>
     <pre><div class="pre-label">JavaScript</div><code>{
@@ -594,11 +827,11 @@ pre .num { color: #FDE68A; }
     <span class="str">analytics</span>:  <span class="kw">true</span>,   <span class="cm">// or false</span>
     <span class="str">marketing</span>:  <span class="kw">false</span>,
     <span class="str">functional</span>: <span class="kw">true</span>,
-    <span class="str">version</span>:    <span class="str">"1.1.0"</span>,
-    <span class="str">date</span>:       <span class="str">"2025-03-01T10:22:00.000Z"</span>
+    <span class="str">version</span>:    <span class="str">"1.2.1"</span>,
+    <span class="str">date</span>:       <span class="str">"2026-02-28T10:22:00.000Z"</span>
   }
 }</code></pre>
-    <p>In GTM you can access these values as <code>{{dlv - cookiezu.analytics}}</code> etc. to conditionally fire tags.</p>
+    <p>Access these in GTM as <code>{{dlv - cookiezu.analytics}}</code> etc. to conditionally fire tags.</p>
   </section>
 
   <!-- ═══ JS API ═══ -->
@@ -610,7 +843,7 @@ pre .num { color: #FDE68A; }
       <p class="doc-lead">Load any third-party script conditionally based on what the visitor consented to — no GTM required.</p>
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">The Consent Event</h2>
-    <p>Every time a visitor saves their consent preferences, CookiEzu fires a custom DOM event called <code>cookiezuConsentUpdated</code>. You can listen for this anywhere in your theme or plugin code.</p>
+    <p>Every time a visitor saves their preferences, CookiEzu fires a custom DOM event called <code>cookiezuConsentUpdated</code>.</p>
     <pre><div class="pre-label">JavaScript</div><code><span class="fn">document</span>.<span class="fn">addEventListener</span>(<span class="str">'cookiezuConsentUpdated'</span>, <span class="kw">function</span>(e) {
   <span class="kw">const</span> consent = e.detail;
 
@@ -620,17 +853,16 @@ pre .num { color: #FDE68A; }
   <span class="cm">// consent.functional → true or false</span>
 
   <span class="kw">if</span> (consent.analytics) {
-    <span class="fn">loadHotjar</span>(); <span class="cm">// Load Hotjar, Plausible, etc.</span>
+    <span class="fn">loadHotjar</span>(); <span class="cm">// load any analytics tool</span>
   }
   <span class="kw">if</span> (consent.marketing) {
-    <span class="fn">loadFBPixel</span>(); <span class="cm">// Load Facebook Pixel</span>
+    <span class="fn">loadFBPixel</span>(); <span class="cm">// load Facebook Pixel</span>
   }
   <span class="kw">if</span> (consent.functional) {
-    <span class="fn">loadIntercom</span>(); <span class="cm">// Load Intercom chat widget</span>
+    <span class="fn">loadIntercom</span>(); <span class="cm">// load chat widget</span>
   }
 });</code></pre>
     <h2 class="doc-h2">Reading Consent Without the Event</h2>
-    <p>You can also read the current consent state directly from the browser cookie:</p>
     <pre><div class="pre-label">JavaScript</div><code><span class="kw">function</span> <span class="fn">getCookieZuConsent</span>() {
   <span class="kw">const</span> match = document.cookie.match(<span class="str">/cookiezu_consent=([^;]*)/</span>);
   <span class="kw">if</span> (!match) <span class="kw">return null</span>;
@@ -640,7 +872,7 @@ pre .num { color: #FDE68A; }
 
 <span class="kw">const</span> consent = <span class="fn">getCookieZuConsent</span>();
 <span class="kw">if</span> (consent?.analytics) {
-  <span class="cm">// analytics already accepted — load scripts</span>
+  <span class="cm">// already consented — load scripts immediately</span>
 }</code></pre>
   </section>
 
@@ -654,7 +886,7 @@ pre .num { color: #FDE68A; }
     </div>
     <div class="callout callout-warn">
       <span class="callout-icon">⚠️</span>
-      <div class="callout-body"><strong>This is not legal advice.</strong> CookiEzu helps you implement consent technically, but you should consult a legal professional for advice specific to your business and jurisdiction.</div>
+      <div class="callout-body"><strong>This is not legal advice.</strong> CookiEzu helps you implement consent technically, but you should consult a qualified legal professional for advice specific to your business and jurisdiction.</div>
     </div>
     <h2 class="doc-h2">GDPR Checklist</h2>
     <table class="doc-table">
@@ -662,10 +894,12 @@ pre .num { color: #FDE68A; }
       <tr><td>Consent before non-essential cookies</td><td>Enabled by default</td><td><span class="badge badge-green">✓ Built-in</span></td></tr>
       <tr><td>Granular category choices</td><td>Enable categories in Categories tab</td><td><span class="badge badge-green">✓ Built-in</span></td></tr>
       <tr><td>Easy to withdraw consent</td><td>Re-open 🍪 button always visible</td><td><span class="badge badge-green">✓ Built-in</span></td></tr>
-      <tr><td>Link to Privacy Policy</td><td>Set in Content tab → Privacy Policy URL</td><td><span class="badge badge-cookie">⚙ Configure</span></td></tr>
+      <tr><td>Keyboard accessible dialog</td><td>Focus trap + Escape key — on by default</td><td><span class="badge badge-green">✓ v1.2.0</span></td></tr>
+      <tr><td>Link to Privacy Policy</td><td>Content tab → Privacy Policy URL</td><td><span class="badge badge-cookie">⚙ Configure</span></td></tr>
       <tr><td>Audit trail / record of consent</td><td>Enable Record Consent in Advanced tab</td><td><span class="badge badge-cookie">⚙ Configure</span></td></tr>
       <tr><td>Re-obtain consent periodically</td><td>Set Consent Expiry to 365 days max</td><td><span class="badge badge-cookie">⚙ Configure</span></td></tr>
       <tr><td>No pre-ticked marketing boxes</td><td>Marketing toggle is off by default</td><td><span class="badge badge-green">✓ Built-in</span></td></tr>
+      <tr><td>Data minimisation (country tracking)</td><td>Country code only — no city/region stored</td><td><span class="badge badge-green">✓ v1.2.1</span></td></tr>
     </table>
   </section>
 
@@ -684,11 +918,11 @@ pre .num { color: #FDE68A; }
       <tr><td>🇲🇾 Malaysia</td><td>PDPA 2010</td><td>Consent must be informed and voluntary. Data subjects can withdraw consent at any time.</td></tr>
       <tr><td>🇹🇭 Thailand</td><td>PDPA 2019</td><td>Similar to GDPR. Requires explicit consent for sensitive data. Effective since 2022.</td></tr>
       <tr><td>🇸🇬 Singapore</td><td>PDPA 2012 (amended 2021)</td><td>Deemed consent rules apply. Must provide opt-out mechanisms.</td></tr>
-      <tr><td>🇧🇳 Brunei</td><td>No dedicated PDPA yet</td><td>Best practice is to follow GDPR/Malaysian PDPA standards. Likely legislation incoming.</td></tr>
+      <tr><td>🇧🇳 Brunei</td><td>No dedicated PDPA yet</td><td>Best practice: follow GDPR/Malaysian PDPA standards. Legislation likely incoming.</td></tr>
     </table>
     <div class="callout callout-tip">
       <span class="callout-icon">💡</span>
-      <div class="callout-body"><strong>Recommended setup for SEA sites:</strong> Enable all relevant categories, turn on Record Consent, set expiry to 365 days, and link to a Privacy Policy that mentions your data practices in the local language.</div>
+      <div class="callout-body"><strong>Recommended setup for SEA sites:</strong> Enable all relevant categories, turn on Record Consent, set expiry to 365 days, and link to a Privacy Policy that covers your data practices in the local language.</div>
     </div>
   </section>
 
@@ -703,32 +937,33 @@ pre .num { color: #FDE68A; }
     <p>Paste your CSS into <strong>CookiEzu → Settings → Advanced → Custom CSS</strong>. It is output in a <code>&lt;style&gt;</code> tag in your page footer, after the plugin's main stylesheet, so it takes full precedence.</p>
     <div class="callout callout-warn">
       <span class="callout-icon">⚠️</span>
-      <div class="callout-body"><strong>Do not use <code>display: none !important</code> on the banner itself.</strong> In v1.1.0, visibility is controlled by inline JavaScript styles. Adding <code>display: none !important</code> via Custom CSS could permanently hide the banner for all visitors.</div>
+      <div class="callout-body"><strong>Do not use <code>display: none !important</code> on the banner itself.</strong> Visibility is controlled by inline JavaScript styles. CSS <code>display: none !important</code> can permanently hide the banner for all visitors.</div>
     </div>
     <h2 class="doc-h2">CSS Variables Reference</h2>
     <pre><div class="pre-label">CSS Variables</div><code><span class="fn">:root</span> {
-  <span class="cm">/* Colours */</span>
-  --cz-primary:        <span class="str">#C17B2F</span>;   <span class="cm">/* buttons, toggles, links */</span>
-  --cz-primary-hover:  <span class="str">#A8681F</span>;   <span class="cm">/* button hover state */</span>
+  <span class="cm">/* Colours (all overrideable) */</span>
+  --cz-cookie:         <span class="str">#C17B2F</span>;   <span class="cm">/* buttons, toggles, links */</span>
+  --cz-cookie-pale:    <span class="str">#FDF3E3</span>;   <span class="cm">/* light checked bg — auto-overridden in dark mode */</span>
   --cz-text:           <span class="str">#1A1208</span>;   <span class="cm">/* all text */</span>
   --cz-text-muted:     <span class="str">rgba(26,18,8,0.55)</span>;
   --cz-bg:             <span class="str">#FEFCF8</span>;   <span class="cm">/* banner background */</span>
-  --cz-surface:        <span class="str">#FBF7F0</span>;   <span class="cm">/* category card background */</span>
+  --cz-surface:        <span class="str">#FBF7F0</span>;   <span class="cm">/* unchecked category card */</span>
   --cz-border:         <span class="str">rgba(26,18,8,0.10)</span>;
 
   <span class="cm">/* Shape */</span>
-  --cz-radius:         <span class="str">10px</span>;      <span class="cm">/* buttons & category cards */</span>
-  --cz-radius-lg:      <span class="str">16px</span>;      <span class="cm">/* box/modal container */</span>
+  --cz-radius:         <span class="str">10px</span>;
+  --cz-radius-lg:      <span class="str">16px</span>;
+}</code></pre>
+    <h2 class="doc-h2">Example — Dark Mode Override</h2>
+    <pre><div class="pre-label">CSS</div><code><span class="cm">/* Deepen the dark background further */</span>
+<span class="fn">.cookiezu-theme-dark</span> {
+  --cz-bg:      <span class="str">#0D0904</span>;
+  --cz-surface: <span class="str">#150F08</span>;
 }</code></pre>
     <h2 class="doc-h2">Example — Custom Font</h2>
     <pre><div class="pre-label">CSS</div><code><span class="fn">.cookiezu-banner</span> {
   <span class="kw">font-family</span>: <span class="str">'Georgia', serif</span>;
 }</code></pre>
-    <h2 class="doc-h2">Example — Hide the Re-open Button</h2>
-    <pre><div class="pre-label">CSS</div><code><span class="fn">.cookiezu-reopen</span> {
-  <span class="kw">display</span>: <span class="str">none !important</span>;
-}
-<span class="cm">/* Note: hiding this may reduce GDPR compliance */</span></code></pre>
   </section>
 
   <!-- ═══ HOOKS ═══ -->
@@ -746,9 +981,9 @@ pre .num { color: #FDE68A; }
       <tr><td>cookiezu_before_banner</td><td>Action</td><td>Output content before the banner renders in the footer.</td></tr>
       <tr><td>cookiezu_after_banner</td><td>Action</td><td>Output content after the banner renders in the footer.</td></tr>
     </table>
-    <h2 class="doc-h2">Example — Override options per page</h2>
+    <h2 class="doc-h2">Example — Override layout per page</h2>
     <pre><div class="pre-label">PHP</div><code><span class="fn">add_filter</span>( <span class="str">'cookiezu_options'</span>, <span class="kw">function</span>( $options ) {
-  <span class="cm">// Use modal layout on checkout page</span>
+  <span class="cm">// Use modal on checkout, bar everywhere else</span>
   <span class="kw">if</span> ( is_checkout() ) {
     $options[<span class="str">'layout'</span>]   = <span class="str">'modal'</span>;
     $options[<span class="str">'position'</span>] = <span class="str">'bottom'</span>;
@@ -765,25 +1000,25 @@ pre .num { color: #FDE68A; }
       <h1 class="doc-h1">Trouble<em>shooting</em></h1>
       <p class="doc-lead">Diagnosing and fixing the most common issues with CookiEzu.</p>
     </div>
-    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Modal doesn't close when clicking buttons</h2>
+    <h3 class="doc-h3" style="margin-top:0">Dark mode text unreadable on category cards</h3>
     <div class="callout callout-fix">
       <span class="callout-icon">🐛</span>
-      <div class="callout-body"><strong>This was a known bug in v1.0.0.</strong> Upgrade to v1.1.0 — the fix is included. See the <a href="#" onclick="showSection('changelog')" style="color:inherit;text-decoration:underline">Changelog</a> for full details.</div>
+      <div class="callout-body"><strong>Fixed in v1.2.1.</strong> Upgrade from any older version. If you're already on v1.2.1 and still see this, check that your caching plugin hasn't cached the old CSS. Clear all caches after upgrading.</div>
     </div>
     <h3 class="doc-h3">Banner doesn't appear at all</h3>
-    <p>The most common cause is that you (or a visitor) already have a consent cookie stored. Open your browser DevTools → Application tab → Cookies and look for <code>cookiezu_consent</code>. Delete it and refresh. Always test in a private/incognito window to simulate a first-time visitor.</p>
-    <h3 class="doc-h3">Banner appears but JS seems broken (buttons unresponsive)</h3>
-    <p>Open DevTools → Console tab and look for red JavaScript errors. Common causes: a caching plugin serving the old JS file, a theme or other plugin causing a JS conflict, or the plugin files being corrupted during upload. Try deactivating other plugins one-by-one to isolate a conflict. Also try clearing your caching plugin's cache.</p>
-    <h3 class="doc-h3">After upgrading, the old behaviour persists</h3>
-    <p>A caching plugin (WP Super Cache, W3 Total Cache, LiteSpeed Cache, etc.) may be serving the old JS file. Clear all caches after upgrading. Also check if your hosting has server-level caching (common on managed WordPress hosts like Kinsta, WP Engine, Flywheel) and clear that too.</p>
+    <p>Most common cause: you already have a consent cookie. Open DevTools → Application → Cookies, find <code>cookiezu_consent</code>, delete it, and refresh. Always test in an incognito window. Alternatively, turn on <strong>Test Mode</strong> in Advanced to force the banner to show for admins without clearing cookies.</p>
+    <h3 class="doc-h3">Country shows "—" in the log</h3>
+    <p>The <code>country_code</code> column was added in v1.2.1. If records show "—" for country, these were created before the upgrade. All new consents after upgrading will have the country code populated. You can also check if your server is behind Cloudflare (fastest method) or confirm that outbound HTTP requests to <code>geoplugin.net</code> are not blocked by your firewall.</p>
+    <h3 class="doc-h3">Live preview doesn't update</h3>
+    <p>The live preview relies on jQuery being loaded on the admin page (it always is in WordPress admin). If the preview doesn't update, open DevTools Console and look for JavaScript errors. A common cause is a third-party admin plugin that breaks the global jQuery object. Try disabling other plugins temporarily.</p>
+    <h3 class="doc-h3">After upgrading, old behaviour persists</h3>
+    <p>A caching plugin is serving the old JS/CSS. Clear WP Super Cache, W3 Total Cache, LiteSpeed Cache, Cloudflare cache, and any server-level cache your host provides (Kinsta, WP Engine, Flywheel all have these). Then hard-refresh with Ctrl+Shift+R.</p>
     <div class="callout callout-tip">
       <span class="callout-icon">💡</span>
-      <div class="callout-body"><strong>Quick diagnostic:</strong> In DevTools Console, run <code>fetch('/wp-content/plugins/cookiezu/public/js/cookiezu-public.js').then(r=>r.text()).then(t=>console.log(t.slice(0,200)))</code>. If the output contains <code>cz-hidden</code> you're still on the old version. If it contains <code>style.display</code> you have v1.1.0.</div>
+      <div class="callout-body"><strong>Quick diagnostic:</strong> In DevTools Console, run <code>fetch('/wp-content/plugins/cookiezu/public/js/cookiezu-public.js').then(r=>r.text()).then(t=>console.log(t.slice(0,300)))</code>. If the output contains <code>trapFocus</code> and <code>testMode</code> you have v1.2.x. If it only contains <code>style.display</code> without those, you have v1.1.0.</div>
     </div>
     <h3 class="doc-h3">Consent log is empty</h3>
-    <p>Make sure <strong>Record Consent</strong> is enabled in <strong>CookiEzu → Settings → Advanced</strong>. Also check that your WordPress AJAX URL is correct — test by running <code>console.log(cookiezuSettings.ajaxUrl)</code> in the browser console. If it's empty or wrong, there may be a conflict with your permalink structure.</p>
-    <h3 class="doc-h3">GA4 isn't tracking after consent</h3>
-    <p>First, check you haven't got another GA4 plugin loaded (MonsterInsights, Site Kit, etc.) — they conflict. Then open DevTools → Network tab, accept analytics cookies, and look for a request to <code>google-analytics.com</code> or <code>googletagmanager.com</code>. If there's no network request, the GA ID may be incorrectly entered. Check it matches the <code>G-XXXXXXXXXX</code> format exactly.</p>
+    <p>Make sure <strong>Record Consent</strong> is enabled in <strong>Advanced</strong>. Also run <code>console.log(cookiezuSettings.ajaxUrl)</code> in the browser console to verify the AJAX URL is correct.</p>
   </section>
 
   <!-- ═══ FAQ ═══ -->
@@ -794,20 +1029,20 @@ pre .num { color: #FDE68A; }
       <h1 class="doc-h1">Frequently Asked <em>Questions</em></h1>
       <p class="doc-lead">Quick answers to the most common questions about CookiEzu.</p>
     </div>
-    <h3 class="doc-h3">Will CookiEzu slow my site down?</h3>
-    <p>No. The front-end JavaScript is under 4KB with zero dependencies. The CSS is ~6KB. Both load asynchronously in the footer and have no impact on your Core Web Vitals or page speed score.</p>
+    <h3 class="doc-h3" style="margin-top:0">Will CookiEzu slow my site down?</h3>
+    <p>No. The front-end JavaScript is under 4KB with zero dependencies. The CSS is ~6KB. Both load in the footer and have no impact on Core Web Vitals or page speed.</p>
+    <h3 class="doc-h3">Does country tracking slow consent recording?</h3>
+    <p>For Cloudflare users: no — the country comes from a header with zero latency. For everyone else, the <code>geoplugin.net</code> lookup has a 3-second timeout and results are cached per IP for 24 hours (WordPress transients), so repeat visitors from the same IP have instant resolution. If the lookup fails or times out, an empty string is stored gracefully — consent recording never fails because of country detection.</p>
+    <h3 class="doc-h3">Is the live preview exactly what visitors see?</h3>
+    <p>The preview is a proportional approximation. Layout, theme, colours, and shapes are accurate. Exact pixel-level spacing and font rendering will differ slightly because the preview is scaled down inside an admin panel. Always verify in incognito on your real site before going live.</p>
     <h3 class="doc-h3">Can I use CookiEzu with WooCommerce?</h3>
-    <p>Yes. WooCommerce's session cookies are Necessary cookies and don't require consent. You only need to show the Marketing category if you run WooCommerce Ads or remarketing. The plugin works seamlessly alongside WooCommerce.</p>
-    <h3 class="doc-h3">Why does the banner show again after I dismissed it?</h3>
-    <p>This happens when you're in a private/incognito window (cookies are wiped when you close it), or when the consent cookie has expired. Check your <strong>Consent Expiry</strong> setting in the Advanced tab.</p>
-    <h3 class="doc-h3">Does CookiEzu block scripts automatically?</h3>
-    <p>In v1.1.0, CookiEzu fires the <code>cookiezuConsentUpdated</code> JavaScript event which you use to load scripts conditionally. Automatic script blocking (changing <code>type="text/javascript"</code> to <code>type="text/plain"</code>) is planned for v2.</p>
+    <p>Yes. WooCommerce's session and cart cookies are Necessary and don't require consent. Show Marketing only if you run WooCommerce Ads or remarketing. The plugin is fully compatible with WooCommerce.</p>
     <h3 class="doc-h3">Is this plugin free forever?</h3>
-    <p>Yes. CookiEzu is released under the GPL v2 license. You can use it on unlimited sites, modify it, and redistribute it. There are no paid tiers, no usage limits, and no subscriptions.</p>
-    <h3 class="doc-h3">How do I report a bug or request a feature?</h3>
-    <p>Open an issue on <a href="https://github.com/flyzal/CookiEzu/issues" target="_blank" style="color:var(--cookie)">github.com/flyzal/CookiEzu/issues</a>. Pull requests are also very welcome!</p>
-    <h3 class="doc-h3">Why do I need to delete the plugin before upgrading?</h3>
-    <p>Some caching plugins and WordPress installations keep the old files on disk even after a re-upload. Deleting first guarantees a clean slate. Your settings and consent log are stored in the WordPress database and are never deleted when you remove the plugin files.</p>
+    <p>Yes. CookiEzu is GPL v2 licensed. Use it on unlimited sites, modify it, redistribute it. No paid tiers, no usage limits, no subscriptions.</p>
+    <h3 class="doc-h3">Does CookiEzu block scripts automatically?</h3>
+    <p>Not yet. v1.2.1 fires the <code>cookiezuConsentUpdated</code> JS event which you use to load scripts conditionally. Automatic script blocking (rewriting <code>type="text/javascript"</code> → <code>type="text/plain"</code>) is planned for v2.</p>
+    <h3 class="doc-h3">How do I report a bug?</h3>
+    <p>Open an issue at <a href="https://github.com/flyzal/CookiEzu/issues" target="_blank" style="color:var(--cookie)">github.com/flyzal/CookiEzu/issues</a>. Include your WP version, PHP version, active theme, layout, and exact reproduction steps.</p>
   </section>
 
   <!-- ═══ ROADMAP ═══ -->
@@ -819,34 +1054,33 @@ pre .num { color: #FDE68A; }
       <p class="doc-lead">Planned features for CookiEzu v2 and beyond. All community suggestions welcome on GitHub.</p>
     </div>
 
-    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">✅ Completed — v1.0 & v1.1</h2>
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">✅ Completed — v1.0 through v1.2.1</h2>
     <div class="roadmap-grid">
-      <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">🎨 Bar, Box & Modal Layouts</div><div class="roadmap-card-desc">Three distinct banner designs × 4 positions. All fully working and dismissible as of v1.1.0.</div><div class="roadmap-card-icon">🎨</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">🎨 Bar, Box & Modal Layouts</div><div class="roadmap-card-desc">Three distinct banner designs × 4 positions. All working and dismissible.</div><div class="roadmap-card-icon">🎨</div></div>
       <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">📊 GA4 Consent Mode v2</div><div class="roadmap-card-desc">Auto-load Google Analytics with full Consent Mode v2 — analytics_storage and ad_storage signals.</div><div class="roadmap-card-icon">📊</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">🔒 Consent Audit Log</div><div class="roadmap-card-desc">Every consent event recorded to the WordPress database with date, IP, and per-category values.</div><div class="roadmap-card-icon">🔒</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">🏷️ GTM dataLayer Events</div><div class="roadmap-card-desc">Consent events pushed to window.dataLayer for use in Google Tag Manager trigger conditions.</div><div class="roadmap-card-icon">🏷️</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v11">v1.1.0</div><div class="roadmap-card-title">🐛 Modal Dismiss Fix</div><div class="roadmap-card-desc">All layout types now correctly dismiss on button click. JS engine rewritten to use inline style.display.</div><div class="roadmap-card-icon">🐛</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v11">v1.1.0</div><div class="roadmap-card-title">🌗 Light, Dark & Custom Themes</div><div class="roadmap-card-desc">Three built-in themes plus full custom colour control via colour pickers in the admin panel.</div><div class="roadmap-card-icon">🌗</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">🔒 Consent Audit Log</div><div class="roadmap-card-desc">Every consent event recorded with date, IP, country code, and per-category values.</div><div class="roadmap-card-icon">🔒</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">♿ WCAG 2.1 AA Accessibility</div><div class="roadmap-card-desc">Focus trap, Escape key, focus return, aria-labelledby, keyboard rings. Fully compliant since v1.2.0.</div><div class="roadmap-card-icon">♿</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v121">v1.2.1</div><div class="roadmap-card-title">📊 Consent Analytics Dashboard</div><div class="roadmap-card-desc">Donut charts, category bars, 30-day trend, and country breakdown — all inside WordPress admin. Ships in v1.2.1.</div><div class="roadmap-card-icon">📈</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v121">v1.2.1</div><div class="roadmap-card-title">👁️ Live Design Preview</div><div class="roadmap-card-desc">Instant banner preview in the Design tab — updates as you change layout, theme, colours, and text without saving.</div><div class="roadmap-card-icon">👁️</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v121">v1.2.1</div><div class="roadmap-card-title">🌍 Visitor Country Tracking</div><div class="roadmap-card-desc">2-letter ISO country code stored per consent. Cloudflare header → geoplugin.net API → empty fallback. GDPR minimal data.</div><div class="roadmap-card-icon">🌍</div></div>
     </div>
 
     <h2 class="doc-h2">Version 2.0 — Smarter Consent</h2>
     <div class="roadmap-grid">
-      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🚫 Automatic Script Blocking</div><div class="roadmap-card-desc">Automatically block third-party scripts until consent is given by rewriting script tags. No manual code needed from site owners.</div><div class="roadmap-card-icon">🚫</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🔍 Auto Cookie Scanner</div><div class="roadmap-card-desc">Automatically scan your site for cookies and third-party scripts, then pre-fill the cookie details table with real data.</div><div class="roadmap-card-icon">🔍</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🌍 Multi-language Support</div><div class="roadmap-card-desc">Detect visitor language via browser settings and show the banner in their language automatically. Supports WPML and Polylang.</div><div class="roadmap-card-icon">🌍</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">📍 Geo-targeting Rules</div><div class="roadmap-card-desc">Show different banner behaviour based on visitor location — stricter GDPR mode for EU visitors, lighter touch for others.</div><div class="roadmap-card-icon">📍</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">📤 Consent Log CSV Export</div><div class="roadmap-card-desc">Export your full consent log as a CSV file directly from the admin panel — useful for compliance audits and legal requests.</div><div class="roadmap-card-icon">📤</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🎨 More Banner Templates</div><div class="roadmap-card-desc">Pre-designed banner templates (Minimal, Bold, Soft, Corporate) that you can apply in one click and customise from there.</div><div class="roadmap-card-icon">🎨</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🚫 Automatic Script Blocking</div><div class="roadmap-card-desc">Block third-party scripts until consent by rewriting script tags. No manual code needed from site owners.</div><div class="roadmap-card-icon">🚫</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🔍 Auto Cookie Scanner</div><div class="roadmap-card-desc">Scan your site for cookies and pre-fill the cookie details table with real provider and expiry data.</div><div class="roadmap-card-icon">🔍</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🌐 Multi-language Support</div><div class="roadmap-card-desc">Detect visitor language via browser settings. Supports WPML and Polylang.</div><div class="roadmap-card-icon">🌐</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">📍 Geo-targeting Rules</div><div class="roadmap-card-desc">Stricter GDPR mode for EU visitors, lighter touch for others — based on the country data now being collected.</div><div class="roadmap-card-icon">📍</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">📤 Consent Log CSV Export</div><div class="roadmap-card-desc">Export your full consent log as CSV directly from the admin panel — for compliance audits and legal requests.</div><div class="roadmap-card-icon">📤</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🎨 More Banner Templates</div><div class="roadmap-card-desc">Pre-designed templates (Minimal, Bold, Soft, Corporate) that you can apply in one click.</div><div class="roadmap-card-icon">🎨</div></div>
     </div>
 
     <h2 class="doc-h2">Version 3.0 — Power Features</h2>
     <div class="roadmap-grid">
-      <div class="roadmap-card"><div class="roadmap-card-label label-v3">v3.0</div><div class="roadmap-card-title">📊 Consent Analytics Dashboard</div><div class="roadmap-card-desc">Built-in charts showing consent rate over time, category acceptance breakdown, and trends — right in your WordPress admin.</div><div class="roadmap-card-icon">📊</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v3">v3.0</div><div class="roadmap-card-title">🤖 AI-Powered Cookie Detection</div><div class="roadmap-card-desc">Use AI to classify unknown cookies on your site and suggest which category they belong to automatically.</div><div class="roadmap-card-icon">🤖</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v3">v3.0</div><div class="roadmap-card-title">🤖 AI-Powered Cookie Detection</div><div class="roadmap-card-desc">Use AI to classify unknown cookies on your site and suggest their category automatically.</div><div class="roadmap-card-icon">🤖</div></div>
       <div class="roadmap-card"><div class="roadmap-card-label label-v3">v3.0</div><div class="roadmap-card-title">🔌 Deep Plugin Integrations</div><div class="roadmap-card-desc">Direct integrations with WooCommerce, Contact Form 7, Gravity Forms, Elementor, and popular analytics plugins.</div><div class="roadmap-card-icon">🔌</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v3">v3.0</div><div class="roadmap-card-title">🔔 Consent Webhooks</div><div class="roadmap-card-desc">Send consent events to external systems (CRMs, data warehouses, Zapier) via webhook when visitors make choices.</div><div class="roadmap-card-icon">🔔</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v3">v3.0</div><div class="roadmap-card-title">📧 Email Consent Receipts</div><div class="roadmap-card-desc">Optionally email visitors a copy of their consent record for maximum transparency and trust.</div><div class="roadmap-card-icon">📧</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-future">Future</div><div class="roadmap-card-title">📱 Mobile SDK</div><div class="roadmap-card-desc">A companion SDK for iOS and Android apps to manage cookie/tracking consent across web and mobile from one place.</div><div class="roadmap-card-icon">📱</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v3">v3.0</div><div class="roadmap-card-title">🔔 Consent Webhooks</div><div class="roadmap-card-desc">Send consent events to external systems (CRMs, data warehouses, Zapier) via webhook.</div><div class="roadmap-card-icon">🔔</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-future">Future</div><div class="roadmap-card-title">📱 Mobile SDK</div><div class="roadmap-card-desc">A companion SDK for iOS and Android apps to manage consent across web and mobile from one place.</div><div class="roadmap-card-icon">📱</div></div>
     </div>
 
     <div class="callout callout-tip">
@@ -854,17 +1088,16 @@ pre .num { color: #FDE68A; }
       <div class="callout-body"><strong>Have a feature idea?</strong> Open a GitHub Discussion at <a href="https://github.com/flyzal/CookiEzu/discussions" target="_blank" style="color:var(--cookie-h)">github.com/flyzal/CookiEzu/discussions</a>. Community votes influence what gets built first.</div>
     </div>
 
-    <h2 class="doc-h2">Current v1.1 Integrations</h2>
+    <h2 class="doc-h2">Current v1.2.1 Integrations</h2>
     <div class="integration-grid">
-      <div class="integration-card"><div class="integration-icon">📊</div><div><div class="integration-name">Google Analytics 4</div><div class="integration-desc">Auto-load with Consent Mode v2</div><div class="integration-status"><span class="badge badge-green">✓ Available</span></div></div></div>
+      <div class="integration-card"><div class="integration-icon">📈</div><div><div class="integration-name">Google Analytics 4</div><div class="integration-desc">Auto-load with Consent Mode v2</div><div class="integration-status"><span class="badge badge-green">✓ Available</span></div></div></div>
       <div class="integration-card"><div class="integration-icon">🏷️</div><div><div class="integration-name">Google Tag Manager</div><div class="integration-desc">dataLayer consent events</div><div class="integration-status"><span class="badge badge-green">✓ Available</span></div></div></div>
       <div class="integration-card"><div class="integration-icon">🔗</div><div><div class="integration-name">JavaScript API</div><div class="integration-desc">Custom event for any script</div><div class="integration-status"><span class="badge badge-green">✓ Available</span></div></div></div>
       <div class="integration-card"><div class="integration-icon">🪝</div><div><div class="integration-name">WP Hooks & Filters</div><div class="integration-desc">PHP-level customisation</div><div class="integration-status"><span class="badge badge-green">✓ Available</span></div></div></div>
+      <div class="integration-card"><div class="integration-icon">☁️</div><div><div class="integration-name">Cloudflare</div><div class="integration-desc">CF-IPCountry for instant geo</div><div class="integration-status"><span class="badge badge-green">✓ Auto-detected</span></div></div></div>
       <div class="integration-card"><div class="integration-icon">📘</div><div><div class="integration-name">Facebook Pixel</div><div class="integration-desc">Via GTM or JS API</div><div class="integration-status"><span class="badge badge-cookie">Via GTM</span></div></div></div>
-      <div class="integration-card"><div class="integration-icon">🔥</div><div><div class="integration-name">Hotjar</div><div class="integration-desc">Via GTM or JS API</div><div class="integration-status"><span class="badge badge-cookie">Via GTM</span></div></div></div>
     </div>
   </section>
-
 
   <!-- ═══ DISCLAIMER ═══ -->
   <section class="doc-section" id="disclaimer">
@@ -876,16 +1109,12 @@ pre .num { color: #FDE68A; }
     </div>
     <div class="callout callout-warn">
       <span class="callout-icon">⚠️</span>
-      <div class="callout-body"><strong>Please read this before deploying CookiEzu on a live website.</strong> Installing this plugin does not automatically make your website legally compliant. Compliance depends on how you configure it, which cookies your site actually loads, the accuracy of your Privacy Policy, and the laws that apply to your specific business and visitors.</div>
+      <div class="callout-body"><strong>Please read before deploying CookiEzu on a live website.</strong> Installing this plugin does not automatically make your website legally compliant. Compliance depends on how you configure it, which cookies your site loads, the accuracy of your Privacy Policy, and the laws that apply to your business and visitors.</div>
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">1. Not Legal Advice</h2>
-    <p>Nothing in this documentation, on the CookiEzu website, or within the plugin's code constitutes legal advice, legal opinion, or a legal recommendation of any kind. The information provided is for general technical guidance only. For advice specific to your business, jurisdiction, and data practices, you must consult a qualified legal professional or a certified Data Protection Officer (DPO).</p>
-    <div class="callout callout-info">
-      <span class="callout-icon">ℹ️</span>
-      <div class="callout-body">This is consistent with how every major cookie consent provider operates. Even the most widely-used platforms with enterprise legal teams explicitly state that their software and documentation do not constitute legal or regulatory advice.</div>
-    </div>
+    <p>Nothing in this documentation, on the CookiEzu website, or within the plugin's code constitutes legal advice, legal opinion, or a legal recommendation. The information provided is for general technical guidance only. For advice specific to your business, jurisdiction, and data practices, consult a qualified legal professional or a certified Data Protection Officer (DPO).</p>
     <h2 class="doc-h2">2. Software Provided "As Is" — GPL v2 Warranty Disclaimer</h2>
-    <p>CookiEzu is distributed under the <strong>GNU General Public License v2 (GPL v2)</strong>. As expressly stated in Sections 11 and 12 of that license, the software carries no warranty of any kind:</p>
+    <p>CookiEzu is distributed under the <strong>GNU General Public License v2 (GPL v2)</strong>. As stated in Sections 11 and 12 of that license:</p>
     <pre><div class="pre-label">GPL v2 — Sections 11 & 12</div><code><span class="cm">THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED
 BY APPLICABLE LAW. THE PROGRAM IS PROVIDED "AS IS" WITHOUT
 WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING
@@ -897,25 +1126,20 @@ IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW WILL ANY
 COPYRIGHT HOLDER BE LIABLE FOR DAMAGES, INCLUDING ANY GENERAL,
 SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF
 THE USE OR INABILITY TO USE THE PROGRAM.</span></code></pre>
-    <p>This means the author of CookiEzu makes no guarantee that the plugin will function correctly in every WordPress environment, remain compatible with future WordPress or PHP releases, or satisfy the requirements of any specific data protection authority or regulator.</p>
     <h2 class="doc-h2">3. No Liability for Fines or Legal Actions</h2>
-    <p>The author of CookiEzu shall not be held liable for any fines, penalties, legal proceedings, regulatory enforcement actions, or damages of any kind — including but not limited to GDPR fines (up to €20M or 4% of global turnover), CCPA penalties, PDPA enforcement, or civil claims — arising from the use or misconfiguration of this plugin on your website.</p>
+    <p>The author of CookiEzu shall not be held liable for any fines, penalties, legal proceedings, regulatory enforcement actions, or damages of any kind — including but not limited to GDPR fines (up to €20M or 4% of global turnover), CCPA penalties, PDPA enforcement, or civil claims — arising from the use or misconfiguration of this plugin.</p>
     <h2 class="doc-h2">4. Compliance Is Your Responsibility</h2>
-    <p>As the website owner and data controller, <strong>you</strong> are solely legally responsible for compliance with applicable privacy laws. CookiEzu is a technical tool — a good starting point — but full compliance requires work that goes beyond installing any plugin.</p>
     <table class="doc-table">
       <tr><th>Your Responsibility</th><th>Why CookiEzu Can't Do It for You</th></tr>
-      <tr><td>Accurate Privacy Policy</td><td>You must disclose which cookies you use, their purpose, provider, and expiry. This is specific to your site — no plugin can write it for you.</td></tr>
-      <tr><td>Correct Cookie Categorisation</td><td>Showing a Marketing toggle for cookies you don't use, or missing a cookie from its correct category, can still constitute a violation even with a banner present.</td></tr>
-      <tr><td>Keeping the Plugin Updated</td><td>Outdated versions may have bugs affecting consent capture. You are responsible for installing updates promptly.</td></tr>
-      <tr><td>Verifying the Banner Appears</td><td>A misconfigured caching plugin can silently prevent the banner from loading. Always test in incognito for every new visitor scenario.</td></tr>
-      <tr><td>Knowing Your Applicable Law</td><td>GDPR, CCPA/CPRA, PDPA (MY/TH/SG/BN), PIPEDA, LGPD and others have materially different requirements. CookiEzu provides general tools — legal scoping is your responsibility.</td></tr>
-      <tr><td>Third-Party Services</td><td>Every script you load (GA4, GTM, Facebook Pixel, Hotjar, etc.) has its own data processing terms. You must review and comply with each one independently.</td></tr>
+      <tr><td>Accurate Privacy Policy</td><td>You must disclose which cookies you use, their purpose, provider, and expiry — specific to your site.</td></tr>
+      <tr><td>Correct Cookie Categorisation</td><td>Wrong categories or missing cookies can constitute a violation even with a banner present.</td></tr>
+      <tr><td>Keeping the Plugin Updated</td><td>Outdated versions may have bugs affecting consent capture.</td></tr>
+      <tr><td>Verifying the Banner Appears</td><td>Caching plugins can silently prevent the banner from loading. Always test in incognito.</td></tr>
+      <tr><td>Knowing Your Applicable Law</td><td>GDPR, CCPA/CPRA, PDPA, PIPEDA, LGPD have materially different requirements.</td></tr>
     </table>
-    <h2 class="doc-h2">5. Privacy Law Changes</h2>
-    <p>Privacy regulations evolve continuously through new legislation, DPA guidance, enforcement decisions, and court rulings. CookiEzu may not be updated immediately in response to every regulatory change. You are responsible for monitoring applicable laws and updating your consent implementation and Privacy Policy accordingly.</p>
     <div class="callout callout-tip">
       <span class="callout-icon">💡</span>
-      <div class="callout-body"><strong>The bottom line:</strong> CookiEzu is a free, well-built technical tool that meaningfully helps you implement cookie consent. But a compliant website requires an accurate Privacy Policy, a complete cookie audit, correct plugin configuration, and periodic legal review. The plugin handles the technical layer — you handle the legal layer.</div>
+      <div class="callout-body"><strong>The bottom line:</strong> CookiEzu is a free, well-built technical tool that meaningfully helps you implement cookie consent. But full compliance requires an accurate Privacy Policy, a complete cookie audit, correct configuration, and periodic legal review.</div>
     </div>
   </section>
 
@@ -927,67 +1151,45 @@ THE USE OR INABILITY TO USE THE PROGRAM.</span></code></pre>
       <h1 class="doc-h1">Contri<em>buting</em></h1>
       <p class="doc-lead">CookiEzu is built by the community, for the community. Every bug report, pull request, translation, and star makes it better for everyone.</p>
     </div>
-
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">How Contributions Work</h2>
-    <p>CookiEzu uses the standard open source <strong>fork-and-pull</strong> model — the same workflow used by WordPress, VS Code, and virtually every major open source project. You do not need a direct invitation to contribute. Anyone can fork, improve, and submit a pull request.</p>
-    <div class="callout callout-info">
-      <span class="callout-icon">ℹ️</span>
-      <div class="callout-body"><strong>On "GitHub Collaborators":</strong> Being added as a direct repository collaborator means having push access to the main repo. This is reserved for long-term trusted maintainers who have already contributed significantly through PRs. The fork-and-pull workflow is the correct path for new contributors — it is safer for the project and still gives you full credit for your work.</div>
-    </div>
+    <p>CookiEzu uses the standard open source <strong>fork-and-pull</strong> model. Anyone can fork, improve, and submit a pull request — no invitation needed.</p>
     <h2 class="doc-h2">The Fork-and-Pull Workflow</h2>
     <div class="steps">
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Fork the repository</div><div class="step-desc">Go to <a href="https://github.com/flyzal/CookiEzu" target="_blank" style="color:var(--cookie)">github.com/flyzal/CookiEzu</a> and click <strong>Fork</strong> in the top-right corner. This creates a personal copy of the repo under your own GitHub account.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Create a descriptive branch</div><div class="step-desc">Clone your fork locally. Create a branch named for your change: <code>git checkout -b fix/modal-dismiss</code> or <code>git checkout -b feature/auto-scanner</code>. Never commit directly to <code>main</code>.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Make your change</div><div class="step-desc">Write clean, well-commented code following WordPress PHP coding standards. Test your change on a real WordPress install — ideally across multiple themes and PHP versions.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Open a Pull Request</div><div class="step-desc">Push your branch to your fork, then open a Pull Request against <code>flyzal/CookiEzu:main</code>. Write a clear title and description. Link to any related Issues. The maintainer will review, may request changes, and merge when ready. <strong>GitHub automatically shows a link to the CONTRIBUTING guidelines</strong> when you open any Issue or PR.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Fork the repository</div><div class="step-desc">Go to <a href="https://github.com/flyzal/CookiEzu" target="_blank" style="color:var(--cookie)">github.com/flyzal/CookiEzu</a> and click <strong>Fork</strong>.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Create a descriptive branch</div><div class="step-desc">Clone your fork. Create a branch: <code>git checkout -b fix/dark-mode</code> or <code>git checkout -b feature/csv-export</code>. Never commit to <code>main</code> directly.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Make your change</div><div class="step-desc">Write clean, commented code following WordPress PHP coding standards. Test on a real WordPress install across multiple themes.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Open a Pull Request</div><div class="step-desc">Push your branch, then open a PR against <code>flyzal/CookiEzu:main</code>. Write a clear title and description. Link related Issues.</div></div></div>
     </div>
-
     <h2 class="doc-h2">What We Welcome</h2>
     <div class="feature-grid">
-      <div class="feature-tile"><div class="feature-tile-icon">🐛</div><div class="feature-tile-title">Bug Reports</div><div class="feature-tile-desc">Found something broken? Open a GitHub Issue. Include your WordPress version, PHP version, active theme, the layout you're using, and exact steps to reproduce. The more detail, the faster we can fix it.</div></div>
-      <div class="feature-tile"><div class="feature-tile-icon">✨</div><div class="feature-tile-title">Feature Requests</div><div class="feature-tile-desc">Have an idea? Open an Issue with the "enhancement" label. Check the Roadmap first — it may already be planned. Community 👍 reactions influence what gets prioritised.</div></div>
-      <div class="feature-tile"><div class="feature-tile-icon">🌍</div><div class="feature-tile-title">Translations</div><div class="feature-tile-desc">CookiEzu uses the standard WordPress <code>.pot</code> file system. Add a <code>.po</code> file for your language to <code>/languages/</code> and open a PR. Non-English support is a v2 priority.</div></div>
-      <div class="feature-tile"><div class="feature-tile-icon">📝</div><div class="feature-tile-title">Documentation</div><div class="feature-tile-desc">Spotted an error in these docs? Missing step in the setup guide? Documentation improvements are the easiest PRs to get merged — and just as valuable as code.</div></div>
-      <div class="feature-tile"><div class="feature-tile-icon">🧪</div><div class="feature-tile-title">Compatibility Testing</div><div class="feature-tile-desc">Test CookiEzu with unusual themes, page builders (Elementor, Divi, Beaver Builder), or caching plugins. Report what breaks. Real-world testing catches what development environments miss.</div></div>
-      <div class="feature-tile"><div class="feature-tile-icon">⭐</div><div class="feature-tile-title">Spread the Word</div><div class="feature-tile-desc">Star the repo. Share it with other developers. Write a blog post. The bigger the community, the better the plugin gets — and the more people benefit from free, honest consent.</div></div>
+      <div class="feature-tile"><div class="feature-tile-icon">🐛</div><div class="feature-tile-title">Bug Reports</div><div class="feature-tile-desc">Found something broken? Open a GitHub Issue with WP version, PHP version, theme, layout, and exact reproduction steps.</div></div>
+      <div class="feature-tile"><div class="feature-tile-icon">✨</div><div class="feature-tile-title">Feature Requests</div><div class="feature-tile-desc">Open an Issue with the "enhancement" label. Check the Roadmap first. Community 👍 reactions influence what gets prioritised.</div></div>
+      <div class="feature-tile"><div class="feature-tile-icon">🌍</div><div class="feature-tile-title">Translations</div><div class="feature-tile-desc">Add a <code>.po</code> file for your language to <code>/languages/</code>. Non-English support is a v2 priority.</div></div>
+      <div class="feature-tile"><div class="feature-tile-icon">📝</div><div class="feature-tile-title">Documentation</div><div class="feature-tile-desc">Spotted an error or missing step? Docs PRs are the easiest to get merged and just as valuable as code.</div></div>
+      <div class="feature-tile"><div class="feature-tile-icon">🧪</div><div class="feature-tile-title">Compatibility Testing</div><div class="feature-tile-desc">Test with Elementor, Divi, caching plugins. Real-world testing catches what dev environments miss.</div></div>
+      <div class="feature-tile"><div class="feature-tile-icon">⭐</div><div class="feature-tile-title">Spread the Word</div><div class="feature-tile-desc">Star the repo. Share with other developers. A larger community means a better, faster-improving plugin.</div></div>
     </div>
-
-    <h2 class="doc-h2">Recommended GitHub Files for Contributors</h2>
-    <p>When the following files exist in the repository root (or <code>/.github/</code>), GitHub automatically surfaces them at the right moments for every contributor:</p>
-    <table class="doc-table">
-      <tr><th>File</th><th>Purpose</th><th>When GitHub Shows It</th></tr>
-      <tr><td>CONTRIBUTING.md</td><td>How to contribute, PR process, code style</td><td>Linked automatically when any Issue or PR is opened</td></tr>
-      <tr><td>CODE_OF_CONDUCT.md</td><td>Community behaviour standards</td><td>Shown in the Community tab of the repository</td></tr>
-      <tr><td>SECURITY.md</td><td>How to report security vulnerabilities privately</td><td>Linked in the Security tab; shown when a security advisory is created</td></tr>
-      <tr><td>.github/FUNDING.yml</td><td>Sponsor button configuration</td><td>Displays a "Sponsor" button on the repo homepage</td></tr>
-      <tr><td>CHANGELOG.md</td><td>Human-readable version history</td><td>Linked from releases; referenced in README</td></tr>
-    </table>
-
     <h2 class="doc-h2">Support the Project</h2>
-    <p>CookiEzu is free and open source, built and maintained in personal time. If it has saved you hours of work or helped your site achieve compliance, here are a few ways to say thanks — none of them required, all of them genuinely appreciated:</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0;">
       <div style="background:var(--warm-white);border:1.5px solid var(--ink-15);border-radius:12px;padding:20px;text-align:center;">
         <div style="font-size:32px;margin-bottom:10px;">☕</div>
         <div style="font-weight:700;font-size:14px;color:var(--ink);margin-bottom:6px;">Buy Me a Coffee</div>
-        <div style="font-size:12px;color:var(--ink-45);margin-bottom:14px;line-height:1.5;">One-time support — whatever feels right. No account needed.</div>
+        <div style="font-size:12px;color:var(--ink-45);margin-bottom:14px;line-height:1.5;">One-time support — whatever feels right.</div>
         <a href="https://buymeacoffee.com/flyzal" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#FFDD00;color:#000;padding:8px 18px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">☕ Buy me a coffee</a>
       </div>
       <div style="background:var(--warm-white);border:1.5px solid var(--ink-15);border-radius:12px;padding:20px;text-align:center;">
         <div style="font-size:32px;margin-bottom:10px;">♥</div>
         <div style="font-weight:700;font-size:14px;color:var(--ink);margin-bottom:6px;">GitHub Sponsors</div>
-        <div style="font-size:12px;color:var(--ink-45);margin-bottom:14px;line-height:1.5;">Monthly or one-time. Zero fees — all support goes to the maintainer.</div>
+        <div style="font-size:12px;color:var(--ink-45);margin-bottom:14px;line-height:1.5;">Monthly or one-time. Zero fees.</div>
         <a href="https://github.com/sponsors/flyzal" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;padding:8px 18px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">♥ Sponsor on GitHub</a>
       </div>
       <div style="background:var(--warm-white);border:1.5px solid var(--ink-15);border-radius:12px;padding:20px;text-align:center;">
         <div style="font-size:32px;margin-bottom:10px;">⭐</div>
         <div style="font-weight:700;font-size:14px;color:var(--ink);margin-bottom:6px;">Star the Repo</div>
-        <div style="font-size:12px;color:var(--ink-45);margin-bottom:14px;line-height:1.5;">Free and takes 2 seconds. Helps discoverability enormously.</div>
+        <div style="font-size:12px;color:var(--ink-45);margin-bottom:14px;line-height:1.5;">Free. 2 seconds. Helps discoverability enormously.</div>
         <a href="https://github.com/flyzal/CookiEzu" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-bg);color:var(--green);padding:8px 18px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;border:1px solid rgba(45,122,79,0.2);transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">⭐ Star on GitHub</a>
       </div>
     </div>
-
-    <h2 class="doc-h2">Code of Conduct</h2>
-    <p>All contributors are expected to be respectful, constructive, and inclusive. CookiEzu follows the <a href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/" target="_blank" style="color:var(--cookie)">Contributor Covenant v2.1</a>. Issues, PRs, or comments that are disrespectful, spammy, or off-topic will be closed without discussion.</p>
   </section>
 
 </main>
@@ -998,7 +1200,7 @@ THE USE OR INABILITY TO USE THE PROGRAM.</span></code></pre>
   <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px;">
     <div style="width:30px;height:30px;background:rgba(255,255,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;">🍪</div>
     <span style="font-family:'Instrument Serif',serif;font-size:20px;color:#fff;">Cooki<span style="color:var(--cookie-light);">Ezu</span></span>
-    <span style="background:rgba(193,123,47,0.2);color:var(--cookie-light);border:1px solid rgba(193,123,47,0.2);padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;">v1.1.0</span>
+    <span style="background:rgba(193,123,47,0.2);color:var(--cookie-light);border:1px solid rgba(193,123,47,0.2);padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;">v1.2.1</span>
   </div>
   <p style="font-size:12px;margin-bottom:16px;">Free, open source cookie consent for WordPress. GPL v2 Licensed.</p>
   <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;">
@@ -1009,7 +1211,7 @@ THE USE OR INABILITY TO USE THE PROGRAM.</span></code></pre>
     <a href="#" onclick="showSection('disclaimer')" style="color:rgba(255,255,255,0.35);text-decoration:none;font-size:12px;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Legal Disclaimer</a>
     <a href="https://buymeacoffee.com/flyzal" target="_blank" style="color:rgba(255,255,255,0.35);text-decoration:none;font-size:12px;transition:color 0.2s;" onmouseover="this.style.color='#FFDD00'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">☕ Buy me a coffee</a>
   </div>
-  <div style="font-size:11px;border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;">© 2025 CookiEzu — Open Source under <a href="https://github.com/flyzal/CookiEzu/blob/main/cookiezu/LICENSE" target="_blank" style="color:rgba(255,255,255,0.3)">GPL v2</a>. Made by <a href="https://github.com/flyzal" target="_blank" style="color:rgba(255,255,255,0.3)">flyzal</a>.<br><span style="opacity:0.5;margin-top:6px;display:block;">CookiEzu does not constitute legal advice. Consult a qualified lawyer for compliance guidance specific to your business.</span></div>
+  <div style="font-size:11px;border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;">© 2026 CookiEzu — Open Source under <a href="https://github.com/flyzal/CookiEzu/blob/main/cookiezu/LICENSE" target="_blank" style="color:rgba(255,255,255,0.3)">GPL v2</a>. Made by <a href="https://github.com/flyzal" target="_blank" style="color:rgba(255,255,255,0.3)">flyzal</a>.<br><span style="opacity:0.5;margin-top:6px;display:block;">CookiEzu does not constitute legal advice. Consult a qualified lawyer for compliance guidance specific to your business.</span></div>
 </footer>
 
 <script>
@@ -1027,26 +1229,30 @@ function showSection(id) {
   if (window.innerWidth < 900) closeSidebar();
 }
 function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
-function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); }
+function closeSidebar()  { document.getElementById('sidebar').classList.remove('open'); }
 function searchDocs(query) {
   if (!query.trim()) return;
   const q = query.toLowerCase();
   const map = {
     'install': 'installation', 'upgrade': 'installation', 'update': 'installation',
     'setup': 'quick-setup', 'start': 'getting-started', 'intro': 'getting-started',
-    'changelog': 'changelog', 'new': 'changelog', 'v1.1': 'changelog', 'fix': 'changelog',
+    'changelog': 'changelog', 'new': 'changelog', 'v1.2': 'changelog', 'fix': 'changelog',
     'banner': 'banner', 'layout': 'banner', 'modal': 'banner', 'bar': 'banner',
     'theme': 'themes', 'colour': 'themes', 'color': 'themes', 'dark': 'themes',
-    'categor': 'categories', 'analytics': 'ga4', 'ga4': 'ga4',
+    'preview': 'live-preview', 'live': 'live-preview', 'design': 'live-preview',
+    'categor': 'categories', 'analytics': 'consent-analytics', 'ga4': 'ga4',
+    'metrics': 'consent-analytics', 'chart': 'consent-analytics', 'country': 'consent-analytics',
     'gtm': 'gtm', 'tag manager': 'gtm', 'javascript': 'js-api', 'api': 'js-api',
     'consent log': 'consent-log', 'log': 'consent-log', 'audit': 'consent-log',
+    'access': 'accessibility', 'wcag': 'accessibility', 'keyboard': 'accessibility',
+    'test mode': 'test-mode', 'test': 'test-mode',
     'gdpr': 'gdpr', 'pdpa': 'pdpa', 'compliance': 'gdpr',
     'css': 'custom-css', 'hook': 'hooks', 'filter': 'hooks',
     'trouble': 'troubleshooting', 'debug': 'troubleshooting', 'broken': 'troubleshooting',
     'faq': 'faq', 'question': 'faq', 'roadmap': 'roadmap', 'future': 'roadmap', 'v2': 'roadmap',
     'disclaimer': 'disclaimer', 'legal': 'disclaimer', 'liability': 'disclaimer',
-    'contribut': 'contributing', 'pull request': 'contributing', 'fork': 'contributing',
-    'coffee': 'contributing', 'sponsor': 'contributing', 'donate': 'contributing',
+    'contribut': 'contributing', 'fork': 'contributing',
+    'coffee': 'contributing', 'sponsor': 'contributing',
   };
   for (const [key, section] of Object.entries(map)) {
     if (q.includes(key)) { showSection(section); return; }
@@ -1055,6 +1261,13 @@ function searchDocs(query) {
 document.querySelector('.topnav-search input').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') searchDocs(this.value);
 });
+
+// Handle localStorage section links from index.html
+const savedSection = localStorage.getItem('cz-doc');
+if (savedSection) {
+  localStorage.removeItem('cz-doc');
+  showSection(savedSection);
+}
 </script>
 </body>
 </html>
