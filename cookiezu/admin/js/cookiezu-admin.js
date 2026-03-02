@@ -1,10 +1,12 @@
 /**
- * CookiEzu – Admin JavaScript v1.2.1
+ * CookiEzu – Admin JavaScript v1.3.0
  *
  * New in v1.2.1:
- *  - Live banner preview that updates in real-time as design settings change
- *  - Preview reflects: layout, position, theme, custom colors, border-radius
- *  - Preview banner text pulled from Content tab fields
+ *  - Live banner preview (layout, position, theme, custom colors, border-radius)
+ *
+ * New in v1.3.0:
+ *  - Live preview reflects RTL direction when Arabic language is selected
+ *  - Language dropdown change triggers preview refresh
  */
 jQuery( function ( $ ) {
 
@@ -44,6 +46,7 @@ jQuery( function ( $ ) {
 
   function getPreviewState() {
     return {
+      language:      $( '#banner_language' ).val() || 'en',
       layout:        $( '#layout' ).val()        || 'bar',
       position:      $( '#position' ).val()      || 'bottom',
       theme:         $( '#theme' ).val()         || 'light',
@@ -145,6 +148,12 @@ jQuery( function ( $ ) {
       '</div>';
     }
 
+    // Apply RTL direction on preview wrapper
+    if ( s.language === 'ar' ) {
+      previewContainer.attr( 'dir', 'rtl' );
+    } else {
+      previewContainer.removeAttr( 'dir' );
+    }
     previewContainer.html( html );
   }
 
@@ -157,6 +166,8 @@ jQuery( function ( $ ) {
   }
 
   /* Trigger preview on any design control change */
+  $( '#banner_language' ).on( 'change', function() { renderPreview(); });
+
   $( document ).on( 'change input', '.cz-preview-trigger', function() {
     renderPreview();
   });

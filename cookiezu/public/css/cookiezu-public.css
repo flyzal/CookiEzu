@@ -562,3 +562,77 @@
   .cookiezu-slider::before,
   .cookiezu-reopen { transition: none !important; animation: none !important; }
 }
+
+/* ===============================================
+   v1.3.0 — RTL (Arabic) Layout Support
+   Applied via .cookiezu-rtl on the banner root
+=============================================== */
+.cookiezu-rtl {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif; /* better Arabic rendering fallback */
+}
+
+/* Bar layout RTL: flip flex direction */
+.cookiezu-rtl.cookiezu-layout-bar .cookiezu-inner {
+  flex-direction: row-reverse;
+}
+.cookiezu-rtl .cookiezu-actions {
+  flex-direction: row-reverse;
+}
+
+/* Accent bar stays at top — no change needed */
+
+/* Category header RTL */
+.cookiezu-rtl .cookiezu-category-header {
+  flex-direction: row-reverse;
+}
+
+/* Pref actions RTL */
+.cookiezu-rtl .cookiezu-pref-actions {
+  flex-direction: row-reverse;
+}
+
+/* Back button arrow flip */
+.cookiezu-rtl #cookiezu-back::before {
+  content: none;
+}
+
+/* Cookie table RTL */
+.cookiezu-rtl .cookiezu-cookie-table th,
+.cookiezu-rtl .cookiezu-cookie-table td {
+  text-align: right;
+}
+
+/* Re-open button: RTL sites typically keep it bottom-right */
+.cookiezu-rtl.cookiezu-reopen,
+.cookiezu-rtl ~ .cookiezu-reopen {
+  left: auto;
+  right: 20px;
+}
+
+/* ===============================================
+   v1.3.0 — Extended Disclosure & Data Location
+=============================================== */
+.cookiezu-extended-disclosure {
+  margin: 8px 0 0;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--cz-text-muted);
+  padding: 8px 10px;
+  background: var(--cz-surface);
+  border-radius: 6px;
+  border-left: 2px solid var(--cz-cookie);
+}
+
+.cookiezu-rtl .cookiezu-extended-disclosure {
+  border-left: none;
+  border-right: 2px solid var(--cz-cookie);
+}
+
+.cookiezu-data-location {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: var(--cz-text-muted);
+  opacity: 0.85;
+}

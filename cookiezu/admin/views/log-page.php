@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 add_action( 'admin_head', function() { ?>
 <style>
 #wpcontent, #wpbody-content { background: #F7F2EA !important; }
-#wpcontent { padding-left: 20px !important; padding-right: 20px !important; }
+#wpcontent { padding-left: 0 !important; padding-right: 0 !important; }
+.cookiezu_page_cookiezu-log .cookiezu-wrap { padding: 0 24px 60px !important; }
 </style>
 <?php } );
 
@@ -203,6 +204,14 @@ function cz_flag( $code ) {
             <div class="czlog-country-row">
                 <span class="czlog-country-flag"><?php echo cz_flag( $c->country_code ); ?></span>
                 <span class="czlog-country-code"><?php echo esc_html( strtoupper( $c->country_code ) ); ?></span>
+                <?php
+                $code = strtoupper( $c->country_code );
+                $tier = CookiEzu::$compliance_tiers[ $code ] ?? 'none';
+                $meta = CookiEzu::$tier_meta[ $tier ];
+                if ( $tier !== 'none' ) :
+                ?>
+                <span class="czlog-tier-badge" style="background:<?php echo esc_attr( $meta['color'] ); ?>22;color:<?php echo esc_attr( $meta['color'] ); ?>;border:1px solid <?php echo esc_attr( $meta['color'] ); ?>44;font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px;white-space:nowrap;"><?php echo esc_html( $meta['label'] ); ?></span>
+                <?php endif; ?>
                 <div class="czlog-country-bar-wrap">
                     <div class="czlog-country-bar" style="width:<?php echo $pct; ?>%"></div>
                 </div>
@@ -216,7 +225,7 @@ function cz_flag( $code ) {
     <?php endif; ?>
 
     <!-- ── RAW LOG TABLE ── -->
-    <div class="cookiezu-card">
+    <div class="cookiezu-card czlog-raw-card">
         <h3 class="czlog-section-title">Raw Consent Records <span style="font-size:12px;font-weight:400;color:var(--cza-ink-45)">(latest 200)</span></h3>
         <table class="widefat fixed striped cookiezu-log-table">
             <thead>
@@ -243,6 +252,7 @@ function cz_flag( $code ) {
                             <span style="color:var(--cza-ink-45);font-size:11px">—</span>
                         <?php endif; ?>
                     </td>
+                    <td style="font-size:11px;opacity:0.7;"><?php echo esc_html( $row->policy_version ?? '1' ); ?></td>
                     <td><?php echo $row->analytics  ? '<span class="czlog-yes">✓</span>' : '<span class="czlog-no">✗</span>'; ?></td>
                     <td><?php echo $row->marketing   ? '<span class="czlog-yes">✓</span>' : '<span class="czlog-no">✗</span>'; ?></td>
                     <td><?php echo $row->functional  ? '<span class="czlog-yes">✓</span>' : '<span class="czlog-no">✗</span>'; ?></td>

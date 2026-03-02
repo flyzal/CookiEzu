@@ -95,6 +95,32 @@ $options = cookiezu()->get_options();
                     </tr>
                 </table>
             </div>
+
+            <!-- v1.3.0: Language & Localisation -->
+            <div class="cookiezu-card">
+                <h2>&#127760; Language &amp; Localisation <span class="cookiezu-badge cookiezu-badge-new">v1.3.0</span></h2>
+                <p class="description" style="margin-bottom:16px;">Set the banner language. Arabic enables full RTL layout automatically. Malay (Bahasa Melayu) covers Brunei and Malaysia.</p>
+                <table class="form-table">
+                    <tr>
+                        <th><label for="banner_language">Banner Language</label></th>
+                        <td>
+                            <select id="banner_language" name="cookiezu[banner_language]">
+                                <option value="en" <?php selected( $options['banner_language'], 'en' ); ?>>&#127468;&#127463; English (default)</option>
+                                <option value="ar" <?php selected( $options['banner_language'], 'ar' ); ?>>&#127462;&#127466; Arabic — العربية (RTL, GCC)</option>
+                                <option value="ms" <?php selected( $options['banner_language'], 'ms' ); ?>>&#127463;&#127475; Malay — Bahasa Melayu (Brunei / Malaysia)</option>
+                            </select>
+                            <p class="description">Arabic automatically applies right-to-left layout. No extra configuration needed.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="extended_disclosure">Extended Disclosure <span style="font-weight:400;opacity:0.6">(optional)</span></label></th>
+                        <td>
+                            <textarea id="extended_disclosure" name="cookiezu[extended_disclosure]" rows="3" class="large-text" placeholder="e.g. We collect data to improve our services under Article 6(1)(a) PDPL..."><?php echo esc_textarea( $options['extended_disclosure'] ); ?></textarea>
+                            <p class="description">Shown below the main banner message. Recommended for Saudi PDPL and Brunei PDPO — use for explicit disclosure of data collection purpose and third-party sharing.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <!-- ── DESIGN ── -->
@@ -303,6 +329,20 @@ $options = cookiezu()->get_options();
                         <td>
                             <label><input type="checkbox" name="cookiezu[test_mode]" value="1" <?php checked( ! empty( $options['test_mode'] ) ); ?>> Show banner to logged-in admins even if they already consented</label>
                             <p class="description">Useful for previewing design changes without clearing cookies. A <strong>🔧 TEST MODE</strong> badge appears on the banner. Consent is not recorded in test mode.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="policy_version">Policy Version <span style="background:#FDF3E3;color:#C17B2F;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;vertical-align:middle;">v1.3.0</span></label></th>
+                        <td>
+                            <input type="text" id="policy_version" name="cookiezu[policy_version]" value="<?php echo esc_attr( $options['policy_version'] ?? '1' ); ?>" class="small-text" placeholder="1">
+                            <p class="description"><strong>Re-consent trigger.</strong> Change this value (e.g. <code>1</code> → <code>2</code>) to force all visitors to re-consent on next visit — even if they already consented. Use when your Privacy Policy changes or you add new cookie categories. Required for GDPR, PDPL (Saudi), and PDPO (Brunei) compliance on policy changes.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="data_processing_location">Data Processing Location <span style="background:#FDF3E3;color:#C17B2F;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;vertical-align:middle;">v1.3.0</span></label></th>
+                        <td>
+                            <input type="text" id="data_processing_location" name="cookiezu[data_processing_location]" value="<?php echo esc_attr( $options['data_processing_location'] ?? '' ); ?>" class="regular-text" placeholder="e.g. Brunei Darussalam, Singapore">
+                            <p class="description">If set, a note appears on the banner: <em>"Your data is processed and stored on servers located in [value]."</em> Recommended for Saudi PDPL and Brunei PDPO where data localisation disclosure is expected. Leave blank to hide.</p>
                         </td>
                     </tr>
                     <tr>
