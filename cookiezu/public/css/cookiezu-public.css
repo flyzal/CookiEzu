@@ -69,9 +69,24 @@
   --cz-bg:         #1A1208;
   --cz-surface:    #231A0D;
   --cz-border:     rgba(254,252,248,0.10);
+  /* v1.2.1 fix: override pale cream so checked categories stay readable in dark mode */
+  --cz-cookie-pale: rgba(193,123,47,0.18);
   --cz-shadow-bar:   0 -4px 40px rgba(0,0,0,0.40);
   --cz-shadow-top:   0  4px 40px rgba(0,0,0,0.40);
   --cz-shadow-float: 0 24px 64px rgba(0,0,0,0.55);
+}
+
+/* Dark mode: checked category uses amber tint, not cream */
+.cookiezu-theme-dark .cookiezu-category:has(input:checked) {
+  border-color: rgba(193,123,47,0.45);
+  background: rgba(193,123,47,0.15);
+}
+
+/* Dark mode: cookie table text always readable */
+.cookiezu-theme-dark .cookiezu-cookie-table th,
+.cookiezu-theme-dark .cookiezu-cookie-table td {
+  color: var(--cz-text);
+  border-bottom-color: var(--cz-border);
 }
 
 /* -----------------------------------------------

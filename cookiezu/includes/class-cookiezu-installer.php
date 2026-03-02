@@ -40,17 +40,25 @@ class CookiEzu_Installer {
             id            BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
             ip_address    VARCHAR(45)  NOT NULL DEFAULT '',
             user_agent    TEXT         NOT NULL,
+            country_code  VARCHAR(2)   NOT NULL DEFAULT '',
             necessary     TINYINT(1)   NOT NULL DEFAULT 1,
             analytics     TINYINT(1)   NOT NULL DEFAULT 0,
             marketing     TINYINT(1)   NOT NULL DEFAULT 0,
             functional    TINYINT(1)   NOT NULL DEFAULT 0,
             consent_date  DATETIME     NOT NULL,
             PRIMARY KEY (id),
-            KEY consent_date (consent_date)
+            KEY consent_date (consent_date),
+            KEY country_code (country_code)
         ) $charset_collate;";
 
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         dbDelta( $sql );
+
+        /* v1.2.1 migration: add country_code column to existing installs */
+        $columns = $wpdb->get_col( "SHOW COLUMNS FROM $table", 0 );
+        if ( ! in_array( 'country_code', $columns ) ) {
+            $wpdb->query( "ALTER TABLE $table ADD COLUMN country_code VARCHAR(2) NOT NULL DEFAULT '' AFTER user_agent, ADD KEY country_code (country_code)" );
+        }
 
         update_option( 'cookiezu_db_version', COOKIEZU_VERSION );
     }

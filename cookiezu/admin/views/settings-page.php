@@ -99,60 +99,85 @@ $options = cookiezu()->get_options();
 
         <!-- ── DESIGN ── -->
         <div class="cookiezu-tab-content" id="tab-design">
-            <div class="cookiezu-card">
-                <h2>Appearance</h2>
-                <table class="form-table">
-                    <tr>
-                        <th><label for="position">Position</label></th>
-                        <td>
-                            <select id="position" name="cookiezu[position]">
-                                <option value="bottom" <?php selected( $options['position'], 'bottom' ); ?>>Bottom (full width)</option>
-                                <option value="top" <?php selected( $options['position'], 'top' ); ?>>Top (full width)</option>
-                                <option value="bottom-left" <?php selected( $options['position'], 'bottom-left' ); ?>>Bottom Left</option>
-                                <option value="bottom-right" <?php selected( $options['position'], 'bottom-right' ); ?>>Bottom Right</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><label for="layout">Layout</label></th>
-                        <td>
-                            <select id="layout" name="cookiezu[layout]">
-                                <option value="bar" <?php selected( $options['layout'], 'bar' ); ?>>Bar</option>
-                                <option value="box" <?php selected( $options['layout'], 'box' ); ?>>Box</option>
-                                <option value="modal" <?php selected( $options['layout'], 'modal' ); ?>>Modal</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><label for="theme">Theme</label></th>
-                        <td>
-                            <select id="theme" name="cookiezu[theme]">
-                                <option value="light" <?php selected( $options['theme'], 'light' ); ?>>Light</option>
-                                <option value="dark" <?php selected( $options['theme'], 'dark' ); ?>>Dark</option>
-                                <option value="custom" <?php selected( $options['theme'], 'custom' ); ?>>Custom</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
-                        <th>Primary Color</th>
-                        <td><input type="text" name="cookiezu[primary_color]" value="<?php echo esc_attr( $options['primary_color'] ); ?>" class="cookiezu-color-picker"></td>
-                    </tr>
-                    <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
-                        <th>Text Color</th>
-                        <td><input type="text" name="cookiezu[text_color]" value="<?php echo esc_attr( $options['text_color'] ); ?>" class="cookiezu-color-picker"></td>
-                    </tr>
-                    <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
-                        <th>Background Color</th>
-                        <td><input type="text" name="cookiezu[bg_color]" value="<?php echo esc_attr( $options['bg_color'] ); ?>" class="cookiezu-color-picker"></td>
-                    </tr>
-                    <tr>
-                        <th><label for="border_radius">Border Radius (px)</label></th>
-                        <td>
-                            <input type="number" id="border_radius" name="cookiezu[border_radius]" value="<?php echo esc_attr( $options['border_radius'] ); ?>" min="0" max="50" class="small-text">
-                            <p class="description">Applies to buttons and the box/modal layout (0–50).</p>
-                        </td>
-                    </tr>
-                </table>
+            <div class="cookiezu-design-wrap">
+                <!-- Settings column -->
+                <div class="cookiezu-card cookiezu-design-settings">
+                    <h2>Appearance</h2>
+                    <table class="form-table">
+                        <tr>
+                            <th><label for="position">Position</label></th>
+                            <td>
+                                <select id="position" name="cookiezu[position]" class="cz-preview-trigger">
+                                    <option value="bottom"       <?php selected( $options['position'], 'bottom' );       ?>>Bottom (full width)</option>
+                                    <option value="top"          <?php selected( $options['position'], 'top' );          ?>>Top (full width)</option>
+                                    <option value="bottom-left"  <?php selected( $options['position'], 'bottom-left' );  ?>>Bottom Left</option>
+                                    <option value="bottom-right" <?php selected( $options['position'], 'bottom-right' ); ?>>Bottom Right</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="layout">Layout</label></th>
+                            <td>
+                                <select id="layout" name="cookiezu[layout]" class="cz-preview-trigger">
+                                    <option value="bar"   <?php selected( $options['layout'], 'bar' );   ?>>Bar</option>
+                                    <option value="box"   <?php selected( $options['layout'], 'box' );   ?>>Box</option>
+                                    <option value="modal" <?php selected( $options['layout'], 'modal' ); ?>>Modal</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="theme">Theme</label></th>
+                            <td>
+                                <select id="theme" name="cookiezu[theme]" class="cz-preview-trigger">
+                                    <option value="light"  <?php selected( $options['theme'], 'light' );  ?>>Light</option>
+                                    <option value="dark"   <?php selected( $options['theme'], 'dark' );   ?>>Dark</option>
+                                    <option value="custom" <?php selected( $options['theme'], 'custom' ); ?>>Custom</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
+                            <th>Primary Color</th>
+                            <td><input type="text" name="cookiezu[primary_color]" value="<?php echo esc_attr( $options['primary_color'] ); ?>" class="cookiezu-color-picker cz-preview-trigger"></td>
+                        </tr>
+                        <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
+                            <th>Text Color</th>
+                            <td><input type="text" name="cookiezu[text_color]" value="<?php echo esc_attr( $options['text_color'] ); ?>" class="cookiezu-color-picker cz-preview-trigger"></td>
+                        </tr>
+                        <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
+                            <th>Background Color</th>
+                            <td><input type="text" name="cookiezu[bg_color]" value="<?php echo esc_attr( $options['bg_color'] ); ?>" class="cookiezu-color-picker cz-preview-trigger"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="border_radius">Border Radius (px)</label></th>
+                            <td>
+                                <input type="number" id="border_radius" name="cookiezu[border_radius]" value="<?php echo esc_attr( $options['border_radius'] ); ?>" min="0" max="50" class="small-text cz-preview-trigger">
+                                <p class="description">Applies to buttons and the box/modal layout (0–50).</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Live preview column -->
+                <div class="cookiezu-preview-panel">
+                    <div class="cookiezu-preview-label">
+                        <span>Live Preview</span>
+                        <span class="cookiezu-preview-badge">Updates instantly</span>
+                    </div>
+                    <div class="cookiezu-preview-screen" id="czPreviewScreen">
+                        <!-- Fake page content -->
+                        <div class="czp-page-bg">
+                            <div class="czp-fake-header"></div>
+                            <div class="czp-fake-content">
+                                <div class="czp-line czp-line-full"></div>
+                                <div class="czp-line czp-line-80"></div>
+                                <div class="czp-line czp-line-60"></div>
+                                <div class="czp-line czp-line-40"></div>
+                            </div>
+                        </div>
+                        <!-- The live preview banner (rendered by JS) -->
+                        <div id="czPreviewBanner"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -295,4 +320,16 @@ $options = cookiezu()->get_options();
             <?php submit_button( 'Save Settings', 'primary large', 'submit', false ); ?>
         </div>
     </form>
+
+    <div class="cookiezu-admin-footer">
+        <span>CookiEzu v<?php echo esc_html( COOKIEZU_VERSION ); ?> — Free &amp; Open Source under GPL v2</span>
+        <span class="cookiezu-admin-footer-sep">·</span>
+        <a href="https://github.com/flyzal/CookiEzu" target="_blank" rel="noopener">⭐ Star on GitHub</a>
+        <span class="cookiezu-admin-footer-sep">·</span>
+        <a href="https://github.com/flyzal/CookiEzu/issues" target="_blank" rel="noopener">Report a Bug</a>
+        <span class="cookiezu-admin-footer-sep">·</span>
+        <a href="https://buymeacoffee.com/flyzal" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+        <span class="cookiezu-admin-footer-sep">·</span>
+        <span>Made with ❤️ by <a href="https://github.com/flyzal" target="_blank" rel="noopener">flyzal</a></span>
+    </div>
 </div>

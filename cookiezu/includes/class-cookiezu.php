@@ -78,6 +78,7 @@ class CookiEzu {
      */
     private function init_hooks() {
         add_action( 'init', array( $this, 'load_textdomain' ) );
+        add_action( 'init', array( $this, 'maybe_upgrade_db' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_public_assets' ) );
         add_action( 'wp_footer', array( $this, 'render_banner' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
@@ -242,6 +243,60 @@ class CookiEzu {
     }
 
     /**
+     * Run DB upgrades on every load if version changed.
+     */
+    public function maybe_upgrade_db() {
+        if ( get_option( 'cookiezu_db_version' ) !== COOKIEZU_VERSION ) {
+            CookiEzu_Installer::activate();
+        }
+    }
+
+    /**
+     * Detect visitor country from IP using WP native or fallback.
+     * Returns 2-letter ISO code or empty string.
+     * GDPR note: only the code (e.g. "MY") is stored, never city/region.
+     *
+     * @return string
+     */
+    private function detect_country() {
+        $ip = sanitize_text_field( $_SERVER['REMOTE_ADDR'] ?? '' );
+        if ( ! $ip || $ip === '127.0.0.1' || $ip === '::1' ) return '';
+
+        /* 1. Try X-Forwarded-For (behind proxy/load balancer) */
+        if ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+            $parts = explode( ',', $_SERVER['HTTP_X_FORWARDED_FOR'] );
+            $ip    = trim( $parts[0] );
+        }
+
+        /* 2. Try Cloudflare header (most reliable if using CF) */
+        if ( ! empty( $_SERVER['HTTP_CF_IPCOUNTRY'] ) ) {
+            $code = strtoupper( substr( sanitize_text_field( $_SERVER['HTTP_CF_IPCOUNTRY'] ), 0, 2 ) );
+            if ( preg_match( '/^[A-Z]{2}$/', $code ) ) return $code;
+        }
+
+        /* 3. Try free geoplugin API (no key required, 120 req/min) */
+        $transient_key = 'cz_country_' . md5( $ip );
+        $cached = get_transient( $transient_key );
+        if ( false !== $cached ) return $cached;
+
+        $response = wp_remote_get(
+            'http://www.geoplugin.net/json.gp?ip=' . rawurlencode( $ip ),
+            array( 'timeout' => 3, 'sslverify' => false )
+        );
+
+        if ( ! is_wp_error( $response ) ) {
+            $body = json_decode( wp_remote_retrieve_body( $response ), true );
+            $code = strtoupper( $body['geoplugin_countryCode'] ?? '' );
+            if ( preg_match( '/^[A-Z]{2}$/', $code ) ) {
+                set_transient( $transient_key, $code, DAY_IN_SECONDS );
+                return $code;
+            }
+        }
+
+        return '';
+    }
+
+    /**
      * AJAX: Save consent record.
      */
     public function ajax_save_consent() {
@@ -258,6 +313,7 @@ class CookiEzu {
         $wpdb->insert( $table, array(
             'ip_address'     => sanitize_text_field( $_SERVER['REMOTE_ADDR'] ?? '' ),
             'user_agent'     => sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ?? '' ),
+            'country_code'   => $this->detect_country(),
             'necessary'      => isset( $_POST['necessary'] ) ? 1 : 0,
             'analytics'      => isset( $_POST['analytics'] ) ? 1 : 0,
             'marketing'      => isset( $_POST['marketing'] ) ? 1 : 0,
