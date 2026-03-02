@@ -95,64 +95,115 @@ $options = cookiezu()->get_options();
                     </tr>
                 </table>
             </div>
+
+            <!-- v1.3.0: Language & Localisation -->
+            <div class="cookiezu-card">
+                <h2>&#127760; Language &amp; Localisation <span class="cookiezu-badge cookiezu-badge-new">v1.3.0</span></h2>
+                <p class="description" style="margin-bottom:16px;">Set the banner language. Arabic enables full RTL layout automatically. Malay (Bahasa Melayu) covers Brunei and Malaysia.</p>
+                <table class="form-table">
+                    <tr>
+                        <th><label for="banner_language">Banner Language</label></th>
+                        <td>
+                            <select id="banner_language" name="cookiezu[banner_language]">
+                                <option value="en" <?php selected( $options['banner_language'], 'en' ); ?>>&#127468;&#127463; English (default)</option>
+                                <option value="ar" <?php selected( $options['banner_language'], 'ar' ); ?>>&#127462;&#127466; Arabic — العربية (RTL, GCC)</option>
+                                <option value="ms" <?php selected( $options['banner_language'], 'ms' ); ?>>&#127463;&#127475; Malay — Bahasa Melayu (Brunei / Malaysia)</option>
+                            </select>
+                            <p class="description">Arabic automatically applies right-to-left layout. No extra configuration needed.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="extended_disclosure">Extended Disclosure <span style="font-weight:400;opacity:0.6">(optional)</span></label></th>
+                        <td>
+                            <textarea id="extended_disclosure" name="cookiezu[extended_disclosure]" rows="3" class="large-text" placeholder="e.g. We collect data to improve our services under Article 6(1)(a) PDPL..."><?php echo esc_textarea( $options['extended_disclosure'] ); ?></textarea>
+                            <p class="description">Shown below the main banner message. Recommended for Saudi PDPL and Brunei PDPO — use for explicit disclosure of data collection purpose and third-party sharing.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <!-- ── DESIGN ── -->
         <div class="cookiezu-tab-content" id="tab-design">
-            <div class="cookiezu-card">
-                <h2>Appearance</h2>
-                <table class="form-table">
-                    <tr>
-                        <th><label for="position">Position</label></th>
-                        <td>
-                            <select id="position" name="cookiezu[position]">
-                                <option value="bottom" <?php selected( $options['position'], 'bottom' ); ?>>Bottom (full width)</option>
-                                <option value="top" <?php selected( $options['position'], 'top' ); ?>>Top (full width)</option>
-                                <option value="bottom-left" <?php selected( $options['position'], 'bottom-left' ); ?>>Bottom Left</option>
-                                <option value="bottom-right" <?php selected( $options['position'], 'bottom-right' ); ?>>Bottom Right</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><label for="layout">Layout</label></th>
-                        <td>
-                            <select id="layout" name="cookiezu[layout]">
-                                <option value="bar" <?php selected( $options['layout'], 'bar' ); ?>>Bar</option>
-                                <option value="box" <?php selected( $options['layout'], 'box' ); ?>>Box</option>
-                                <option value="modal" <?php selected( $options['layout'], 'modal' ); ?>>Modal</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><label for="theme">Theme</label></th>
-                        <td>
-                            <select id="theme" name="cookiezu[theme]">
-                                <option value="light" <?php selected( $options['theme'], 'light' ); ?>>Light</option>
-                                <option value="dark" <?php selected( $options['theme'], 'dark' ); ?>>Dark</option>
-                                <option value="custom" <?php selected( $options['theme'], 'custom' ); ?>>Custom</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
-                        <th>Primary Color</th>
-                        <td><input type="text" name="cookiezu[primary_color]" value="<?php echo esc_attr( $options['primary_color'] ); ?>" class="cookiezu-color-picker"></td>
-                    </tr>
-                    <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
-                        <th>Text Color</th>
-                        <td><input type="text" name="cookiezu[text_color]" value="<?php echo esc_attr( $options['text_color'] ); ?>" class="cookiezu-color-picker"></td>
-                    </tr>
-                    <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
-                        <th>Background Color</th>
-                        <td><input type="text" name="cookiezu[bg_color]" value="<?php echo esc_attr( $options['bg_color'] ); ?>" class="cookiezu-color-picker"></td>
-                    </tr>
-                    <tr>
-                        <th><label for="border_radius">Border Radius (px)</label></th>
-                        <td>
-                            <input type="number" id="border_radius" name="cookiezu[border_radius]" value="<?php echo esc_attr( $options['border_radius'] ); ?>" min="0" max="50" class="small-text">
-                            <p class="description">Applies to buttons and the box/modal layout (0–50).</p>
-                        </td>
-                    </tr>
-                </table>
+            <div class="cookiezu-design-wrap">
+                <!-- Settings column -->
+                <div class="cookiezu-card cookiezu-design-settings">
+                    <h2>Appearance</h2>
+                    <table class="form-table">
+                        <tr>
+                            <th><label for="position">Position</label></th>
+                            <td>
+                                <select id="position" name="cookiezu[position]" class="cz-preview-trigger">
+                                    <option value="bottom"       <?php selected( $options['position'], 'bottom' );       ?>>Bottom (full width)</option>
+                                    <option value="top"          <?php selected( $options['position'], 'top' );          ?>>Top (full width)</option>
+                                    <option value="bottom-left"  <?php selected( $options['position'], 'bottom-left' );  ?>>Bottom Left</option>
+                                    <option value="bottom-right" <?php selected( $options['position'], 'bottom-right' ); ?>>Bottom Right</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="layout">Layout</label></th>
+                            <td>
+                                <select id="layout" name="cookiezu[layout]" class="cz-preview-trigger">
+                                    <option value="bar"   <?php selected( $options['layout'], 'bar' );   ?>>Bar</option>
+                                    <option value="box"   <?php selected( $options['layout'], 'box' );   ?>>Box</option>
+                                    <option value="modal" <?php selected( $options['layout'], 'modal' ); ?>>Modal</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="theme">Theme</label></th>
+                            <td>
+                                <select id="theme" name="cookiezu[theme]" class="cz-preview-trigger">
+                                    <option value="light"  <?php selected( $options['theme'], 'light' );  ?>>Light</option>
+                                    <option value="dark"   <?php selected( $options['theme'], 'dark' );   ?>>Dark</option>
+                                    <option value="custom" <?php selected( $options['theme'], 'custom' ); ?>>Custom</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
+                            <th>Primary Color</th>
+                            <td><input type="text" name="cookiezu[primary_color]" value="<?php echo esc_attr( $options['primary_color'] ); ?>" class="cookiezu-color-picker cz-preview-trigger"></td>
+                        </tr>
+                        <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
+                            <th>Text Color</th>
+                            <td><input type="text" name="cookiezu[text_color]" value="<?php echo esc_attr( $options['text_color'] ); ?>" class="cookiezu-color-picker cz-preview-trigger"></td>
+                        </tr>
+                        <tr class="cookiezu-custom-colors" <?php echo $options['theme'] !== 'custom' ? 'style="display:none"' : ''; ?>>
+                            <th>Background Color</th>
+                            <td><input type="text" name="cookiezu[bg_color]" value="<?php echo esc_attr( $options['bg_color'] ); ?>" class="cookiezu-color-picker cz-preview-trigger"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="border_radius">Border Radius (px)</label></th>
+                            <td>
+                                <input type="number" id="border_radius" name="cookiezu[border_radius]" value="<?php echo esc_attr( $options['border_radius'] ); ?>" min="0" max="50" class="small-text cz-preview-trigger">
+                                <p class="description">Applies to buttons and the box/modal layout (0–50).</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Live preview column -->
+                <div class="cookiezu-preview-panel">
+                    <div class="cookiezu-preview-label">
+                        <span>Live Preview</span>
+                        <span class="cookiezu-preview-badge">Updates instantly</span>
+                    </div>
+                    <div class="cookiezu-preview-screen" id="czPreviewScreen">
+                        <!-- Fake page content -->
+                        <div class="czp-page-bg">
+                            <div class="czp-fake-header"></div>
+                            <div class="czp-fake-content">
+                                <div class="czp-line czp-line-full"></div>
+                                <div class="czp-line czp-line-80"></div>
+                                <div class="czp-line czp-line-60"></div>
+                                <div class="czp-line czp-line-40"></div>
+                            </div>
+                        </div>
+                        <!-- The live preview banner (rendered by JS) -->
+                        <div id="czPreviewBanner"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -281,6 +332,20 @@ $options = cookiezu()->get_options();
                         </td>
                     </tr>
                     <tr>
+                        <th><label for="policy_version">Policy Version <span style="background:#FDF3E3;color:#C17B2F;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;vertical-align:middle;">v1.3.0</span></label></th>
+                        <td>
+                            <input type="text" id="policy_version" name="cookiezu[policy_version]" value="<?php echo esc_attr( $options['policy_version'] ?? '1' ); ?>" class="small-text" placeholder="1">
+                            <p class="description"><strong>Re-consent trigger.</strong> Change this value (e.g. <code>1</code> → <code>2</code>) to force all visitors to re-consent on next visit — even if they already consented. Use when your Privacy Policy changes or you add new cookie categories. Required for GDPR, PDPL (Saudi), and PDPO (Brunei) compliance on policy changes.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="data_processing_location">Data Processing Location <span style="background:#FDF3E3;color:#C17B2F;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;vertical-align:middle;">v1.3.0</span></label></th>
+                        <td>
+                            <input type="text" id="data_processing_location" name="cookiezu[data_processing_location]" value="<?php echo esc_attr( $options['data_processing_location'] ?? '' ); ?>" class="regular-text" placeholder="e.g. Brunei Darussalam, Singapore">
+                            <p class="description">If set, a note appears on the banner: <em>"Your data is processed and stored on servers located in [value]."</em> Recommended for Saudi PDPL and Brunei PDPO where data localisation disclosure is expected. Leave blank to hide.</p>
+                        </td>
+                    </tr>
+                    <tr>
                         <th><label for="custom_css">Custom CSS</label></th>
                         <td>
                             <textarea id="custom_css" name="cookiezu[custom_css]" rows="8" class="large-text code"><?php echo esc_textarea( $options['custom_css'] ); ?></textarea>
@@ -295,4 +360,16 @@ $options = cookiezu()->get_options();
             <?php submit_button( 'Save Settings', 'primary large', 'submit', false ); ?>
         </div>
     </form>
+
+    <div class="cookiezu-admin-footer">
+        <span>CookiEzu v<?php echo esc_html( COOKIEZU_VERSION ); ?> — Free &amp; Open Source under GPL v2</span>
+        <span class="cookiezu-admin-footer-sep">·</span>
+        <a href="https://github.com/flyzal/CookiEzu" target="_blank" rel="noopener">⭐ Star on GitHub</a>
+        <span class="cookiezu-admin-footer-sep">·</span>
+        <a href="https://github.com/flyzal/CookiEzu/issues" target="_blank" rel="noopener">Report a Bug</a>
+        <span class="cookiezu-admin-footer-sep">·</span>
+        <a href="https://buymeacoffee.com/flyzal" target="_blank" rel="noopener">☕ Buy me a coffee</a>
+        <span class="cookiezu-admin-footer-sep">·</span>
+        <span>Made with ❤️ by <a href="https://github.com/flyzal" target="_blank" rel="noopener">flyzal</a></span>
+    </div>
 </div>

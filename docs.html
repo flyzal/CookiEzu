@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CookiEzu Docs — v1.2.1 Knowledge Base</title>
+<title>CookiEzu Docs — v1.3.0 Knowledge Base</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -214,7 +214,7 @@ pre .num { color: #FDE68A; }
     <span class="topnav-logo-text">Cooki<span>Ezu</span></span>
   </a>
   <span class="topnav-tag">Docs</span>
-  <span class="topnav-version">v1.2.1</span>
+  <span class="topnav-version">v1.3.0</span>
   <div class="topnav-right">
     <a href="index.html" class="topnav-home">← Home</a>
     <div class="topnav-search">
@@ -242,7 +242,7 @@ pre .num { color: #FDE68A; }
     <div class="sidebar-heading">What's New</div>
     <a class="sidebar-link" href="#" onclick="showSection('changelog')">
       <span class="icon">🆕</span> Changelog
-      <span class="sidebar-badge updated">v1.2.1</span>
+      <span class="sidebar-badge updated">v1.3.0</span>
     </a>
   </div>
   <div class="sidebar-section">
@@ -266,6 +266,18 @@ pre .num { color: #FDE68A; }
     <a class="sidebar-link" href="#" onclick="showSection('test-mode')">
       <span class="icon">🔧</span> Test Mode
       <span class="sidebar-badge new">New</span>
+    </a>
+    <a class="sidebar-link" href="#" onclick="showSection('language-rtl')">
+      <span class="icon">🌐</span> Arabic &amp; Malay
+      <span class="sidebar-badge new">v1.3.0</span>
+    </a>
+    <a class="sidebar-link" href="#" onclick="showSection('policy-version')">
+      <span class="icon">🔁</span> Policy Version
+      <span class="sidebar-badge new">v1.3.0</span>
+    </a>
+    <a class="sidebar-link" href="#" onclick="showSection('gcc-compliance')">
+      <span class="icon">🌙</span> GCC &amp; BN Compliance
+      <span class="sidebar-badge new">v1.3.0</span>
     </a>
   </div>
   <div class="sidebar-section">
@@ -308,7 +320,7 @@ pre .num { color: #FDE68A; }
     <div class="page-hero" data-emoji="🍪">
       <div class="doc-eyebrow">Introduction</div>
       <h1 class="doc-h1">Welcome to <em>CookiEzu</em></h1>
-      <p class="doc-lead">The lightweight, GDPR-compliant cookie consent plugin for WordPress. Open source, free forever, and beautiful by default. Now at v1.2.1 with consent analytics, live design preview, and full WCAG 2.1 AA accessibility.</p>
+      <p class="doc-lead">The lightweight, GDPR-compliant cookie consent plugin for WordPress. Open source, free forever, and beautiful by default. Now at v1.3.0 with consent analytics, live design preview, and full WCAG 2.1 AA accessibility.</p>
     </div>
     <p>CookiEzu gives your WordPress site a fully compliant cookie consent experience. When a visitor lands on your site, a customisable banner appears asking for their consent before any non-essential cookies are loaded. Their choice is remembered, logged, and respected on every future visit.</p>
     <div class="callout callout-tip">
@@ -334,7 +346,7 @@ pre .num { color: #FDE68A; }
     </table>
     <div class="callout callout-new">
       <span class="callout-icon">🆕</span>
-      <div class="callout-body"><strong>New in v1.2.1:</strong> PHP 7.4+ now required for <code>mb_chr()</code> used in flag emoji rendering for the country analytics. PHP 8.x strongly recommended.</div>
+      <div class="callout-body"><strong>New in v1.3.0:</strong> PHP 7.4+ now required for <code>mb_chr()</code> used in flag emoji rendering for the country analytics. PHP 8.x strongly recommended.</div>
     </div>
   </section>
 
@@ -348,11 +360,11 @@ pre .num { color: #FDE68A; }
     </div>
     <div class="callout callout-new">
       <span class="callout-icon">🆕</span>
-      <div class="callout-body"><strong>Latest: v1.2.1</strong> — Includes consent analytics dashboard, live design preview, dark mode fix, country tracking, and WCAG 2.1 accessibility. If you're on an older version, follow the upgrade steps below.</div>
+      <div class="callout-body"><strong>Latest: v1.3.0</strong> — Includes consent analytics dashboard, live design preview, dark mode fix, country tracking, and WCAG 2.1 accessibility. If you're on an older version, follow the upgrade steps below.</div>
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Method 1 — Upload via WordPress Admin</h2>
     <div class="steps">
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Download the plugin ZIP</div><div class="step-desc">Go to <a href="https://github.com/flyzal/CookiEzu" target="_blank" style="color:var(--cookie)">github.com/flyzal/CookiEzu</a>, click <strong>Releases</strong>, and download <code>cookiezu-v1.2.1.zip</code>.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Download the plugin ZIP</div><div class="step-desc">Go to <a href="https://github.com/flyzal/CookiEzu" target="_blank" style="color:var(--cookie)">github.com/flyzal/CookiEzu</a>, click <strong>Releases</strong>, and download <code>cookiezu-v1.3.0.zip</code>.</div></div></div>
       <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Go to Plugins → Add New</div><div class="step-desc">In your WordPress admin, navigate to <strong>Plugins → Add New Plugin</strong>.</div></div></div>
       <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload and install</div><div class="step-desc">Click <strong>Upload Plugin</strong>, choose your ZIP, click <strong>Install Now</strong>.</div></div></div>
       <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Activate</div><div class="step-desc">Click <strong>Activate Plugin</strong>. CookiEzu creates its database table (including the new <code>country_code</code> column) automatically.</div></div></div>
@@ -366,12 +378,12 @@ pre .num { color: #FDE68A; }
     <div class="steps">
       <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Deactivate the old version</div><div class="step-desc"><strong>Plugins → Installed Plugins</strong> → CookiEzu → <strong>Deactivate</strong>.</div></div></div>
       <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Delete the old version</div><div class="step-desc">Click <strong>Delete</strong> on the CookiEzu row. Settings, consent log, and all database records are preserved.</div></div></div>
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload and activate v1.2.1</div><div class="step-desc">Follow Method 1 above. On first load, the DB migration runs automatically — the <code>country_code</code> column is added to your existing consent table if it doesn't exist.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload and activate v1.3.0</div><div class="step-desc">Follow Method 1 above. On first load, the DB migration runs automatically — the <code>country_code</code> column is added to your existing consent table if it doesn't exist.</div></div></div>
       <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Clear all caches</div><div class="step-desc">Clear your WordPress caching plugin, CDN, and hosting cache. Then verify in incognito.</div></div></div>
     </div>
     <h2 class="doc-h2">Method 2 — FTP / Manual</h2>
     <div class="steps">
-      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Extract the ZIP</div><div class="step-desc">Unzip <code>cookiezu-v1.2.1.zip</code> — you'll get a <code>cookiezu_v121/</code> folder.</div></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Extract the ZIP</div><div class="step-desc">Unzip <code>cookiezu-v1.3.0.zip</code> — you'll get a <code>cookiezu_v121/</code> folder.</div></div></div>
       <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Upload via FTP</div><div class="step-desc">Upload the folder to <code>/wp-content/plugins/</code> as <code>cookiezu/</code>.</div></div></div>
       <div class="step"><div class="step-num"></div><div class="step-body"><div class="step-title">Activate in WordPress</div><div class="step-desc"><strong>Plugins → Installed Plugins</strong> → CookiEzu → <strong>Activate</strong>.</div></div></div>
     </div>
@@ -397,7 +409,7 @@ pre .num { color: #FDE68A; }
     <p>Go to the <strong>Design tab</strong>. On the right side of the screen you'll see a sticky <strong>Live Preview panel</strong> — a scaled browser mockup that updates in real time as you change any setting. Pick your Layout (Bar, Box, or Modal), Position, and Theme. The preview reflects your changes instantly without saving.</p>
     <div class="callout callout-info">
       <span class="callout-icon">👁️</span>
-      <div class="callout-body"><strong>New in v1.2.1:</strong> The live preview panel also pulls your banner title and button text from the Content tab, so what you see in the preview is exactly what visitors will see.</div>
+      <div class="callout-body"><strong>New in v1.3.0:</strong> The live preview panel also pulls your banner title and button text from the Content tab, so what you see in the preview is exactly what visitors will see.</div>
     </div>
     <h2 class="doc-h2">Step 4 — Enable the categories you use</h2>
     <p>Go to the <strong>Categories tab</strong>. Only enable the categories that match cookies your site actually loads. If you don't use Facebook Pixel, don't show a Marketing toggle.</p>
@@ -416,55 +428,99 @@ pre .num { color: #FDE68A; }
     <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>What's New</div>
     <div class="page-hero" data-emoji="🆕">
       <div class="doc-eyebrow">Changelog</div>
-      <h1 class="doc-h1">v1.2.1 — <em>Analytics & Polish</em></h1>
-      <p class="doc-lead">Released February 2026. Consent analytics dashboard, live design preview, dark mode readability fix, visitor country tracking, and admin footer credits.</p>
+      <h1 class="doc-h1">v1.3.0 — <em>GCC &amp; Brunei Compliance Pack</em></h1>
+      <p class="doc-lead">Released March 2026. Arabic + RTL layout, Bahasa Melayu, Policy Version re-consent trigger, Extended Disclosure, Data Processing Location, compliance tier badges, and smart admin notices for Brunei PDPO 2025 and GCC PDPL.</p>
     </div>
 
-    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Changes in v1.2.1</h2>
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Changes in v1.3.0</h2>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Arabic language + full RTL layout <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">Selecting Arabic in <strong>Content → Banner Language</strong> applies right-to-left layout automatically — flipped flex directions, text alignment, category header, pref actions, and cookie table. A <code>.cookiezu-rtl</code> class is added to the banner root via PHP; CSS handles everything else. No JS logic change required. Covers Saudi Arabia, UAE, Qatar, Bahrain, Oman, and Kuwait.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Bahasa Melayu (Malay) language <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">Full Malay translation added as <code>languages/ms.php</code>. Covers Brunei Darussalam and Malaysia. Latin script, LTR, no layout changes. The plugin was built in Brunei — Malay support is a natural first-party addition.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Policy Version re-consent trigger <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">A <strong>Policy Version</strong> field in Advanced settings (default: <code>1</code>). The value is stored in the consent cookie as <code>policyVersion</code> and recorded in the consent log. On page load, if the saved cookie's <code>policyVersion</code> doesn't match the current setting, the old cookie is cleared and the banner is shown again — forcing re-consent. Directly satisfies GDPR Article 7, Saudi PDPL, and Brunei PDPO 2025 requirements when data processing purpose or policy changes.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Extended Disclosure field <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">An optional textarea in <strong>Content → Language &amp; Localisation</strong>. If filled, a styled block appears below the main banner message — visually distinct with an amber left border. Intended for legal-grade disclosure statements required by PDPL (Saudi) and PDPO (Brunei): explicit statement of data collection purpose, categories, and third-party sharing.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-feature"></div>
+      <div>
+        <div class="changelog-item-title">Data Processing Location field <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">A text field in <strong>Advanced</strong>. If set, the banner appends: <em>"Your data is processed and stored on servers located in [value]."</em> Addresses data localisation disclosure expectations in Saudi PDPL, Brunei PDPO, and Oman's law. Leave blank to hide.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-improvement"></div>
+      <div>
+        <div class="changelog-item-title">Compliance tier badges in country analytics <span class="badge badge-cookie">Improvement</span></div>
+        <div class="changelog-item-desc">The country breakdown table in the Consent Log now shows a small colour-coded badge next to each country: GDPR (blue), PDPL/GCC (purple), PDPA (green), PDPO/BN (amber), Regulated (sky), or — for unclassified. Powered by a hardcoded lookup table of 50+ country codes in <code>CookiEzu::$compliance_tiers</code>.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-improvement"></div>
+      <div>
+        <div class="changelog-item-title">Smart admin compliance notices <span class="badge badge-cookie">Improvement</span></div>
+        <div class="changelog-item-desc">Automatic yellow notices appear in the WordPress admin (on CookiEzu pages only) when BN or GCC country codes appear in the consent log and <strong>Data Processing Location</strong> is not yet configured. Two notices: one for Brunei PDPO, one for GCC PDPL. Each links directly to the relevant settings tab. Dismissed per session like standard WP notices.</div>
+      </div>
+    </div>
+    <div class="changelog-item">
+      <div class="changelog-dot dot-fix"></div>
+      <div>
+        <div class="changelog-item-title">DB migration: policy_version column <span class="badge badge-red">Migration</span></div>
+        <div class="changelog-item-desc">The consent log table gains a <code>policy_version VARCHAR(20) NOT NULL DEFAULT '1'</code> column on first load after upgrade, via <code>ALTER TABLE</code> in the installer. Existing records default to <code>1</code>. No manual SQL required.</div>
+      </div>
+    </div>
+
+    <h2 class="doc-h2">Changes in v1.2.1 — Metrics &amp; UX Polish</h2>
     <div class="changelog-item">
       <div class="changelog-dot dot-fix"></div>
       <div>
         <div class="changelog-item-title">Dark mode: checked categories now readable <span class="badge badge-red">Bug Fix</span></div>
-        <div class="changelog-item-desc">When a visitor toggled a category <em>on</em> in dark mode, the card background snapped to <code>--cz-cookie-pale</code> (#FDF3E3 — warm cream) but the text remained near-white (#FEFCF8). The fix adds <code>--cz-cookie-pale: rgba(193,123,47,0.18)</code> to the dark theme token override so checked categories use a dark amber tint instead of the light cream. An explicit <code>.cookiezu-theme-dark .cookiezu-category:has(input:checked)</code> rule reinforces the fix.</div>
+        <div class="changelog-item-desc">When a visitor toggled a category on in dark mode, the card background snapped to <code>--cz-cookie-pale</code> (#FDF3E3 — warm cream) but the text remained near-white (#FEFCF8). The fix adds <code>--cz-cookie-pale: rgba(193,123,47,0.18)</code> to the dark theme token override so checked categories use a dark amber tint instead of the light cream.</div>
       </div>
     </div>
     <div class="changelog-item">
       <div class="changelog-dot dot-feature"></div>
       <div>
         <div class="changelog-item-title">Consent analytics dashboard <span class="badge badge-green">New Feature</span></div>
-        <div class="changelog-item-desc">The Consent Log page now shows a full metrics dashboard above the raw table: four stat cards (Total, Accept All %, Necessary Only %, Custom %) each with an SVG donut chart; horizontal acceptance bars per category; a 30-day consent trend bar chart; and a top-countries table with flag emojis, bars, and counts.</div>
+        <div class="changelog-item-desc">The Consent Log page now shows a full metrics dashboard: four stat cards (Total, Accept All %, Necessary Only %, Custom %) each with SVG donut charts; horizontal acceptance bars per category; a 30-day consent trend bar chart; and a top-countries table with flag emojis, bars, and counts.</div>
       </div>
     </div>
     <div class="changelog-item">
       <div class="changelog-dot dot-feature"></div>
       <div>
         <div class="changelog-item-title">Visitor country tracking <span class="badge badge-green">New Feature</span></div>
-        <div class="changelog-item-desc">A <code>country_code VARCHAR(2)</code> column is added to the consent log table. Detection uses three tiers: Cloudflare <code>CF-IPCountry</code> header (zero latency for CF users), then <code>geoplugin.net</code> free API (no key, 120 req/min, result cached in WP transients for 24h), then empty string fallback. Only the 2-letter ISO code is stored — no city, no region, GDPR minimal data principle. Existing installs are migrated automatically via <code>ALTER TABLE</code> on first load after upgrade.</div>
+        <div class="changelog-item-desc">A <code>country_code VARCHAR(2)</code> column is added to the consent log. Detection: Cloudflare <code>CF-IPCountry</code> header → geoplugin.net API (24h cache) → empty string fallback. Only the 2-letter ISO code is stored — GDPR minimal data principle.</div>
       </div>
     </div>
     <div class="changelog-item">
       <div class="changelog-dot dot-feature"></div>
       <div>
         <div class="changelog-item-title">Live banner preview in Design tab <span class="badge badge-green">New Feature</span></div>
-        <div class="changelog-item-desc">The Design tab is now a two-column layout. The right column shows a sticky preview panel with a scaled browser mockup that re-renders in real time as you change layout, theme, colours, border radius, and text (title/button labels also pull from the Content tab). No saving required. Works for Bar, Box, and Modal layouts across Light, Dark, and Custom themes.</div>
-      </div>
-    </div>
-    <div class="changelog-item">
-      <div class="changelog-dot dot-improvement"></div>
-      <div>
-        <div class="changelog-item-title">Admin footer credit <span class="badge badge-cookie">Improvement</span></div>
-        <div class="changelog-item-desc">A subtle one-line footer appears at the bottom of both the Settings and Consent Log pages: version number, GitHub star link, bug report link, Buy Me a Coffee, and "Made with ❤️ by flyzal". Industry-standard placement (Yoast SEO, WP Rocket pattern) — never in the content flow.</div>
-      </div>
-    </div>
-    <div class="changelog-item">
-      <div class="changelog-dot dot-fix"></div>
-      <div>
-        <div class="changelog-item-title">Consent log text cutoff & flag emoji rendering <span class="badge badge-red">Bug Fix</span></div>
-        <div class="changelog-item-desc">The log page only had <code>padding-left: 20px</code> with no right padding — content ran flush to the right edge. Fixed by adding <code>padding-right: 20px</code> and adding horizontal padding to <code>.cookiezu-wrap</code>. Flag emoji rendering was also fixed: replaced fragile <code>mb_convert_encoding()</code> HTML entity approach with <code>mb_chr()</code> using the Unicode Regional Indicator block offset (<code>U+1F1E6</code>), which works reliably on PHP 7.4+.</div>
+        <div class="changelog-item-desc">The Design tab is now a two-column layout. The right column shows a sticky preview panel with a scaled browser mockup that re-renders in real time as you change layout, theme, colours, and text. No saving required.</div>
       </div>
     </div>
 
-    <h2 class="doc-h2">Changes in v1.2.0 — Polish & Accessibility</h2>
+    <h2 class="doc-h2">Changes in v1.2.0 — Polish &amp; Accessibility</h2>
     <div class="changelog-item">
       <div class="changelog-dot dot-feature"></div>
       <div>
@@ -476,48 +532,27 @@ pre .num { color: #FDE68A; }
       <div class="changelog-dot dot-feature"></div>
       <div>
         <div class="changelog-item-title">Escape key closes banner <span class="badge badge-blue">Accessibility</span></div>
-        <div class="changelog-item-desc">Pressing Esc accepts Necessary Only and dismisses the banner — the standard keyboard dialog pattern (WCAG 2.1 §2.1). Configurable via <strong>Advanced → Keyboard Settings</strong>. Enabled by default.</div>
+        <div class="changelog-item-desc">Pressing Esc accepts Necessary Only and dismisses the banner. Configurable via <strong>Advanced → Keyboard Settings</strong>. Enabled by default.</div>
       </div>
     </div>
     <div class="changelog-item">
       <div class="changelog-dot dot-feature"></div>
       <div>
-        <div class="changelog-item-title">Focus returns to re-open button after consent <span class="badge badge-blue">Accessibility</span></div>
-        <div class="changelog-item-desc">After a visitor accepts or declines, keyboard focus moves to the 🍪 re-open button via <code>requestAnimationFrame()</code> — where WCAG 2.4.3 says it should go after a dialog closes.</div>
-      </div>
-    </div>
-    <div class="changelog-item">
-      <div class="changelog-dot dot-improvement"></div>
-      <div>
-        <div class="changelog-item-title">Proper ARIA on banner dialog <span class="badge badge-blue">Accessibility</span></div>
-        <div class="changelog-item-desc">Banner now uses <code>aria-labelledby</code> and <code>aria-describedby</code> pointing at the actual title and message elements (via IDs). Screen readers announce "We value your privacy — We use cookies…" rather than the generic "Cookie consent" label it had before.</div>
-      </div>
-    </div>
-    <div class="changelog-item">
-      <div class="changelog-dot dot-improvement"></div>
-      <div>
-        <div class="changelog-item-title">No-flicker banner init <span class="badge badge-cookie">Improvement</span></div>
-        <div class="changelog-item-desc">Banner starts with <code>visibility: hidden</code> in CSS. JS sets <code>visibility: visible</code> immediately then decides whether to show or hide — returning visitors never see a flash of the banner before JS can hide it.</div>
-      </div>
-    </div>
-    <div class="changelog-item">
-      <div class="changelog-dot dot-feature"></div>
-      <div>
-        <div class="changelog-item-title">Test Mode & configurable re-open position <span class="badge badge-green">New Feature</span></div>
-        <div class="changelog-item-desc">Test Mode forces the banner to always show for logged-in admins (with a 🔧 badge visible only to them). Re-open button position is now configurable: bottom-left (default) or bottom-right. Both settings are in <strong>Advanced</strong>.</div>
+        <div class="changelog-item-title">Test Mode &amp; configurable re-open position <span class="badge badge-green">New Feature</span></div>
+        <div class="changelog-item-desc">Test Mode forces the banner to always show for logged-in admins (with a 🔧 badge). Re-open button position now configurable: bottom-left or bottom-right.</div>
       </div>
     </div>
 
     <h2 class="doc-h2">Previous Releases</h2>
     <table class="doc-table">
       <tr><th>Version</th><th>Date</th><th>Summary</th></tr>
-      <tr><td>1.2.1</td><td>Feb 2026</td><td>Consent analytics dashboard, country tracking, live preview, dark mode fix, padding fix</td></tr>
+      <tr><td>1.3.0</td><td>Mar 2026</td><td>Arabic RTL, Malay, Policy Version, Extended Disclosure, Data Location, compliance badges, admin notices</td></tr>
+      <tr><td>1.2.1</td><td>Feb 2026</td><td>Consent analytics dashboard, country tracking, live preview, dark mode fix</td></tr>
       <tr><td>1.2.0</td><td>Feb 2026</td><td>WCAG 2.1 AA accessibility, focus trap, Escape key, test mode, no-flicker init</td></tr>
-      <tr><td>1.1.0</td><td>Feb 2026</td><td>Modal dismiss fix, JS engine rewrite, cache-busting version bump</td></tr>
+      <tr><td>1.1.0</td><td>Feb 2026</td><td>Modal dismiss fix, JS engine rewrite</td></tr>
       <tr><td>1.0.0</td><td>Jan 2026</td><td>Initial release — Bar/Box/Modal, GA4, GTM, consent log, 3 themes</td></tr>
     </table>
   </section>
-
   <!-- ═══ BANNER ═══ -->
   <section class="doc-section" id="banner">
     <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>Banner & Layouts</div>
@@ -574,7 +609,7 @@ pre .num { color: #FDE68A; }
     <div class="page-hero" data-emoji="🌗">
       <div class="doc-eyebrow">Feature</div>
       <h1 class="doc-h1">Themes & <em>Colours</em></h1>
-      <p class="doc-lead">Make your banner match your brand — from built-in presets to full custom colour control. Dark mode fully fixed in v1.2.1.</p>
+      <p class="doc-lead">Make your banner match your brand — from built-in presets to full custom colour control. Dark mode fully fixed in v1.3.0.</p>
     </div>
     <table class="doc-table">
       <tr><th>Theme</th><th>Background</th><th>Best For</th></tr>
@@ -584,7 +619,7 @@ pre .num { color: #FDE68A; }
     </table>
     <div class="callout callout-fix">
       <span class="callout-icon">🐛</span>
-      <div class="callout-body"><strong>Dark mode fix in v1.2.1:</strong> Previously, toggling a cookie category <em>on</em> in dark mode made that card's background switch to a pale cream colour (#FDF3E3), making the near-white text unreadable. Fixed by overriding <code>--cz-cookie-pale</code> to <code>rgba(193,123,47,0.18)</code> within the dark theme token set, and adding a specific dark-mode override rule for checked category cards.</div>
+      <div class="callout-body"><strong>Dark mode fix in v1.3.0:</strong> Previously, toggling a cookie category <em>on</em> in dark mode made that card's background switch to a pale cream colour (#FDF3E3), making the near-white text unreadable. Fixed by overriding <code>--cz-cookie-pale</code> to <code>rgba(193,123,47,0.18)</code> within the dark theme token set, and adding a specific dark-mode override rule for checked category cards.</div>
     </div>
     <h2 class="doc-h2">Custom Colour Settings</h2>
     <p>When you select the <strong>Custom</strong> theme, three colour pickers appear:</p>
@@ -602,13 +637,13 @@ pre .num { color: #FDE68A; }
   <section class="doc-section" id="live-preview">
     <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>Live Preview</div>
     <div class="page-hero" data-emoji="👁️">
-      <div class="doc-eyebrow">New in v1.2.1</div>
+      <div class="doc-eyebrow">New in v1.3.0</div>
       <h1 class="doc-h1">Live Design <em>Preview</em></h1>
       <p class="doc-lead">See exactly how your banner will look — before saving — with a real-time preview that updates as you change settings.</p>
     </div>
     <div class="callout callout-new">
       <span class="callout-icon">✨</span>
-      <div class="callout-body"><strong>New in v1.2.1</strong> — The Design tab now shows a sticky preview panel on the right side of the page that re-renders instantly as you change any design setting.</div>
+      <div class="callout-body"><strong>New in v1.3.0</strong> — The Design tab now shows a sticky preview panel on the right side of the page that re-renders instantly as you change any design setting.</div>
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">How It Works</h2>
     <p>The Design tab is now a two-column layout. On the left: your settings (Layout, Position, Theme, colours, border radius). On the right: a sticky preview panel showing a scaled browser window mockup containing a fake page and your live banner. No page reload, no saving — every change is reflected immediately.</p>
@@ -646,7 +681,7 @@ pre .num { color: #FDE68A; }
       <tr><td>id</td><td>Unique auto-increment record ID</td><td>v1.0.0</td></tr>
       <tr><td>ip_address</td><td>Visitor IP — last 4 characters masked (e.g. 192.168.1.****)</td><td>v1.0.0</td></tr>
       <tr><td>user_agent</td><td>Browser user agent string (stored but not displayed)</td><td>v1.0.0</td></tr>
-      <tr><td>country_code</td><td>2-letter ISO country code only (e.g. MY, SG, BN). Never city or region.</td><td>v1.2.1</td></tr>
+      <tr><td>country_code</td><td>2-letter ISO country code only (e.g. MY, SG, BN). Never city or region.</td><td>v1.3.0</td></tr>
       <tr><td>necessary</td><td>Always 1 (true) — cannot be declined</td><td>v1.0.0</td></tr>
       <tr><td>analytics</td><td>1 = accepted, 0 = declined</td><td>v1.0.0</td></tr>
       <tr><td>marketing</td><td>1 = accepted, 0 = declined</td><td>v1.0.0</td></tr>
@@ -655,7 +690,7 @@ pre .num { color: #FDE68A; }
     </table>
     <div class="callout callout-info">
       <span class="callout-icon">ℹ️</span>
-      <div class="callout-body"><strong>DB migration:</strong> The <code>country_code</code> column is added automatically on first load after upgrading to v1.2.1. No manual SQL is needed. Existing records will show an empty string for country until new consents are received.</div>
+      <div class="callout-body"><strong>DB migration:</strong> The <code>country_code</code> column is added automatically on first load after upgrading to v1.3.0. No manual SQL is needed. Existing records will show an empty string for country until new consents are received.</div>
     </div>
     <h2 class="doc-h2">Consent Expiry</h2>
     <p>The <strong>Consent Expiry</strong> setting (Advanced tab) controls how long the visitor's browser cookie lasts. Default is <strong>365 days</strong>. After expiry the banner re-appears and a new record is created. GDPR recommends re-obtaining consent at least annually.</p>
@@ -665,13 +700,13 @@ pre .num { color: #FDE68A; }
   <section class="doc-section" id="consent-analytics">
     <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>Consent Analytics</div>
     <div class="page-hero" data-emoji="📊">
-      <div class="doc-eyebrow">New in v1.2.1</div>
+      <div class="doc-eyebrow">New in v1.3.0</div>
       <h1 class="doc-h1">Consent <em>Analytics</em></h1>
       <p class="doc-lead">A visual metrics dashboard at the top of your Consent Log page — no external tools required.</p>
     </div>
     <div class="callout callout-new">
       <span class="callout-icon">✨</span>
-      <div class="callout-body"><strong>New in v1.2.1</strong> — The Consent Log page now opens with a full analytics dashboard before the raw records table.</div>
+      <div class="callout-body"><strong>New in v1.3.0</strong> — The Consent Log page now opens with a full analytics dashboard before the raw records table.</div>
     </div>
     <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">What's in the Dashboard</h2>
 
@@ -775,6 +810,124 @@ pre .num { color: #FDE68A; }
     <div class="callout callout-warn">
       <span class="callout-icon">⚠️</span>
       <div class="callout-body"><strong>Remember to turn Test Mode off</strong> before going live or presenting the site to a client. The banner always showing for you can mask whether the real banner trigger is working correctly for actual visitors.</div>
+    </div>
+  </section>
+
+  <!-- ═══ LANGUAGE & RTL ═══ -->
+  <section class="doc-section" id="language-rtl">
+    <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>Arabic &amp; Malay</div>
+    <div class="page-hero" data-emoji="🌐">
+      <div class="doc-eyebrow">New in v1.3.0</div>
+      <h1 class="doc-h1">Arabic &amp; <em>Malay</em> Languages</h1>
+      <p class="doc-lead">Native language support for GCC countries (Arabic, RTL) and Brunei Darussalam / Malaysia (Bahasa Melayu, LTR). Select your language in Content settings — everything else applies automatically.</p>
+    </div>
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">How to Set the Banner Language</h2>
+    <p>Go to <strong>CookiEzu → Settings → Content → Language &amp; Localisation</strong>. Select from the dropdown:</p>
+    <table class="doc-table">
+      <tr><th>Option</th><th>Script</th><th>Direction</th><th>Covers</th></tr>
+      <tr><td>🇬🇧 English (default)</td><td>Latin</td><td>LTR</td><td>Global default</td></tr>
+      <tr><td>🇸🇦 Arabic — العربية</td><td>Arabic</td><td>RTL (auto)</td><td>Saudi Arabia, UAE, Qatar, Bahrain, Oman, Kuwait</td></tr>
+      <tr><td>🇧🇳 Malay — Bahasa Melayu</td><td>Latin</td><td>LTR</td><td>Brunei Darussalam, Malaysia</td></tr>
+    </table>
+    <h2 class="doc-h2">Arabic RTL — What Happens Automatically</h2>
+    <p>When Arabic is selected, a <code>cookiezu-rtl</code> class and <code>dir="rtl"</code> attribute are added to the banner root element by PHP — before the browser renders it. The following are applied by CSS with no JavaScript logic required:</p>
+    <table class="doc-table">
+      <tr><th>Element</th><th>RTL Change</th></tr>
+      <tr><td>Banner text</td><td><code>direction: rtl; text-align: right</code></td></tr>
+      <tr><td>Bar layout</td><td>Flex row reversed so buttons appear on the left</td></tr>
+      <tr><td>Category headers</td><td>Flex row reversed — toggle appears on the left</td></tr>
+      <tr><td>Preference action buttons</td><td>Flex row reversed</td></tr>
+      <tr><td>Extended Disclosure border</td><td>Moved from left to right</td></tr>
+      <tr><td>Cookie table cells</td><td><code>text-align: right</code></td></tr>
+      <tr><td>Re-open button</td><td>Moved to bottom-right (JS override)</td></tr>
+      <tr><td>Font fallback</td><td>Segoe UI, Tahoma, Arial — better Arabic rendering</td></tr>
+    </table>
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body"><strong>Admin text fields still accept Arabic input.</strong> You can type Arabic directly into the Banner Title, Banner Message, and button text fields to override the default translated strings with your own wording.</div>
+    </div>
+    <h2 class="doc-h2">Language Files</h2>
+    <p>Translations live in the <code>languages/</code> folder as simple PHP arrays:</p>
+    <table class="doc-table">
+      <tr><th>File</th><th>Language</th><th>Notes</th></tr>
+      <tr><td><code>languages/en.php</code></td><td>English</td><td>Baseline — all keys defined here</td></tr>
+      <tr><td><code>languages/ar.php</code></td><td>Arabic</td><td>RTL, GCC coverage</td></tr>
+      <tr><td><code>languages/ms.php</code></td><td>Bahasa Melayu</td><td>Brunei PDPO 2025 &amp; Malaysia PDPA</td></tr>
+    </table>
+    <p>Missing keys fall back to English automatically. To contribute a new language, copy <code>en.php</code>, translate the values, and submit a pull request on GitHub.</p>
+  </section>
+
+  <!-- ═══ POLICY VERSION ═══ -->
+  <section class="doc-section" id="policy-version">
+    <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>Policy Version</div>
+    <div class="page-hero" data-emoji="🔁">
+      <div class="doc-eyebrow">New in v1.3.0</div>
+      <h1 class="doc-h1">Policy Version <em>Re-consent Trigger</em></h1>
+      <p class="doc-lead">Force all existing visitors to re-consent when your Privacy Policy or data processing changes — a legal requirement under GDPR, Saudi PDPL, and Brunei PDPO 2025.</p>
+    </div>
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">How It Works</h2>
+    <p>The <strong>Policy Version</strong> field (in <strong>Advanced settings</strong>, default: <code>1</code>) is stored in each visitor's consent cookie as <code>policyVersion</code> and recorded in the consent log. On every page load, CookiEzu compares the cookie's stored version with the current setting. If they don't match, the old cookie is cleared and the banner is shown again.</p>
+    <div class="callout callout-tip">
+      <span class="callout-icon">🔁</span>
+      <div class="callout-body"><strong>To trigger re-consent for all visitors:</strong> change the Policy Version value (e.g. from <code>1</code> to <code>2</code>) and save settings. Every visitor — including those who already consented — will see the banner again on their next page load. Consent is not recorded until they make a new choice.</div>
+    </div>
+    <h2 class="doc-h2">When to Bump the Version</h2>
+    <table class="doc-table">
+      <tr><th>Scenario</th><th>Action</th><th>Required by</th></tr>
+      <tr><td>Added a new cookie category (e.g. marketing was off, now on)</td><td>Bump version</td><td>GDPR, PDPL, PDPO</td></tr>
+      <tr><td>Changed your Privacy Policy's data processing purpose</td><td>Bump version</td><td>GDPR Art. 7, PDPO §12</td></tr>
+      <tr><td>Added a new third-party data processor</td><td>Bump version</td><td>GDPR, PDPL</td></tr>
+      <tr><td>Changed your data retention period</td><td>Bump version</td><td>GDPR</td></tr>
+      <tr><td>Minor wording change with no impact on processing</td><td>No change needed</td><td>—</td></tr>
+    </table>
+    <h2 class="doc-h2">Consent Log</h2>
+    <p>Each consent record stores the <code>policy_version</code> value at the time of consent. This gives you a full audit trail — you can see exactly which version of the policy each visitor consented to. The column was added in v1.3.0 via automatic DB migration; records from before the upgrade default to <code>1</code>.</p>
+    <div class="callout callout-warn">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body"><strong>Do not reuse old version numbers.</strong> If you bump from <code>1</code> to <code>2</code> and later revert to <code>1</code>, visitors who previously consented to version 1 will not see the banner again. Always increment forward.</div>
+    </div>
+  </section>
+
+  <!-- ═══ GCC & BRUNEI COMPLIANCE ═══ -->
+  <section class="doc-section" id="gcc-compliance">
+    <div class="breadcrumb"><a href="#">Docs</a><span class="breadcrumb-sep">›</span>Features<span class="breadcrumb-sep">›</span>GCC &amp; BN Compliance</div>
+    <div class="page-hero" data-emoji="🌙">
+      <div class="doc-eyebrow">New in v1.3.0</div>
+      <h1 class="doc-h1">GCC &amp; <em>Brunei Compliance</em></h1>
+      <p class="doc-lead">CookiEzu v1.3.0 adds native support for Saudi PDPL, Brunei PDPO 2025, and related GCC data protection laws — the first free WordPress consent plugin to do so.</p>
+    </div>
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">Applicable Laws</h2>
+    <table class="doc-table">
+      <tr><th>Country</th><th>Law</th><th>In Force</th><th>CookiEzu Coverage</th></tr>
+      <tr><td>🇧🇳 Brunei</td><td>PDPO 2025</td><td>Jan 2026 (enforcement)</td><td>Malay language, Policy Version, Extended Disclosure, Data Location, admin notice</td></tr>
+      <tr><td>🇸🇦 Saudi Arabia</td><td>PDPL</td><td>Sept 2024</td><td>Arabic + RTL, Extended Disclosure, Data Location, compliance badge, admin notice</td></tr>
+      <tr><td>🇦🇪 UAE</td><td>Federal DPL No.45/2021</td><td>Jan 2022</td><td>Arabic + RTL, compliance badge</td></tr>
+      <tr><td>🇶🇦 Qatar</td><td>Personal Data Privacy Law</td><td>2016</td><td>Arabic + RTL, compliance badge</td></tr>
+      <tr><td>🇧🇭 Bahrain</td><td>PDPL No.30/2018</td><td>Aug 2019</td><td>Arabic + RTL, compliance badge</td></tr>
+      <tr><td>🇴🇲 Oman</td><td>Personal Data Protection Law</td><td>Feb 2026</td><td>Arabic + RTL, Data Location, compliance badge</td></tr>
+      <tr><td>🇰🇼 Kuwait</td><td>Data Privacy Regulation No.26/2024</td><td>2024</td><td>Arabic + RTL, compliance badge</td></tr>
+    </table>
+    <h2 class="doc-h2">What CookiEzu Handles vs. What It Cannot</h2>
+    <table class="doc-table">
+      <tr><th>Requirement</th><th>CookiEzu handles?</th><th>Notes</th></tr>
+      <tr><td>Informed consent before processing</td><td>✅ Yes</td><td>Banner shown before any cookie set</td></tr>
+      <tr><td>Granular category consent</td><td>✅ Yes</td><td>Necessary / Analytics / Marketing / Functional</td></tr>
+      <tr><td>Right to withdraw consent</td><td>✅ Yes</td><td>🍪 re-open button always accessible</td></tr>
+      <tr><td>Re-consent on policy change</td><td>✅ Yes</td><td>Policy Version field (v1.3.0)</td></tr>
+      <tr><td>Audit trail of consent</td><td>✅ Yes</td><td>Consent Log with policy_version column</td></tr>
+      <tr><td>Language in user's language</td><td>✅ Yes</td><td>Arabic + Malay (v1.3.0)</td></tr>
+      <tr><td>Data processing purpose disclosure</td><td>✅ Partial</td><td>Extended Disclosure field — you fill the text</td></tr>
+      <tr><td>Data localisation disclosure</td><td>✅ Partial</td><td>Data Processing Location field — you fill the text</td></tr>
+      <tr><td>Data localisation (storing data locally)</td><td>❌ Out of scope</td><td>Depends on your server/hosting location</td></tr>
+      <tr><td>Cross-border transfer approvals</td><td>❌ Out of scope</td><td>Requires legal counsel</td></tr>
+      <tr><td>Data breach notification (PDPO Part 7)</td><td>❌ Out of scope</td><td>Requires process/tooling outside WordPress</td></tr>
+      <tr><td>DPO appointment</td><td>❌ Out of scope</td><td>Organisational, not technical</td></tr>
+    </table>
+    <h2 class="doc-h2">Smart Admin Compliance Notices</h2>
+    <p>CookiEzu checks your consent log for BN and GCC country codes. If visitors from those regions are detected and the <strong>Data Processing Location</strong> field is empty, yellow admin notices appear automatically on CookiEzu pages in the WordPress admin — linking directly to the settings tab that needs attention.</p>
+    <div class="callout callout-tip">
+      <span class="callout-icon">⚖️</span>
+      <div class="callout-body"><strong>CookiEzu is a technical compliance tool, not legal advice.</strong> The PDPO 2025, PDPL, and related laws are complex. Consult a qualified lawyer familiar with data protection in your jurisdiction for advice specific to your business.</div>
     </div>
   </section>
 
@@ -899,7 +1052,7 @@ pre .num { color: #FDE68A; }
       <tr><td>Audit trail / record of consent</td><td>Enable Record Consent in Advanced tab</td><td><span class="badge badge-cookie">⚙ Configure</span></td></tr>
       <tr><td>Re-obtain consent periodically</td><td>Set Consent Expiry to 365 days max</td><td><span class="badge badge-cookie">⚙ Configure</span></td></tr>
       <tr><td>No pre-ticked marketing boxes</td><td>Marketing toggle is off by default</td><td><span class="badge badge-green">✓ Built-in</span></td></tr>
-      <tr><td>Data minimisation (country tracking)</td><td>Country code only — no city/region stored</td><td><span class="badge badge-green">✓ v1.2.1</span></td></tr>
+      <tr><td>Data minimisation (country tracking)</td><td>Country code only — no city/region stored</td><td><span class="badge badge-green">✓ v1.3.0</span></td></tr>
     </table>
   </section>
 
@@ -1003,12 +1156,12 @@ pre .num { color: #FDE68A; }
     <h3 class="doc-h3" style="margin-top:0">Dark mode text unreadable on category cards</h3>
     <div class="callout callout-fix">
       <span class="callout-icon">🐛</span>
-      <div class="callout-body"><strong>Fixed in v1.2.1.</strong> Upgrade from any older version. If you're already on v1.2.1 and still see this, check that your caching plugin hasn't cached the old CSS. Clear all caches after upgrading.</div>
+      <div class="callout-body"><strong>Fixed in v1.3.0.</strong> Upgrade from any older version. If you're already on v1.3.0 and still see this, check that your caching plugin hasn't cached the old CSS. Clear all caches after upgrading.</div>
     </div>
     <h3 class="doc-h3">Banner doesn't appear at all</h3>
     <p>Most common cause: you already have a consent cookie. Open DevTools → Application → Cookies, find <code>cookiezu_consent</code>, delete it, and refresh. Always test in an incognito window. Alternatively, turn on <strong>Test Mode</strong> in Advanced to force the banner to show for admins without clearing cookies.</p>
     <h3 class="doc-h3">Country shows "—" in the log</h3>
-    <p>The <code>country_code</code> column was added in v1.2.1. If records show "—" for country, these were created before the upgrade. All new consents after upgrading will have the country code populated. You can also check if your server is behind Cloudflare (fastest method) or confirm that outbound HTTP requests to <code>geoplugin.net</code> are not blocked by your firewall.</p>
+    <p>The <code>country_code</code> column was added in v1.3.0. If records show "—" for country, these were created before the upgrade. All new consents after upgrading will have the country code populated. You can also check if your server is behind Cloudflare (fastest method) or confirm that outbound HTTP requests to <code>geoplugin.net</code> are not blocked by your firewall.</p>
     <h3 class="doc-h3">Live preview doesn't update</h3>
     <p>The live preview relies on jQuery being loaded on the admin page (it always is in WordPress admin). If the preview doesn't update, open DevTools Console and look for JavaScript errors. A common cause is a third-party admin plugin that breaks the global jQuery object. Try disabling other plugins temporarily.</p>
     <h3 class="doc-h3">After upgrading, old behaviour persists</h3>
@@ -1040,7 +1193,7 @@ pre .num { color: #FDE68A; }
     <h3 class="doc-h3">Is this plugin free forever?</h3>
     <p>Yes. CookiEzu is GPL v2 licensed. Use it on unlimited sites, modify it, redistribute it. No paid tiers, no usage limits, no subscriptions.</p>
     <h3 class="doc-h3">Does CookiEzu block scripts automatically?</h3>
-    <p>Not yet. v1.2.1 fires the <code>cookiezuConsentUpdated</code> JS event which you use to load scripts conditionally. Automatic script blocking (rewriting <code>type="text/javascript"</code> → <code>type="text/plain"</code>) is planned for v2.</p>
+    <p>Not yet. v1.3.0 fires the <code>cookiezuConsentUpdated</code> JS event which you use to load scripts conditionally. Automatic script blocking (rewriting <code>type="text/javascript"</code> → <code>type="text/plain"</code>) is planned for v2.</p>
     <h3 class="doc-h3">How do I report a bug?</h3>
     <p>Open an issue at <a href="https://github.com/flyzal/CookiEzu/issues" target="_blank" style="color:var(--cookie)">github.com/flyzal/CookiEzu/issues</a>. Include your WP version, PHP version, active theme, layout, and exact reproduction steps.</p>
   </section>
@@ -1054,22 +1207,25 @@ pre .num { color: #FDE68A; }
       <p class="doc-lead">Planned features for CookiEzu v2 and beyond. All community suggestions welcome on GitHub.</p>
     </div>
 
-    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">✅ Completed — v1.0 through v1.2.1</h2>
+    <h2 class="doc-h2" style="margin-top:0;border-top:none;padding-top:0">✅ Completed — v1.0 through v1.3.0</h2>
     <div class="roadmap-grid">
-      <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">🎨 Bar, Box & Modal Layouts</div><div class="roadmap-card-desc">Three distinct banner designs × 4 positions. All working and dismissible.</div><div class="roadmap-card-icon">🎨</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">🎨 Bar, Box &amp; Modal Layouts</div><div class="roadmap-card-desc">Three distinct banner designs × 4 positions. All working and dismissible.</div><div class="roadmap-card-icon">🎨</div></div>
       <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">📊 GA4 Consent Mode v2</div><div class="roadmap-card-desc">Auto-load Google Analytics with full Consent Mode v2 — analytics_storage and ad_storage signals.</div><div class="roadmap-card-icon">📊</div></div>
       <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">🔒 Consent Audit Log</div><div class="roadmap-card-desc">Every consent event recorded with date, IP, country code, and per-category values.</div><div class="roadmap-card-icon">🔒</div></div>
       <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ Done</div><div class="roadmap-card-title">♿ WCAG 2.1 AA Accessibility</div><div class="roadmap-card-desc">Focus trap, Escape key, focus return, aria-labelledby, keyboard rings. Fully compliant since v1.2.0.</div><div class="roadmap-card-icon">♿</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v121">v1.2.1</div><div class="roadmap-card-title">📊 Consent Analytics Dashboard</div><div class="roadmap-card-desc">Donut charts, category bars, 30-day trend, and country breakdown — all inside WordPress admin. Ships in v1.2.1.</div><div class="roadmap-card-icon">📈</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v121">v1.2.1</div><div class="roadmap-card-title">👁️ Live Design Preview</div><div class="roadmap-card-desc">Instant banner preview in the Design tab — updates as you change layout, theme, colours, and text without saving.</div><div class="roadmap-card-icon">👁️</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v121">v1.2.1</div><div class="roadmap-card-title">🌍 Visitor Country Tracking</div><div class="roadmap-card-desc">2-letter ISO country code stored per consent. Cloudflare header → geoplugin.net API → empty fallback. GDPR minimal data.</div><div class="roadmap-card-icon">🌍</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v121">✓ v1.2.1</div><div class="roadmap-card-title">📊 Consent Analytics Dashboard</div><div class="roadmap-card-desc">Donut charts, category bars, 30-day trend, and country breakdown — all inside WordPress admin.</div><div class="roadmap-card-icon">📈</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v121">✓ v1.2.1</div><div class="roadmap-card-title">👁️ Live Design Preview</div><div class="roadmap-card-desc">Instant banner preview in the Design tab — updates as you change layout, theme, colours, and text without saving.</div><div class="roadmap-card-icon">👁️</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-v121">✓ v1.2.1</div><div class="roadmap-card-title">🌍 Visitor Country Tracking</div><div class="roadmap-card-desc">2-letter ISO country code stored per consent. Cloudflare header → geoplugin.net API → empty fallback. GDPR minimal data.</div><div class="roadmap-card-icon">🌍</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label" style="background:rgba(193,123,47,0.15);color:#C17B2F;border:1px solid rgba(193,123,47,0.3);">✓ v1.3.0</div><div class="roadmap-card-title">🌐 Arabic &amp; Malay Languages</div><div class="roadmap-card-desc">Full RTL layout for GCC/Arabic. Native Bahasa Melayu for Brunei and Malaysia. Auto-applied from language setting.</div><div class="roadmap-card-icon">🌐</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label" style="background:rgba(193,123,47,0.15);color:#C17B2F;border:1px solid rgba(193,123,47,0.3);">✓ v1.3.0</div><div class="roadmap-card-title">🔁 Policy Version Re-consent</div><div class="roadmap-card-desc">Bump a version number to force re-consent for all visitors. Required by GDPR, PDPL, and Brunei PDPO 2025.</div><div class="roadmap-card-icon">🔁</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label" style="background:rgba(193,123,47,0.15);color:#C17B2F;border:1px solid rgba(193,123,47,0.3);">✓ v1.3.0</div><div class="roadmap-card-title">🌙 GCC &amp; Brunei PDPO Compliance</div><div class="roadmap-card-desc">Extended Disclosure, Data Location, compliance tier badges, and smart admin notices for Brunei PDPO 2025 and Saudi PDPL.</div><div class="roadmap-card-icon">🌙</div></div>
     </div>
 
     <h2 class="doc-h2">Version 2.0 — Smarter Consent</h2>
     <div class="roadmap-grid">
       <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🚫 Automatic Script Blocking</div><div class="roadmap-card-desc">Block third-party scripts until consent by rewriting script tags. No manual code needed from site owners.</div><div class="roadmap-card-icon">🚫</div></div>
       <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🔍 Auto Cookie Scanner</div><div class="roadmap-card-desc">Scan your site for cookies and pre-fill the cookie details table with real provider and expiry data.</div><div class="roadmap-card-icon">🔍</div></div>
-      <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🌐 Multi-language Support</div><div class="roadmap-card-desc">Detect visitor language via browser settings. Supports WPML and Polylang.</div><div class="roadmap-card-icon">🌐</div></div>
+      <div class="roadmap-card"><div class="roadmap-card-label label-done">✓ v1.3.0</div><div class="roadmap-card-title">🌐 Multi-language Support</div><div class="roadmap-card-desc">Arabic (RTL, GCC) and Bahasa Melayu (Brunei/Malaysia) shipped in v1.3.0. Browser-language auto-detection and WPML/Polylang integration still planned.</div><div class="roadmap-card-icon">🌐</div></div>
       <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">📍 Geo-targeting Rules</div><div class="roadmap-card-desc">Stricter GDPR mode for EU visitors, lighter touch for others — based on the country data now being collected.</div><div class="roadmap-card-icon">📍</div></div>
       <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">📤 Consent Log CSV Export</div><div class="roadmap-card-desc">Export your full consent log as CSV directly from the admin panel — for compliance audits and legal requests.</div><div class="roadmap-card-icon">📤</div></div>
       <div class="roadmap-card"><div class="roadmap-card-label label-v2">v2.0</div><div class="roadmap-card-title">🎨 More Banner Templates</div><div class="roadmap-card-desc">Pre-designed templates (Minimal, Bold, Soft, Corporate) that you can apply in one click.</div><div class="roadmap-card-icon">🎨</div></div>
@@ -1088,7 +1244,7 @@ pre .num { color: #FDE68A; }
       <div class="callout-body"><strong>Have a feature idea?</strong> Open a GitHub Discussion at <a href="https://github.com/flyzal/CookiEzu/discussions" target="_blank" style="color:var(--cookie-h)">github.com/flyzal/CookiEzu/discussions</a>. Community votes influence what gets built first.</div>
     </div>
 
-    <h2 class="doc-h2">Current v1.2.1 Integrations</h2>
+    <h2 class="doc-h2">Current v1.3.0 Integrations</h2>
     <div class="integration-grid">
       <div class="integration-card"><div class="integration-icon">📈</div><div><div class="integration-name">Google Analytics 4</div><div class="integration-desc">Auto-load with Consent Mode v2</div><div class="integration-status"><span class="badge badge-green">✓ Available</span></div></div></div>
       <div class="integration-card"><div class="integration-icon">🏷️</div><div><div class="integration-name">Google Tag Manager</div><div class="integration-desc">dataLayer consent events</div><div class="integration-status"><span class="badge badge-green">✓ Available</span></div></div></div>
@@ -1200,7 +1356,7 @@ THE USE OR INABILITY TO USE THE PROGRAM.</span></code></pre>
   <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px;">
     <div style="width:30px;height:30px;background:rgba(255,255,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;">🍪</div>
     <span style="font-family:'Instrument Serif',serif;font-size:20px;color:#fff;">Cooki<span style="color:var(--cookie-light);">Ezu</span></span>
-    <span style="background:rgba(193,123,47,0.2);color:var(--cookie-light);border:1px solid rgba(193,123,47,0.2);padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;">v1.2.1</span>
+    <span style="background:rgba(193,123,47,0.2);color:var(--cookie-light);border:1px solid rgba(193,123,47,0.2);padding:2px 8px;border-radius:100px;font-size:10px;font-weight:700;">v1.3.0</span>
   </div>
   <p style="font-size:12px;margin-bottom:16px;">Free, open source cookie consent for WordPress. GPL v2 Licensed.</p>
   <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;">
@@ -1246,7 +1402,9 @@ function searchDocs(query) {
     'consent log': 'consent-log', 'log': 'consent-log', 'audit': 'consent-log',
     'access': 'accessibility', 'wcag': 'accessibility', 'keyboard': 'accessibility',
     'test mode': 'test-mode', 'test': 'test-mode',
-    'gdpr': 'gdpr', 'pdpa': 'pdpa', 'compliance': 'gdpr',
+    'arabic': 'language-rtl', 'rtl': 'language-rtl', 'malay': 'language-rtl', 'bahasa': 'language-rtl', 'language': 'language-rtl',
+    'policy version': 'policy-version', 'reconsent': 'policy-version', 're-consent': 'policy-version', 'version': 'policy-version',
+    'gcc': 'gcc-compliance', 'pdpl': 'gcc-compliance', 'pdpo': 'gcc-compliance', 'saudi': 'gcc-compliance', 'brunei': 'gcc-compliance', 'pdpa': 'pdpa',
     'css': 'custom-css', 'hook': 'hooks', 'filter': 'hooks',
     'trouble': 'troubleshooting', 'debug': 'troubleshooting', 'broken': 'troubleshooting',
     'faq': 'faq', 'question': 'faq', 'roadmap': 'roadmap', 'future': 'roadmap', 'v2': 'roadmap',

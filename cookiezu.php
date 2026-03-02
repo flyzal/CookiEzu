@@ -2,8 +2,8 @@
 /**
  * Plugin Name:       CookiEzu
  * Plugin URI:        https://flyzal.github.io/CookiEzu/
- * Description:       A lightweight, GDPR-compliant cookie consent manager for WordPress. Open source and free forever.
- * Version:           1.2.0
+ * Description:       A lightweight, GDPR/PDPO/PDPL-compliant cookie consent manager for WordPress. Arabic & Malay support, RTL layout, policy versioning, GCC compliance. Open source and free forever.
+ * Version:           1.3.0
  * Author:            flyzal
  * Author URI:        https://github.com/flyzal
  * License:           GPL v2 or later
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'COOKIEZU_VERSION', '1.2.0' );
+define( 'COOKIEZU_VERSION', '1.3.0' );
 define( 'COOKIEZU_PLUGIN_FILE', __FILE__ );
 define( 'COOKIEZU_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'COOKIEZU_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

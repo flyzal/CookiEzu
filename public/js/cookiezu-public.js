@@ -1,29 +1,25 @@
 /**
- * CookiEzu – Public JavaScript v1.2.0
+ * CookiEzu – Public JavaScript v1.3.0
  * License: GPL v2 or later
  *
- * v1.1.0: Rewrote show/hide to use element.style.display (inline styles
- *         always beat CSS rules regardless of specificity or !important).
- *
- * v1.2.0 additions:
- *   - No-flicker init: banner starts visibility:hidden, shown after JS runs
- *   - Modal focus trap: keyboard users can't tab behind the overlay
- *   - Escape key closes modal/banner (WCAG 2.1, standard dialog pattern)
- *   - Focus returns to re-open button after dismissal (WCAG 2.4.3)
- *   - aria-live announcement when preferences panel opens
- *   - Re-open button position: bottom-left OR bottom-right
- *   - Test Mode: admins see banner even with a valid consent cookie
- *   - Consent stale-check: re-shows if settings changed since last consent
+ * v1.1.0: Rewrote show/hide to use element.style.display.
+ * v1.2.0: No-flicker init, focus trap, Escape key, WCAG 2.4.3, test mode.
+ * v1.3.0: Policy version re-consent trigger — if policy_version in cookie
+ *         doesn't match the current setting, treat as new visitor and show
+ *         banner again. Also sends policy_version to the AJAX record.
+ *         RTL class applied via PHP; JS handles reopen button position for RTL.
  */
 (function () {
   'use strict';
 
-  var settings    = window.cookiezuSettings || {};
-  var options     = settings.options || {};
-  var COOKIE_NAME = 'cookiezu_consent';
-  var expiry      = parseInt( settings.expiryDays, 10 ) || 365;
-  var testMode    = !! settings.testMode;
-  var escapeClose = settings.escapeKeyClose !== false; // default true
+  var settings      = window.cookiezuSettings || {};
+  var options       = settings.options || {};
+  var COOKIE_NAME   = 'cookiezu_consent';
+  var expiry        = parseInt( settings.expiryDays, 10 ) || 365;
+  var testMode      = !! settings.testMode;
+  var escapeClose   = settings.escapeKeyClose !== false;
+  var policyVersion = settings.policyVersion || '1';
+  var isRtl         = !! settings.isRtl;
 
   /* ── Cookie helpers ── */
   function setCookie( name, value, days ) {
@@ -44,9 +40,7 @@
     try { return JSON.parse( raw ); } catch (e) { return null; }
   }
 
-  /* ── DOM helpers ──
-   * element.style.display ALWAYS wins over any CSS rule including !important.
-   */
+  /* ── DOM helpers ── */
   function byId( id ) { return document.getElementById( id ); }
 
   function showEl( el, displayValue ) {
@@ -59,7 +53,6 @@
     el.style.display = 'none';
   }
 
-  /* ── Focusable elements selector ── */
   var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 
   /* ── Elements ── */
@@ -70,7 +63,7 @@
 
   if ( ! banner ) return;
 
-  /* ── No-flicker: CSS sets visibility:hidden initially, we reveal after JS runs ── */
+  /* ── No-flicker ── */
   banner.style.visibility = 'visible';
 
   /* ── Determine correct display value per layout ── */
@@ -80,9 +73,9 @@
 
   /* ── Apply custom theme colours ── */
   if ( options.theme === 'custom' ) {
-    banner.style.setProperty( '--cz-primary',  options.primary_color || '#C17B2F' );
-    banner.style.setProperty( '--cz-text',     options.text_color    || '#1A1208' );
-    banner.style.setProperty( '--cz-bg',       options.bg_color      || '#FEFCF8' );
+    banner.style.setProperty( '--cz-primary', options.primary_color || '#C17B2F' );
+    banner.style.setProperty( '--cz-text',    options.text_color    || '#1A1208' );
+    banner.style.setProperty( '--cz-bg',      options.bg_color      || '#FEFCF8' );
   }
 
   if ( options.border_radius ) {
@@ -90,20 +83,27 @@
   }
 
   /* ── Re-open button position ── */
-  if ( reopenBtn && options.reopen_position === 'bottom-right' ) {
-    reopenBtn.style.left  = 'auto';
-    reopenBtn.style.right = '20px';
+  if ( reopenBtn ) {
+    if ( isRtl ) {
+      // RTL sites: reopen on bottom-right by default
+      reopenBtn.style.left  = 'auto';
+      reopenBtn.style.right = '20px';
+    } else if ( options.reopen_position === 'bottom-right' ) {
+      reopenBtn.style.left  = 'auto';
+      reopenBtn.style.right = '20px';
+    }
   }
 
   /* ── Accept & dismiss ── */
   function accept( prefs ) {
     var consent = {
-      necessary:  true,
-      analytics:  !! prefs.analytics,
-      marketing:  !! prefs.marketing,
-      functional: !! prefs.functional,
-      version:    settings.version,
-      date:       new Date().toISOString(),
+      necessary:     true,
+      analytics:     !! prefs.analytics,
+      marketing:     !! prefs.marketing,
+      functional:    !! prefs.functional,
+      policyVersion: policyVersion,
+      version:       settings.version,
+      date:          new Date().toISOString(),
     };
 
     if ( ! testMode ) {
@@ -113,7 +113,6 @@
     hideBanner();
     showEl( reopenBtn, 'flex' );
 
-    /* Return focus to re-open button (WCAG 2.4.3 – focus order) */
     if ( reopenBtn ) {
       requestAnimationFrame( function () { reopenBtn.focus(); } );
     }
@@ -124,19 +123,17 @@
     updateGA4( consent );
   }
 
-  /* ── Show banner & set up accessibility ── */
+  /* ── Show banner ── */
   function showBanner() {
     hideEl( prefView );
     showEl( mainView, 'block' );
     showEl( banner, bannerDisplayValue() );
 
-    /* Move focus to first interactive element in banner */
     requestAnimationFrame( function () {
       var first = banner.querySelector( FOCUSABLE );
       if ( first ) first.focus();
     });
 
-    /* Activate focus trap on modal */
     if ( banner.classList.contains( 'cookiezu-layout-modal' ) ) {
       document.addEventListener( 'keydown', trapFocus );
     }
@@ -148,11 +145,11 @@
     document.removeEventListener( 'keydown', onEscape );
   }
 
-  /* ── Focus trap: keeps keyboard navigation inside modal ── */
+  /* ── Focus trap ── */
   function trapFocus( e ) {
     if ( e.key !== 'Tab' ) return;
     var focusable = Array.from( banner.querySelectorAll( FOCUSABLE ) ).filter( function( el ) {
-      return el.offsetParent !== null; // only visible elements
+      return el.offsetParent !== null;
     });
     if ( ! focusable.length ) return;
     var first = focusable[0];
@@ -164,15 +161,14 @@
     }
   }
 
-  /* ── Escape key handler ── */
+  /* ── Escape key ── */
   function onEscape( e ) {
     if ( e.key === 'Escape' && escapeClose ) {
-      /* Escape = necessary only — least invasive, safest default */
       accept({ analytics: false, marketing: false, functional: false });
     }
   }
 
-  /* ── Fire DOM event ── */
+  /* ── Events ── */
   function dispatchConsentEvent( consent ) {
     try {
       document.dispatchEvent(
@@ -185,8 +181,9 @@
   function recordConsent( consent ) {
     if ( ! settings.ajaxUrl || testMode ) return;
     var fd = new FormData();
-    fd.append( 'action',    'cookiezu_save_consent' );
-    fd.append( 'nonce',     settings.nonce );
+    fd.append( 'action',         'cookiezu_save_consent' );
+    fd.append( 'nonce',          settings.nonce );
+    fd.append( 'policy_version', policyVersion );
     fd.append( 'necessary', 1 );
     if ( consent.analytics )  fd.append( 'analytics',  1 );
     if ( consent.marketing )  fd.append( 'marketing',  1 );
@@ -194,7 +191,7 @@
     fetch( settings.ajaxUrl, { method: 'POST', body: fd } ).catch( function(){} );
   }
 
-  /* ── GTM dataLayer ── */
+  /* ── GTM ── */
   function fireGTM( consent ) {
     if ( ! window.dataLayer ) return;
     window.dataLayer.push({
@@ -217,10 +214,10 @@
   function addTestModeBadge() {
     var badge = document.createElement('div');
     badge.style.cssText = [
-      'position:fixed', 'bottom:80px', 'left:20px', 'z-index:9999999',
-      'background:#C17B2F', 'color:#fff', 'font-size:11px', 'font-weight:700',
-      'padding:4px 10px', 'border-radius:6px', 'letter-spacing:0.3px',
-      'pointer-events:none', 'font-family:sans-serif', 'box-shadow:0 2px 8px rgba(0,0,0,0.2)',
+      'position:fixed','bottom:80px','left:20px','z-index:9999999',
+      'background:#C17B2F','color:#fff','font-size:11px','font-weight:700',
+      'padding:4px 10px','border-radius:6px','letter-spacing:0.3px',
+      'pointer-events:none','font-family:sans-serif','box-shadow:0 2px 8px rgba(0,0,0,0.2)',
     ].join(';');
     badge.textContent = '🔧 TEST MODE — Admins only';
     document.body.appendChild( badge );
@@ -233,7 +230,6 @@
     hideEl( prefView );
     showEl( mainView, 'block' );
 
-    /* Test mode: always show for admins */
     if ( testMode ) {
       showBanner();
       addTestModeBadge();
@@ -244,20 +240,33 @@
     var saved = getConsent();
 
     if ( saved ) {
+      /*
+       * v1.3.0 — Policy version check.
+       * If the admin changed policy_version since the visitor last consented,
+       * we treat them as a first-time visitor and show the banner again.
+       * This satisfies GDPR / PDPL / PDPO re-consent requirements when
+       * data processing purpose or policy changes.
+       */
+      var savedPolicyVersion = saved.policyVersion || saved.version || '';
+      if ( savedPolicyVersion !== policyVersion ) {
+        // Policy changed — clear old cookie, show banner
+        setCookie( COOKIE_NAME, '', -1 );
+        showBanner();
+        if ( escapeClose ) document.addEventListener( 'keydown', onEscape );
+        return;
+      }
+
       dispatchConsentEvent( saved );
       showEl( reopenBtn, 'flex' );
       return;
     }
 
-    /* First-time visitor — show the banner */
     showBanner();
 
-    /* Escape key for modal */
     if ( escapeClose ) {
       document.addEventListener( 'keydown', onEscape );
     }
 
-    /* Auto-accept after N days */
     var autodays = parseInt( options.auto_accept_days, 10 ) || 0;
     if ( autodays > 0 ) {
       var firstSeen = getCookie( 'cookiezu_first_seen' );

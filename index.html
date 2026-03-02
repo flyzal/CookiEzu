@@ -229,7 +229,7 @@ footer p { font-size: 13px; margin-bottom: 20px; max-width: 400px; margin-left: 
 <section class="hero">
   <div class="hero-bg-circle"></div>
   <div class="hero-bg-circle"></div>
-  <div class="hero-badge">🆕 v1.2.1 — Now with consent analytics & live preview</div>
+  <div class="hero-badge">🆕 v1.3.0 — GCC & Brunei Compliance Pack</div>
   <h1>Cookie consent<br>that <em>respects</em> everyone</h1>
   <p class="hero-sub">A lightweight, GDPR-compliant WordPress plugin that actually looks good. No bloat. No subscriptions. Just beautiful, honest consent.</p>
   <div class="hero-actions">
@@ -239,7 +239,7 @@ footer p { font-size: 13px; margin-bottom: 20px; max-width: 400px; margin-left: 
     </a>
     <a href="docs.html" class="btn-secondary">Read the Docs →</a>
   </div>
-  <div class="version-badge">✓ Latest: v1.2.1 — Consent analytics + dark mode fix</div>
+  <div class="version-badge">✓ Latest: v1.3.0 — Arabic, Malay, PDPL &amp; PDPO compliance</div>
   <div class="hero-stats">
     <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Free</span></div>
     <div class="stat"><span class="stat-num">0</span><span class="stat-label">Dependencies</span></div>
@@ -329,13 +329,13 @@ footer p { font-size: 13px; margin-bottom: 20px; max-width: 400px; margin-left: 
   <h2 class="section-title reveal">Packed with features,<br>light on your site</h2>
   <div class="features-grid">
     <div class="feature-card reveal"><div class="feature-icon orange">🎨</div><div class="feature-title">3 Layouts × 4 Positions</div><div class="feature-desc">Bar, Box, or Modal — placed at top, bottom, bottom-left, or bottom-right. Every combination polished out of the box.</div></div>
-    <div class="feature-card reveal"><div class="feature-icon green">✅</div><div class="feature-title">GDPR & PDPA Compliant</div><div class="feature-desc">Granular cookie categories, consent audit log, configurable expiry, and legal disclaimer. Built for compliance from day one.</div></div>
-    <div class="feature-card reveal"><div class="feature-icon blue">📊</div><div class="feature-title">Consent Analytics Dashboard</div><div class="feature-desc">Visual metrics in the admin: donut charts, category acceptance bars, 30-day trend chart, and visitor country breakdown.</div></div>
-    <div class="feature-card reveal"><div class="feature-icon purple">🌗</div><div class="feature-title">Light, Dark & Custom Themes</div><div class="feature-desc">Three built-in themes plus full custom colour control. Dark mode fixed in v1.2.1 — all text readable on checked categories.</div></div>
+    <div class="feature-card reveal"><div class="feature-icon green">✅</div><div class="feature-title">GDPR, PDPL &amp; PDPO Compliant</div><div class="feature-desc">Covers GDPR (EU), Saudi PDPL, Brunei PDPO 2025, and PDPA (SEA). Granular categories, audit log, re-consent trigger, and extended disclosure field.</div></div>
+    <div class="feature-card reveal"><div class="feature-icon blue">📊</div><div class="feature-title">Consent Analytics Dashboard</div><div class="feature-desc">Visual metrics in the admin: donut charts, category acceptance bars, 30-day trend chart, and visitor country breakdown with compliance tier badges.</div></div>
+    <div class="feature-card reveal"><div class="feature-icon purple">🌗</div><div class="feature-title">Light, Dark &amp; Custom Themes</div><div class="feature-desc">Three built-in themes plus full custom colour control. Dark mode fixed in v1.2.1 — all text readable on checked categories.</div></div>
     <div class="feature-card reveal"><div class="feature-icon sky">👁️</div><div class="feature-title">Live Design Preview</div><div class="feature-desc">See your banner update in real time as you change layout, theme, colours, and text — right inside the WordPress admin.</div></div>
     <div class="feature-card reveal"><div class="feature-icon teal">♿</div><div class="feature-title">WCAG 2.1 AA Accessible</div><div class="feature-desc">Modal focus trap, Escape key dismiss, focus return after consent, aria-labelledby on the dialog, and keyboard focus rings.</div></div>
-    <div class="feature-card reveal"><div class="feature-icon amber">🔧</div><div class="feature-title">Test Mode for Admins</div><div class="feature-desc">Preview banner changes without clearing cookies. A 🔧 badge shows only to logged-in admins — visitors see nothing different.</div></div>
-    <div class="feature-card reveal"><div class="feature-icon orange">🔗</div><div class="feature-title">GA4 & GTM Integration</div><div class="feature-desc">Auto-loads GA4 with Consent Mode v2. Pushes consent events to GTM's dataLayer for tag-level control.</div></div>
+    <div class="feature-card reveal"><div class="feature-icon amber">🌐</div><div class="feature-title">Arabic (RTL) &amp; Malay</div><div class="feature-desc">Full right-to-left layout for GCC countries. Native Bahasa Melayu for Brunei and Malaysia. Auto-applied when language is selected — no extra config.</div></div>
+    <div class="feature-card reveal"><div class="feature-icon orange">🔗</div><div class="feature-title">GA4 &amp; GTM Integration</div><div class="feature-desc">Auto-loads GA4 with Consent Mode v2. Pushes consent events to GTM's dataLayer for tag-level control.</div></div>
     <div class="feature-card reveal"><div class="feature-icon red">🔓</div><div class="feature-title">Truly Open Source</div><div class="feature-desc">GPL v2 licensed. Fork it, modify it, ship it. No premium tiers, no feature gates, no subscriptions. Free forever.</div></div>
   </div>
 </section>
@@ -347,14 +347,30 @@ footer p { font-size: 13px; margin-bottom: 20px; max-width: 400px; margin-left: 
   <p class="whats-new-subtitle">All releases — latest first</p>
 
   <div class="version-tabs">
-    <button class="version-tab active" onclick="switchVersion('v121',this)">v1.2.1</button>
+    <button class="version-tab active" onclick="switchVersion('v130',this)">v1.3.0</button>
+    <button class="version-tab" onclick="switchVersion('v121',this)">v1.2.1</button>
     <button class="version-tab" onclick="switchVersion('v120',this)">v1.2.0</button>
     <button class="version-tab" onclick="switchVersion('v110',this)">v1.1.0</button>
     <button class="version-tab" onclick="switchVersion('v100',this)">v1.0.0</button>
   </div>
 
+  <!-- v1.3.0 -->
+  <div class="changelog-version active" id="cv-v130">
+    <p style="text-align:center;color:rgba(255,255,255,0.35);font-size:13px;margin-bottom:28px;">March 2026 — GCC &amp; Brunei Compliance Pack</p>
+    <div class="changelog-grid">
+      <div class="changelog-card"><div class="changelog-tag tag-new">✨ New</div><div class="changelog-title">Arabic language + RTL layout</div><div class="changelog-desc">Full right-to-left banner for Saudi Arabia, UAE, Qatar, Bahrain, Oman, and Kuwait. Select Arabic in Content settings — RTL layout, font fallback, and flipped UI all apply automatically.</div></div>
+      <div class="changelog-card"><div class="changelog-tag tag-new">✨ New</div><div class="changelog-title">Bahasa Melayu (Malay)</div><div class="changelog-desc">Native Malay translations covering Brunei Darussalam and Malaysia. Fully aligned with Brunei PDPO 2025 — the plugin's home country.</div></div>
+      <div class="changelog-card"><div class="changelog-tag tag-new">✨ New</div><div class="changelog-title">Policy Version re-consent trigger</div><div class="changelog-desc">Bump the version number in Advanced settings to force all existing visitors to re-consent. Required by GDPR, Saudi PDPL, and Brunei PDPO 2025 when your policy or data processing changes.</div></div>
+      <div class="changelog-card"><div class="changelog-tag tag-new">✨ New</div><div class="changelog-title">Extended Disclosure field</div><div class="changelog-desc">Optional second paragraph on the banner for legal-grade disclosure of data collection purpose and third-party sharing — directly satisfies PDPL and PDPO explicit consent requirements.</div></div>
+      <div class="changelog-card"><div class="changelog-tag tag-new">✨ New</div><div class="changelog-title">Data Processing Location field</div><div class="changelog-desc">Adds a banner notice: "Your data is processed and stored on servers in [location]." Addresses Saudi PDPL and Brunei PDPO data localisation disclosure expectations.</div></div>
+      <div class="changelog-card"><div class="changelog-tag tag-improvement">⚡ Improvement</div><div class="changelog-title">Compliance tier badges in analytics</div><div class="changelog-desc">Country analytics now shows GDPR / PDPL (GCC) / PDPA / PDPO (BN) badges next to each country row so you can see your regulatory exposure at a glance.</div></div>
+      <div class="changelog-card"><div class="changelog-tag tag-improvement">⚡ Improvement</div><div class="changelog-title">Smart admin compliance notices</div><div class="changelog-desc">Automatic warnings in the WordPress admin when BN or GCC visitor codes appear in the consent log and required fields aren't yet configured.</div></div>
+      <div class="changelog-card"><div class="changelog-tag tag-fix">🔄 Migration</div><div class="changelog-title">policy_version column added</div><div class="changelog-desc">Consent log gains a <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-size:11px;">policy_version</code> column on first load after upgrade — tracks which policy version each visitor consented to. Zero manual steps.</div></div>
+    </div>
+  </div>
+
   <!-- v1.2.1 -->
-  <div class="changelog-version active" id="cv-v121">
+  <div class="changelog-version" id="cv-v121">
     <p style="text-align:center;color:rgba(255,255,255,0.35);font-size:13px;margin-bottom:28px;">February 2026 — Consent analytics, dark mode fix, live preview, admin credits</p>
     <div class="changelog-grid">
       <div class="changelog-card"><div class="changelog-tag tag-fix">🐛 Bug Fix</div><div class="changelog-title">Dark mode text finally readable</div><div class="changelog-desc">Checked cookie categories in dark mode showed near-white text on pale cream. Fixed by overriding <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-size:11px;">--cz-cookie-pale</code> in the dark theme token set.</div></div>
@@ -362,7 +378,7 @@ footer p { font-size: 13px; margin-bottom: 20px; max-width: 400px; margin-left: 
       <div class="changelog-card"><div class="changelog-tag tag-new">✨ New</div><div class="changelog-title">Visitor country tracking</div><div class="changelog-desc">Country code stored per consent record (ISO 2-letter only — GDPR minimal data). Auto-detects via Cloudflare header or geoplugin.net API with 24h cache. Automatic DB migration for existing installs.</div></div>
       <div class="changelog-card"><div class="changelog-tag tag-new">✨ New</div><div class="changelog-title">Live banner preview in Design tab</div><div class="changelog-desc">A sticky preview panel shows a scaled browser mockup of your banner that updates instantly as you change layout, theme, colours, and text — no saving required.</div></div>
       <div class="changelog-card"><div class="changelog-tag tag-improvement">⚡ Improvement</div><div class="changelog-title">Developer footer credit</div><div class="changelog-desc">Subtle footer on both admin pages: version number, GitHub star, bug report, Buy Me a Coffee, and "Made with ❤️ by flyzal". Industry-standard placement, never in the content flow.</div></div>
-      <div class="changelog-card"><div class="changelog-tag tag-fix">🐛 Bug Fix</div><div class="changelog-title">Consent log padding & flag emoji</div><div class="changelog-desc">Right-side text cutoff fixed by adding padding-right to the page. Flag emoji rendering fixed from fragile <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-size:11px;">mb_convert_encoding</code> to reliable <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-size:11px;">mb_chr()</code>.</div></div>
+      <div class="changelog-card"><div class="changelog-tag tag-fix">🐛 Bug Fix</div><div class="changelog-title">Consent log padding &amp; flag emoji</div><div class="changelog-desc">Right-side text cutoff fixed by adding padding-right to the page. Flag emoji rendering fixed from fragile <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-size:11px;">mb_convert_encoding</code> to reliable <code style="background:rgba(255,255,255,0.1);padding:1px 5px;border-radius:3px;font-size:11px;">mb_chr()</code>.</div></div>
     </div>
   </div>
 
@@ -390,7 +406,7 @@ footer p { font-size: 13px; margin-bottom: 20px; max-width: 400px; margin-left: 
   </div>
 
   <!-- v1.0.0 -->
-  <div class="changelog-version" id="cv-v100">
+<div class="changelog-version" id="cv-v100">
     <p style="text-align:center;color:rgba(255,255,255,0.35);font-size:13px;margin-bottom:28px;">January 2026 — Initial release</p>
     <div class="changelog-grid">
       <div class="changelog-card"><div class="changelog-tag tag-new">✨ New</div><div class="changelog-title">Bar, Box & Modal layouts</div><div class="changelog-desc">Three distinct banner designs × 4 positions. Light, Dark, and Custom themes with full colour picker support.</div></div>
@@ -440,7 +456,7 @@ footer p { font-size: 13px; margin-bottom: 20px; max-width: 400px; margin-left: 
   <p class="section-label reveal">Get started</p>
   <h2 class="section-title reveal" style="text-align:left;margin-bottom:40px;">Up and running<br>in minutes</h2>
   <div class="steps">
-    <div class="step reveal"><div class="step-num">01</div><div class="step-content"><div class="step-title">Download the plugin</div><div class="step-desc">Grab the latest v1.2.1 release from GitHub as a ZIP file. No account or signup required.</div><span class="step-code">cookiezu-v1.2.1.zip</span></div></div>
+    <div class="step reveal"><div class="step-num">01</div><div class="step-content"><div class="step-title">Download the plugin</div><div class="step-desc">Grab the latest v1.3.0 release from GitHub as a ZIP file. No account or signup required.</div><span class="step-code">cookiezu-v1.3.0.zip</span></div></div>
     <div class="step reveal"><div class="step-num">02</div><div class="step-content"><div class="step-title">Upload to WordPress</div><div class="step-desc">Go to <strong>Plugins → Add New → Upload Plugin</strong> and select the ZIP. Click Install Now, then Activate.</div></div></div>
     <div class="step reveal"><div class="step-num">03</div><div class="step-content"><div class="step-title">Configure your banner</div><div class="step-desc">Head to <strong>CookiEzu → Settings</strong>. Use the <strong>Design tab</strong> to pick layout and theme — a live preview updates instantly on the right.</div></div></div>
     <div class="step reveal"><div class="step-num">04</div><div class="step-content"><div class="step-title">Go live & watch your metrics</div><div class="step-desc">Save settings and visit in incognito. Consent records log automatically. Check <strong>CookiEzu → Consent Log</strong> for your analytics dashboard.</div></div></div>
@@ -448,7 +464,7 @@ footer p { font-size: 13px; margin-bottom: 20px; max-width: 400px; margin-left: 
   <div style="margin-top:48px;text-align:center;">
     <a href="https://github.com/flyzal/CookiEzu" class="btn-primary" target="_blank" style="font-size:16px;padding:16px 32px;">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-      Download CookiEzu v1.2.1 Free
+      Download CookiEzu v1.3.0 Free
     </a>
   </div>
 </section>

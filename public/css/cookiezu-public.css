@@ -69,9 +69,24 @@
   --cz-bg:         #1A1208;
   --cz-surface:    #231A0D;
   --cz-border:     rgba(254,252,248,0.10);
+  /* v1.2.1 fix: override pale cream so checked categories stay readable in dark mode */
+  --cz-cookie-pale: rgba(193,123,47,0.18);
   --cz-shadow-bar:   0 -4px 40px rgba(0,0,0,0.40);
   --cz-shadow-top:   0  4px 40px rgba(0,0,0,0.40);
   --cz-shadow-float: 0 24px 64px rgba(0,0,0,0.55);
+}
+
+/* Dark mode: checked category uses amber tint, not cream */
+.cookiezu-theme-dark .cookiezu-category:has(input:checked) {
+  border-color: rgba(193,123,47,0.45);
+  background: rgba(193,123,47,0.15);
+}
+
+/* Dark mode: cookie table text always readable */
+.cookiezu-theme-dark .cookiezu-cookie-table th,
+.cookiezu-theme-dark .cookiezu-cookie-table td {
+  color: var(--cz-text);
+  border-bottom-color: var(--cz-border);
 }
 
 /* -----------------------------------------------
@@ -546,4 +561,78 @@
   .cookiezu-slider,
   .cookiezu-slider::before,
   .cookiezu-reopen { transition: none !important; animation: none !important; }
+}
+
+/* ===============================================
+   v1.3.0 — RTL (Arabic) Layout Support
+   Applied via .cookiezu-rtl on the banner root
+=============================================== */
+.cookiezu-rtl {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif; /* better Arabic rendering fallback */
+}
+
+/* Bar layout RTL: flip flex direction */
+.cookiezu-rtl.cookiezu-layout-bar .cookiezu-inner {
+  flex-direction: row-reverse;
+}
+.cookiezu-rtl .cookiezu-actions {
+  flex-direction: row-reverse;
+}
+
+/* Accent bar stays at top — no change needed */
+
+/* Category header RTL */
+.cookiezu-rtl .cookiezu-category-header {
+  flex-direction: row-reverse;
+}
+
+/* Pref actions RTL */
+.cookiezu-rtl .cookiezu-pref-actions {
+  flex-direction: row-reverse;
+}
+
+/* Back button arrow flip */
+.cookiezu-rtl #cookiezu-back::before {
+  content: none;
+}
+
+/* Cookie table RTL */
+.cookiezu-rtl .cookiezu-cookie-table th,
+.cookiezu-rtl .cookiezu-cookie-table td {
+  text-align: right;
+}
+
+/* Re-open button: RTL sites typically keep it bottom-right */
+.cookiezu-rtl.cookiezu-reopen,
+.cookiezu-rtl ~ .cookiezu-reopen {
+  left: auto;
+  right: 20px;
+}
+
+/* ===============================================
+   v1.3.0 — Extended Disclosure & Data Location
+=============================================== */
+.cookiezu-extended-disclosure {
+  margin: 8px 0 0;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--cz-text-muted);
+  padding: 8px 10px;
+  background: var(--cz-surface);
+  border-radius: 6px;
+  border-left: 2px solid var(--cz-cookie);
+}
+
+.cookiezu-rtl .cookiezu-extended-disclosure {
+  border-left: none;
+  border-right: 2px solid var(--cz-cookie);
+}
+
+.cookiezu-data-location {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: var(--cz-text-muted);
+  opacity: 0.85;
 }
