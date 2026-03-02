@@ -8,19 +8,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Create ZIP Package
         run: |
-          # This packs the 'cookiezu' folder into a zip file
-          zip -r cookiezu.zip cookiezu/
+          # Uses the tag name (like v1.3.0) to name the file dynamically
+          zip -r cookiezu-${{ github.ref_name }}.zip cookiezu/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: cookiezu.zip
+          files: cookiezu-${{ github.ref_name }}.zip
           draft: false
           prerelease: false
         env:
